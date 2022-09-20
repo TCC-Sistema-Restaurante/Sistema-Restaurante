@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient(130.2deg, rgba(210, 29, 62, 0.85) 40.36%, rgba(219, 26, 61, 0.85) 76.9%), linear-gradient(0deg, rgba(238, 51, 84, 0.85), rgba(238, 51, 84, 0.85)), linear-gradient(0deg, rgba(238, 51, 84, 0.85), rgba(238, 51, 84, 0.85)), rgba(238, 51, 84, 0.85) no-repeat;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  width: 607px;
+  border-radius: 40px;
+  filter: drop-shadow(1px 4px 20px rgba(0, 0, 0, 0.25));
+
+}
+
+.container form,
+.loginTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginTop {
+  width: 100%;
+}
+
+/* Bem vindo */
+
+/*<p>Bem vindo ao</p>*/
+.loginTop .row .col:first-child {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* <p>Não possui conta?<br>... */
+.loginTop .row .col:nth-child(3) {
+  color: #8D8D8D;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/* <a href="">Cadastre-se</a></p */
+.loginTop .row .col:nth-child(3) a {
+  color: #B81414;
+  transition: 0.2s;
+}
+
+.loginTop .row .col:nth-child(3) a:hover {
+  color: #c6a6a6;
+}
+
+form {
+  width: 85%;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 67px;
+}
+
+.formLogin .form-control {
+  position: relative;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+.formLogin input {
+  border: none;
+  border-bottom: #E92F48 solid 5px;
+  border-radius: 5px;
+  background: #F7F7F7;
+
+}
+
+.form-control:focus {
+  background: #F7F7F7;
+  border-color: #E92F48 ;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input::placeholder{
+  font-size: 19px;
+}
+
+.input-icon{
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 0.8em);
+}
+
+.input-icon button {
+  background: #F7F7F7;
+}
+
+.input-wrapper{
+  position: relative;
+}
+
+/* ou */
+form h3 {
+  font-weight: 400;
+  font-size: 18px;
+  color: #ABABAB;
+}
+
+/* esqueci minha senha */
+#redefinirSenha {
+  text-align: right;
+  font-size: 14px;
+  color: #302f2f;
+  transition: 0.2s;
+}
+
+#redefinirSenha:hover {
+  color: #919393;
+}
+
+.buttons button {
+  width: 60%;
+}
+
+.btnLogin {
+  border-radius: 4px;
+  padding: 18px;
+  border: none;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 16px;
+  transition: 0.2s;
+  box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.113);
+  border-radius: 7px;
+}
+
+.btn-Entrar {
+  background: #EB4335;
+  color: #ffffff;
+}
+
+.btn-Entrar:hover {
+  background: #b0261a
+}
+
+.btn-google {
+  padding: 10px;
+  background: #ffffff;
+  color: #5b5b5b;
+  border: #5b5b5b4d solid 0.1px;
+}
+
+.btn-google:hover {
+  background: rgba(232, 229, 229, 0.736);
+
+}
+
+.btn-google img {
+  margin: 0;
+  margin-right: 5px;
+  padding: 0;
+  width: 25px;
+}
+
+
+@media screen and (min-width: 1300px) {
+  body {
+    min-width: none;
+    min-height: none;
+  }
+
+  .container {
+    width: 55vw;
+    max-width: 607px;
+  }
+}

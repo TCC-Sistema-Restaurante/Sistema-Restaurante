@@ -1,0 +1,102 @@
+/* Group 239 */
+
+position: absolute;
+width: 504.06px;
+height: 57px;
+left: 1.35px;
+top: 15.77px;
+
+
+
+/* Group 236 */
+
+position: absolute;
+width: 504.06px;
+height: 57px;
+left: 1.35px;
+top: 15.77px;
+
+
+
+/* Rectangle 17 */
+
+position: absolute;
+left: 0.27%;
+right: 0.27%;
+top: 11.2%;
+bottom: 48.31%;
+
+background: #F7F7F7;
+border-radius: 5px;
+
+
+/* Rectangle 18 */
+
+position: absolute;
+left: 0.27%;
+right: 0.27%;
+top: 11.2%;
+bottom: 48.31%;
+
+background: #F7F7F7;
+border-radius: 5px;
+
+
+/* Rectangle 19 */
+
+position: absolute;
+left: 0.27%;
+right: 0.27%;
+top: 11.2%;
+bottom: 48.31%;
+
+background: #F7F7F7;
+border-radius: 5px;
+
+
+/* Email */
+
+position: absolute;
+left: 5.78%;
+right: 27.61%;
+top: 24.7%;
+bottom: 61.8%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+
+color: #F7F7F7;
+
+
+
+/* Email */
+
+position: absolute;
+width: 163.59px;
+height: 23px;
+left: 9.53px;
+top: 32.77px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 24px;
+
+color: rgba(0, 0, 0, 0.92);
+
+
+
+/* Rectangle 20 */
+
+position: absolute;
+width: 504.06px;
+height: 4px;
+left: 1.35px;
+top: 68.77px;
+
+background: #E92F48;
+border-radius: 0px 0px 20px 20px;
