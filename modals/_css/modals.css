@@ -1,0 +1,151 @@
+/* - - - - - - MODALS - - - - - - */
+
+/* Delet */
+.modals {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #35353585;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  animation: float ease-in-out normal;
+  animation-duration: 0.5s;
+  transition: 0.3s;
+}
+
+.modals > .modal-delet {
+  background-color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  flex-direction: column;
+  display: none;
+}
+
+.modals > .modal-delet > span {
+  color: #c8161d;
+  font-size: 80px;
+  margin: 10px;
+}
+
+#deletar {
+  background-color: #c8161d;
+  color: #fff;
+}
+
+/* Add */
+
+.modals > .modal-add {
+  display: none;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.modal-add > form {
+  width: 100%;
+}
+
+.modal-add > form > input {
+  width: 98%;
+  height: 100px;
+}
+
+.modal-add > form > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-add > form > input,
+.modal-add > form > div > input,
+.modal-add > form > div > select {
+  padding: 10px;
+  margin: 5px;
+  border-bottom: solid 3px #e92f48;
+  border-radius: 5px;
+  width: 48%;
+  outline: 0;
+}
+
+.modal-add > form > div > textarea {
+  padding: 10px;
+  margin: 5px;
+  outline: 0;
+  border-bottom: solid 3px #e92f48;
+  border-radius: 5px;
+  min-width: 48%;
+  max-width: 48%;
+  min-height: 50px;
+  height: 100px;
+  max-height: 200px;
+}
+
+/* Input img */
+#picture-input {
+  display: none;
+}
+
+.picture {
+  margin: 5px;
+  width: 48%;
+  aspect-ratio: 16/9;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 2px dashed #e92f48;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+}
+
+.picture:hover {
+  color: #777;
+  background: #ccc;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture-img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .modal-add > form > div {
+    flex-direction: column;
+  }
+
+  .modal-add > form > input,
+  .modal-add > form > div > input,
+  .modal-add > form > div > select,
+  .modal-add > form > div > textarea {
+    min-width: 100%;
+  }
+}
+
+/* Edit */
