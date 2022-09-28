@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+nav .navbar {
+    width: 84%;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 65px;
+}
+
+#dados {
+    margin-top: 40px;
+    background-color: #ffffff;
+}
+
+#dados .card{
+    border-radius: 20px;
+    margin-top: 15px;
+    text-align: center;
+    /* box-shadow: 1px -1px; */
+}
+
+.card-info h3{
+    color: deeppink;
+}
+
+.grafico h4{
+    color: #ffffff;
+}
