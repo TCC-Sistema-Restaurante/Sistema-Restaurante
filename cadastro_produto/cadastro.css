@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*{
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background-color:rgb(255, 255, 255);
+}
+
+.navbar{
+    width: 100%;
+    background-color:#ee455c;
+    align-items: center;
+}
+
+.navbar a{
+    color: white;
+}
+
+.formulario{
+    margin: 13%;
+    margin-top: 35px;
+}
+
+h1{
+    color: #E92F48 ;
+    font-weight: bold;
+}
+
+
+.form{
+    border: none;
+    border-bottom: #E92F48 solid 5px;
+    border-radius: 5px;
+    background: #F7F7F7;
+}
+
+.form:focus {
+    background: #F7F7F7;
+    border-color: #E92F48 ;
+    box-shadow: none;
+}
+
+option{
+    max-height: 90%;
+    max-width: 450px;
+    margin-left: 4%;
+    background-color: #F7F7F7;
+    margin-bottom: 3px;
+}
+
+option:hover{
+    background-color: #b0261a;
+    color: white;
+}
+
+option:focus{
+    background-color: #b0261a;
+    color: white;
+}
+
+
+.btn{
+    background: #E92F48;
+    border-radius: 10px;
+    border-color: #E92F48;
+    font-weight: bold;
+    height: 3rem;
+}
+
+.btn:hover{
+    background-color: #b0261a;
+    border-color: #b0261a;
+}
+
+#cancelar{
+    background: #a59797;
+    border-color: #a59797;
+}
+
+#cancelar:hover{
+    background-color: #635b5c;
+}
+
