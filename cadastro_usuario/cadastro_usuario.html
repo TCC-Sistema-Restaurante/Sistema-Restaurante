@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="cadastro_usuario.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.34/sweetalert2.min.js">
+</head>
+<body>
+    <section class="nav">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link" href="#">Home</a>
+                  <a class="nav-link" href="#">Features</a>
+                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link">Disabled</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </section>
+
+    <form class="formulario">
+        <div class="mb-4"><h1>Cadastrar usuário</h1></div>
+        
+        <div class="row">
+            <div class="mb-3 col-md-12">
+                <input type="text" class=" form form-control" id="nome" placeholder="Nome">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <input type="text" class=" form form-control" id="usuario" placeholder="Usuário">
+            </div>
+            <div class="mb-3 col-md-6">
+                <input type="password" class=" form form-control" id="senha" placeholder="Senha">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <input type="number" class=" form form-control" id="cpf" placeholder="CPF">
+            </div>
+            <div class="mb-4 col-md-6">
+                <select class="form-select form" aria-label="">
+                    <option selected disabled>Função</option>
+                    <option value="1">Garçom</option>
+                    <option value="2">Cozinheiro</option>
+                    <option value="3">Gerente</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">Cadastrar</button>
+            <button class="btn btn-primary" type="button" id="cancelar">Cancelar</button>
+          </div>
+    </form>
+    
+</body>
+</html>
