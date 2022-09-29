@@ -8,6 +8,12 @@
   font-family: "Inter", sans-serif;
 }
 
+.nav-link, .navbar-brand{
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: bold !important;
+}
+
 nav .navbar {
     width: 84%;
     margin: auto;
@@ -39,6 +45,7 @@ nav .navbar {
     color: deeppink;
 }
 
-.grafico h4{
+.grafico h5{
     color: #ffffff;
+    
 }

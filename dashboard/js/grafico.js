@@ -28,6 +28,7 @@ function drawChart() {
     var barchart_options = {title:'Barchart: How Much Pizza I Ate Last Night',
                        width:800,
                        height:400,
+                       responsive: true,
                        legend: 'none'};
     var barchart = new google.visualization.BarChart(document.getElementById('barchart'));
     barchart.draw(data, barchart_options);
