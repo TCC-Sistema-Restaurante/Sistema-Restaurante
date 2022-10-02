@@ -36,18 +36,12 @@ nav{
     
     input[type="number"]{
     outline:none;
-    border-right: 0px;
-    border-top: 1px solid black;
-    border-left: 0px;
-    border-bottom: 1px solid black;
     height: 20px;
-    width: 10%;
-    padding:1%; /* Atenção */
-    border-right: 0 px solid black;
+    padding:1%;
     }
 
     
-    label, input, button {
+    input, button {
         font-size: inherit;
         padding: 0.2em;
         -moz-box-sizing: content-box;
@@ -58,8 +52,6 @@ nav{
     button{
     height:20px;
     padding:1%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     background-color: white;
     font-weight: bold;
     padding-left:2%;
@@ -68,17 +60,7 @@ nav{
     cursor: pointer;
     
     }
-    button.a{
-      border-right: 0px;
-      border-left: 1px solid black;
-    }
-    button.b{
-        border-left: 0px;
-        border-right: 1px solid black;
-    }
+ 
 
-.inputCustom{
 
-    border: 1px solid black;
-}
 
