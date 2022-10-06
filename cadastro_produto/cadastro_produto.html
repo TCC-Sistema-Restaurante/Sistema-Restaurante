@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar produto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="cadastro.css" type="text/css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -32,44 +33,84 @@
         <div class="mb-4"><h1>Cadastrar produto</h1></div>
         
         <div class="row">
-            <div class="mb-3 col-md-6">
-                <input type="text" class=" form form-control" id="nome" placeholder="Nome">
+            <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                    <input type="text" class="form form-control" id="nome" placeholder="Nome">
+                    <label class="formLabel" for="nome">Nome</label>
+                </div>
             </div>
-            <div class="mb-3 col-md-6">
-                <input type="number" class="form form-control" id="valor" placeholder="Valor">
+           
+            <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                    <input type="number" min="0" class="form form-control" id="valor" placeholder="Valor">
+                    <label class="formLabel"  for="valor">Valor</label>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
-                <select class="form-select form" aria-label="">
-                    <option selected disabled>Tamanho</option>
-                    <option value="1">Pequeno</option>
-                    <option value="2">Médio</option>
-                    <option value="3">Grande</option>
-                  </select>
+                <div class="input-group">
+                    <select class="select wide" >
+                        <option selected disabled>Tamanho</option>
+                        <option value="1">Pequeno</option>
+                        <option value="2">Médio</option>
+                        <option value="3">Grande</option>
+                    </select>
+                    <button  class="selectButton"><i class='bx bx-edit' id="editarIcon"></i></button>
+                </div>
             </div>
+
             <div class="mb-3 col-md-6">
-                <select class="form-select form" aria-label="">
-                    <option selected disabled>Categoria</option>
-                    <option value="1">Sanduíches</option>
-                    <option value="2">Pizzas</option>
-                    <option value="3">Sobremesas</option>
-                    <option value="4">Bebidas</option>
-                  </select>
+                <div class="input-group">   
+                    <select class="select wide" aria-label="">
+                        <option selected disabled>Categoria</option>
+                        <option value="1">Sanduíches</option>
+                        <option value="2">Pizzas</option>
+                        <option value="3">Sobremesas</option>
+                        <option val0ue="4">Bebidas</option>
+                    </select>
+                    <button  class="selectButton"><i class='bx bx-edit'></i></button>
+                  </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="picture" for="picture-input">
+                    <span class="picture-image"></span>
+                </label>
+                <input type="file" name="picture-input" id="picture-input" />
+            </div>
+       
+            <div class="col-md-6 mb-3">
+                <div class="form-floating mb-3">
+                    <textarea style="height: 150px; resize: none;" class="form form-control" id="descricao"  placeholder="Descrição"></textarea>
+                    <label class="formLabel" for="descricao">Descrição</label>
+                </div>
+                <label for="select">Status:</label>
+                <select class="select" disabled>
+                    <option selected>Ativo</option>
+                    <option value="1">Desativado</option>
+                </select>
             </div>
         </div>
-        <div class="mb-3">
-            <input class="form form-control" type="file" id="imagem">
-        </div>
-        <div class="mb-4">
-            <textarea class="form form-control" id="descricao" rows="5" placeholder="Descrição"></textarea>
-        </div>
+    
 
         <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">Cadastrar</button>
-            <button class="btn btn-primary" type="button" id="cancelar">Cancelar</button>
-          </div>
+            <button class="btnCadastro confirmar" type="button">Cadastrar</button>
+            <button class="btnCadastro cancelar" type="button" id="cancelar">Cancelar</button>
+        </div>
     </form>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        !function(e){e.fn.niceSelect=function(t){function s(t){t.after(e("<div></div>").addClass("nice-select").addClass(t.attr("class")||"").addClass(t.attr("disabled")?"disabled":"").attr("tabindex",t.attr("disabled")?null:"0").html('<span class="current"></span><ul class="list"></ul>'));var s=t.next(),n=t.find("option"),i=t.find("option:selected");s.find(".current").html(i.data("display")||i.text()),n.each(function(t){var n=e(this),i=n.data("display");s.find("ul").append(e("<li></li>").attr("data-value",n.val()).attr("data-display",i||null).addClass("option"+(n.is(":selected")?" selected":"")+(n.is(":disabled")?" disabled":"")).html(n.text()))})}if("string"==typeof t)return"update"==t?this.each(function(){var t=e(this),n=e(this).next(".nice-select"),i=n.hasClass("open");n.length&&(n.remove(),s(t),i&&t.next().trigger("click"))}):"destroy"==t?(this.each(function(){var t=e(this),s=e(this).next(".nice-select");s.length&&(s.remove(),t.css("display",""))}),0==e(".nice-select").length&&e(document).off(".nice_select")):console.log('Method "'+t+'" does not exist.'),this;this.hide(),this.each(function(){var t=e(this);t.next().hasClass("nice-select")||s(t)}),e(document).off(".nice_select"),e(document).on("click.nice_select",".nice-select",function(t){var s=e(this);e(".nice-select").not(s).removeClass("open"),s.toggleClass("open"),s.hasClass("open")?(s.find(".option"),s.find(".focus").removeClass("focus"),s.find(".selected").addClass("focus")):s.focus()}),e(document).on("click.nice_select",function(t){0===e(t.target).closest(".nice-select").length&&e(".nice-select").removeClass("open").find(".option")}),e(document).on("click.nice_select",".nice-select .option:not(.disabled)",function(t){var s=e(this),n=s.closest(".nice-select");n.find(".selected").removeClass("selected"),s.addClass("selected");var i=s.data("display")||s.text();n.find(".current").text(i),n.prev("select").val(s.data("value")).trigger("change")}),e(document).on("keydown.nice_select",".nice-select",function(t){var s=e(this),n=e(s.find(".focus")||s.find(".list .option.selected"));if(32==t.keyCode||13==t.keyCode)return s.hasClass("open")?n.trigger("click"):s.trigger("click"),!1;if(40==t.keyCode){if(s.hasClass("open")){var i=n.nextAll(".option:not(.disabled)").first();i.length>0&&(s.find(".focus").removeClass("focus"),i.addClass("focus"))}else s.trigger("click");return!1}if(38==t.keyCode){if(s.hasClass("open")){var l=n.prevAll(".option:not(.disabled)").first();l.length>0&&(s.find(".focus").removeClass("focus"),l.addClass("focus"))}else s.trigger("click");return!1}if(27==t.keyCode)s.hasClass("open")&&s.trigger("click");else if(9==t.keyCode&&s.hasClass("open"))return!1});var n=document.createElement("a").style;return n.cssText="pointer-events:auto","auto"!==n.pointerEvents&&e("html").addClass("no-csspointerevents"),this}}(jQuery);
+
+        $(document).ready(function() {
+        $('.select').niceSelect();
+        });
+    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
