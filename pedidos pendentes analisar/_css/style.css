@@ -85,14 +85,9 @@ body {
 .container {
   max-width: 1568px;
 
-  display: grid;
-
-  grid-column-gap: 10px;
-  grid-row-gap: 30px;
-
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  justify-items: center;
 }
 
 .box {
@@ -103,13 +98,14 @@ body {
   );
   filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
 
+  flex: 1 1 400px;
   display: flex;
   flex-direction: column;
   border-radius: 38px;
-
-  width: 400px;
-
-  height: 254px;
+  min-width: 400px;
+  max-width: 600px;
+  height: 260px;
+  margin: 15px;
 }
 
 .parteEsquerda {
@@ -159,15 +155,13 @@ body {
 .parteDireita button {
   color: white;
   padding: 4px 40px;
-  background: #36B54C;
+  background: #36b54c;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
 }
 
-
 .parteDireita button:hover {
   transition: 0.3s;
   background: #278d38;
-
 }
