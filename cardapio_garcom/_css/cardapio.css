@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.cardapio > h1 {
+  color: #e92f48;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 20px 0;
+}
+
+.cardapio > .search-bar {
+  border: solid 2px #e92f48;
+  border-radius: 15px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cardapio > .search-bar > #txt-search {
+  background: none;
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  outline: 0;
+}
+
+.cardapio > .search-bar > .material-symbols-outlined {
+  font-size: 35px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.cardapio {
+  padding: 10px 20px;
+}
+
+.cardapio > .container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardapio > .container > .item {
+  flex: 1 1 200px;
+  color: #fff;
+  border-radius: 10px;
+  background: #e92f48;
+
+  max-width: 350px;
+  max-height: 200px;
+
+  min-width: none;
+  min-height: 150px;
+
+  margin: 10px;
+  transition: 0.2s;
+}
+
+.cardapio > .container > .item:hover {
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
+}
+
+.cardapio > .container > .item > div {
+  background-color: #e92f48;
+  height: auto;
+  width: 100%;
+  padding: auto;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
+.cardapio > .container > .item > img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 85%;
+}

@@ -2,7 +2,7 @@
 
 /* Delet */
 .modals {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   background: #35353585;
@@ -42,9 +42,9 @@
   color: #fff;
 }
 
-/* Add */
+/* Edit */
 
-.modals > .modal-add {
+.modals > .modal-edit {
   display: none;
   background-color: #f2f2f2;
   border-radius: 10px;
@@ -53,24 +53,24 @@
   max-width: 900px;
 }
 
-.modal-add > form {
+.modal-edit > form {
   width: 100%;
 }
 
-.modal-add > form > input {
+.modal-edit > form > input {
   width: 98%;
   height: 100px;
 }
 
-.modal-add > form > div {
+.modal-edit > form > div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.modal-add > form > input,
-.modal-add > form > div > input,
-.modal-add > form > div > select {
+.modal-edit > form > input,
+.modal-edit > form > div > input,
+.modal-edit > form > div > select {
   padding: 10px;
   margin: 5px;
   border-bottom: solid 3px #e92f48;
@@ -79,7 +79,7 @@
   outline: 0;
 }
 
-.modal-add > form > div > textarea {
+.modal-edit > form > div > textarea {
   padding: 10px;
   margin: 5px;
   outline: 0;
@@ -136,16 +136,72 @@
 }
 
 @media screen and (max-width: 500px) {
-  .modal-add > form > div {
+  .modal-edit > form > div {
     flex-direction: column;
   }
 
-  .modal-add > form > input,
-  .modal-add > form > div > input,
-  .modal-add > form > div > select,
-  .modal-add > form > div > textarea {
+  .modal-edit > form > input,
+  .modal-edit > form > div > input,
+  .modal-edit > form > div > select,
+  .modal-edit > form > div > textarea {
     min-width: 100%;
   }
 }
 
-/* Edit */
+/* Add */
+
+.modal-add {
+  display: flex;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.modal-add > form {
+  width: 100%;
+}
+
+.modal-add > form > button {
+  color: #fff;
+  background: #1fae35;
+  margin: 0;
+}
+
+.modal-add > form > h2 {
+  color: #e92f48;
+}
+
+.modal-add > form > table {
+  background: #ececec;
+  margin: 20px 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-products th {
+  color: #fff;
+  background-color: #e92f48;
+  border-radius: 0 10px 0 0;
+  font-weight: 300;
+  font-size: medium;
+  text-align: left;
+  padding: 4px 25px;
+}
+#colum-1 {
+  border-radius: 10px 0 0 0;
+  border-right: #ffffff solid 1px;
+}
+
+.table-products td {
+  border: #d3d3d3 solid 1px;
+  padding: 5px 5px;
+}
+
+.table-products tr {
+  transition: 0.1s;
+}
+.table-products tr:hover {
+  background-color: #ddd;
+}

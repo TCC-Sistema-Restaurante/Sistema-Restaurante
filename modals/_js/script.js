@@ -41,7 +41,7 @@ btn_add.addEventListener("click", () => {
 });
 
 //Delet
-var btn_delet = document.querySelector(".edit-delet>span");
+var btn_delet = document.querySelector(".edit-delet>#btn-delet");
 const modal_delet = document.querySelector(".modal-delet");
 btn_delet.addEventListener("click", () => {
   bg_modal.style.display = "flex";
