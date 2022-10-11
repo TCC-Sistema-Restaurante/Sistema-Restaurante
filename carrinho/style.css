@@ -1,21 +1,24 @@
-footer{
+footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 8%;
-    background-color: red;
+    background-color: #E92F48;
     display: flex;
     justify-content: space-evenly;
     box-shadow: 0 0 50px rgba(100, 28, 28, 0.77);
-    -webkit-box-shadow: 0 0 50px rgba(82, 10, 10, 0.77);
-    margin-top: 20%;
+}
+
+footer>h3 {
+    text-shadow: rgb(72, 69, 69) 0.1em 0.1em 0.2em;
+    padding: 0;
+    font-size: 2.5rem;
+    color: #fff;
 }
 
 
 
 
-
-nav{
+nav {
     position: fixed;
     top: 0;
     box-shadow: 0 0 20px rgba(76, 9, 9, 0.548);
@@ -24,43 +27,41 @@ nav{
 }
 
 /* Botões e Input */
- input[type="number"] {
-      -webkit-appearance: textfield;
-         -moz-appearance: textfield;
-              appearance: textfield;
-    }
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none;
-    }
-    
-    input[type="number"]{
-    outline:none;
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    outline: none;
     height: 20px;
-    padding:1%;
-    }
+    padding: 1%;
+}
 
-    
-    input, button {
-        font-size: inherit;
-        padding: 0.2em;
-        -moz-box-sizing: content-box;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box;
-    }
 
-    button{
-    height:20px;
-    padding:1%;
+input,
+button {
+    font-size: inherit;
+    padding: 0.2em;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+button {
+    height: 20px;
+    padding: 1%;
     background-color: white;
     font-weight: bold;
-    padding-left:2%;
-    padding-right:2%;
-    outline:none;
+    padding-left: 2%;
+    padding-right: 2%;
+    outline: none;
     cursor: pointer;
-    
-    }
- 
 
-
-
+}
