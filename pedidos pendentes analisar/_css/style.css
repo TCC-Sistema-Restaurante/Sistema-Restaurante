@@ -38,19 +38,13 @@ body {
   color: #e92f48;
 }
 .containerInput {
-  min-width: 100%;
+  min-width: 95%;
   max-width: 1568px;
-  grid-row-gap: 30px;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  justify-content: center;
-  justify-items: center;
+  
 }
 
 .input-text {
-  width: 400px;
-
   background: #fbfbfb;
   border: 1px solid #585858;
   border-radius: 10px;
