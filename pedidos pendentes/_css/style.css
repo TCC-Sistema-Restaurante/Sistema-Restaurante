@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #ffffff;
+}
+
+#topSVG {
+  width: 100%;
+  height: 28vw;
+  max-height: 200px;
+  min-height: 180px;
+}
+
+#topImg {
+  position: absolute;
+  top: 0.5vw;
+  left: 50%;
+  transform: translate(-50%);
+
+  width: 40vw;
+
+  min-width: 420px;
+  max-width: 570px;
+}
+
+#titulo {
+  text-align: center;
+  font-weight: 600;
+  font-size: 50px;
+  color: #e92f48;
+}
+.containerInput {
+  min-width: 95%;
+  max-width: 1568px;
+
+  
+}
+
+.input-text {
+  background: #fbfbfb;
+  border: 1px solid #585858;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 17px;
+  padding-left: 40px;
+}
+
+.input-text::placeholder {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.input-text:focus {
+  box-shadow: 0px 0px 0px;
+  border-color: #950b1e;
+  outline: none;
+}
+
+.inlineIcon {
+  position: relative;
+}
+.inlineIcon i {
+  font-size: 20px;
+  position: absolute;
+  padding: 10px 10px;
+  pointer-events: none;
+  color: rgb(169, 166, 166);
+}
+
+.container {
+  max-width: 1568px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  background: linear-gradient(
+    90deg,
+    rgba(233, 47, 72, 1) 30%,
+    rgba(245, 245, 245, 1) 30%
+  );
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 38px;
+  min-width: 400px;
+  max-width: 600px;
+  height: 260px;
+  margin: 15px;
+}
+
+.parteEsquerda {
+  margin-top: 30px;
+}
+.parteEsquerda p {
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 15px;
+}
+
+.parteEsquerda p:nth-child(1) {
+  font-size: 25px;
+}
+
+.parteEsquerda p:nth-child(2) {
+  font-size: 40px;
+}
+
+.parteEsquerda i {
+  margin-top: 55px;
+  color: #ffffff;
+  font-size: 50px;
+}
+
+.parteEsquerda p:nth-child(4) {
+  font-size: 25px;
+  line-height: 35px;
+}
+.parteDireita {
+  margin-top: 22px;
+}
+
+.parteDireita h4 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #e92f48;
+}
+
+.parteDireita p {
+  margin-top: 15px;
+  font-size: 19px;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.parteDireita button {
+  color: white;
+  padding: 4px 40px;
+  background: #36b54c;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.parteDireita button:hover {
+  transition: 0.3s;
+  background: #278d38;
+}
