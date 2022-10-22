@@ -77,7 +77,7 @@ body {
 }
 
 .sizes > .item input[type="radio"]:checked ~ .checkmark {
-  background-color: #96c280;
+  background-color: #e92f48;
 }
 
 .sizes > .item > .checkmark:after {
@@ -91,10 +91,11 @@ body {
 }
 
 .sizes > .item > .checkmark:after {
-  top: 7.5px;
-  left: 7.5px;
-  width: 5px;
-  height: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: white;
 }
@@ -176,7 +177,7 @@ body {
 }
 
 .flavor > .item input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #e92f48;
 }
 
 .flavor > .item > div > .checkmark:after {

@@ -1,0 +1,17 @@
+/* Entregar */
+
+position: absolute;
+width: 103px;
+height: 36px;
+left: 342px;
+top: 1144px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 36px;
+/* identical to box height */
+
+color: #FFFFFF;
+
