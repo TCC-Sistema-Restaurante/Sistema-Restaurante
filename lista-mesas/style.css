@@ -1,3 +1,56 @@
+.navbar{
+    position: fixed;
+    top: 0; 
+    z-index: 5; 
+    margin-bottom: 30px;
+    width: 100%;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background-color:#E92F48;
+}
+
+.accordion-button{
+    background-color:#E92F48 !important;
+    border-radius: 20px !important ;
+    border: none;
+}
+
+.accordion-button:focus{
+    box-shadow: 0px 0px 0px;
+    outline: none;
+}
+
+.accordion-button::after{
+   filter: invert(100%) !important ;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: var(--bs-accordion-btn-icon);
+}
+
+#barra_pesquisa{
+    margin-top: 100px;
+}
+
+.botao-conta{
+    color: white;
+    background: #198754;
+    border-radius: 5px;
+    height: 35px;
+    width: 279px;
+    border: #198754;
+}
+
+.botao-pedido{
+    color: white;
+    background: #dc3545;
+    border-radius: 5px;
+    height: 35px;
+    width: 279px;
+    border:#dc3545;
+    
+}
+
 footer{
     position: fixed;
     bottom: 0;

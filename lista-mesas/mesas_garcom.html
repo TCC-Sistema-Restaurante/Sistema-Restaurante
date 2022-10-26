@@ -12,7 +12,7 @@
 <body>
     <!--navbar-->
     <header class="header">
-      <nav class="navbar mb-5" style="height:100px; border-bottom-left-radius: 80%; border-bottom-right-radius: 80%; background-color: red;">
+      <nav class="navbar mb-5">
         <div class="mx-auto text-center">
         <span class="navbar-brand mb-0 h1 text-white display-1" style="font-size: 45px;text-shadow: rgb(72, 69, 69) 0.1em 0.1em 0.2em;">Mesas</span>
         </div>
@@ -22,9 +22,9 @@
     
 
     <!-- barra de pesquisa-->
-    <div class="mx-auto" id="barra">
+    <div class="mx-auto" id="barra_pesquisa">
         <div class="col-md-10 mx-auto mt-5">
-            <input type="text" class="form-control py-2 px-4 shadow-lg p-3 mb-5 bg-body rounded " id="texto" placeholder="Pesquisar mesa...">
+            <input type="text" class="form-control py-2 px-4 shadow-lg p-3 mb-5 bg-body rounded " id="texto" placeholder="Encontrar mesa">
         </div>
     </div>
 
@@ -32,15 +32,11 @@
     <div id="acordeao" style="margin-bottom: 10rem;">
       <div class="container">
         <div class="col-md-12">
-      
-          <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
-              <h1>Mesas:</h1>
-          </div>
   
           <div class="accordion accordion-flush d-grid gap-4" id="accordionFlushExample">
           <div class="accordion-item " >
           <h2 class="accordion-header" id="flush-headingOne">
-              <button class="accordion-button collapsed fs-2 text-white" style="background-color:red; border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                  <h2 class="mx-3">Mesa 01</h2> 
                 </button>
             </h2>
@@ -48,18 +44,17 @@
               <div class="accordion-body" >
                   <h3 class="text-center"> <strong>Valor Total: R$150,00</strong></h3>
                   <div class="row justify-content-center">
-                      <div class="text-center mt-4">
-                      <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                      <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
-                      </div>
-                      
+                    <div class="text-center mt-4">
+                    <button type="button" class="botao-conta mb-1 px-5">Pedir conta</button>
+                    <button type="button" class="botao-pedido px-5">Novo pedido</button>
+                    </div>
                   </div>
               </div>
             </div>
       </div>
       <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
-              <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                   <h2 class="mx-3">Mesa 02</h2>
               </button>
             </h2>
@@ -68,8 +63,8 @@
                   <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                   <div class="row justify-content-center">
                       <div class="text-center mt-4">
-                      <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                      <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                      <button type="button" class="btn btn-success mb-1 px-5">Pedir conta</button>
+                      <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                       </div>
                       
                   </div>
@@ -78,7 +73,7 @@
       </div>
       <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingThree">
-              <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                   <h2 class="mx-3">Mesa 03</h2>
               </button>
             </h2>
@@ -87,8 +82,8 @@
                   <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                   <div class="row justify-content-center">
                       <div class="text-center mt-4">
-                      <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                      <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                      <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                      <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                       </div>
                   </div>
               </div>
@@ -97,7 +92,7 @@
   
       <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFor">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFor" aria-expanded="false" aria-controls="flush-collapseFor">
+            <button class="accordion-button collapsed fs-2 text-white"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFor" aria-expanded="false" aria-controls="flush-collapseFor">
                 <h2 class="mx-3">Mesa 04</h2>
             </button>
           </h2>
@@ -105,10 +100,10 @@
             <div class="accordion-body">
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
-                    <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
-                    </div>
+                  <div class="text-center mt-4">
+                  <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                  <button type="button" class="btn btn-danger px-5">Novo pedido</button>
+                  </div>
                 </div>
             </div>
           </div>
@@ -116,7 +111,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFive">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                 <h2 class="mx-3">Mesa 05</h2>
             </button>
           </h2>
@@ -124,10 +119,10 @@
             <div class="accordion-body">
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
-                    <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
-                    </div>
+                  <div class="text-center mt-4">
+                  <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                  <button type="button" class="btn btn-danger px-5">Novo pedido</button>
+                  </div>
                 </div>
             </div>
           </div>
@@ -135,7 +130,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingSix">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                 <h2 class="mx-3">Mesa 06</h2>
             </button>
           </h2>
@@ -144,8 +139,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +149,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingSeven">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseThree">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseThree">
                 <h2 class="mx-3">Mesa 07</h2>
             </button>
           </h2>
@@ -163,8 +158,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -173,7 +168,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingEight">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
                 <h2 class="mx-3">Mesa 08</h2>
             </button>
           </h2>
@@ -182,8 +177,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -192,7 +187,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingNine">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
                 <h2 class="mx-3">Mesa 09</h2>
             </button>
           </h2>
@@ -201,8 +196,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -211,7 +206,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTen">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
+            <button class="accordion-button collapsed fs-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
                 <h2 class="mx-3">Mesa 10</h2>
             </button>
           </h2>
@@ -220,8 +215,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -230,7 +225,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingEleven">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
+            <button class="accordion-button collapsed fs-2 text-white"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                 <h2 class="mx-3">Mesa 11</h2>
             </button>
           </h2>
@@ -239,8 +234,8 @@
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <button type="button" class="btn btn-success px-5">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -249,7 +244,7 @@
   
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwelve">
-            <button class="accordion-button collapsed fs-2 text-white" style="background-color:red;border-radius: 20px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+            <button class="accordion-button collapsed fs-2 text-white"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                 <h2 class="mx-3">Mesa 12</h2>
             </button>
           </h2>
@@ -257,9 +252,9 @@
             <div class="accordion-body">
                 <h3 class="text-center"> <strong>Valor Total: R$0,00</strong></h3>
                 <div class="row justify-content-center">
-                    <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success px-5">Pedir Conta</button>
-                    <button type="button" class="btn btn-danger px-5">Novo Pedido</button>
+                    <div class="text-center mt-4 row">
+                    <button type="button" class="btn btn-success px-5 col-sm-6">Pedir conta</button>
+                    <button type="button" class="btn btn-danger px-5 col-sm-6">Novo pedido</button>
                     </div>
                 </div>
             </div>
@@ -273,26 +268,6 @@
    
     
 <!--Final do acordião-->
-
-<!--Rodapé-->
-
-<footer style="z-index: 5;">
-  <div>
-    <ul>
-      <li><button href="#" style="border: none; background-color:white;"><img src="logo-menu/sala-de-jantar .png" width="40%";
-        height="40%" alt="Mesas" href="#"><h4 style="font-size: 130%;" >Mesas</h4></button> 
-      </li>      
-    </ul>
-  </div>
-
-  <div>
-    <ul>
-      <li> <button href="#"  style="border: none; background-color:white;"><img src="logo-menu/bandeja3.png" width="35%";
-    height="35%" alt="Carrinho" ><h4 style="font-size: 130%;">Pedidos Prontos</h4> </button> </li>
-    </ul>
-  </div>
-
-</footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
