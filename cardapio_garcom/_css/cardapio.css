@@ -8,38 +8,69 @@
   font-family: "Inter", sans-serif;
 }
 
-.cardapio > h1 {
-  color: #e92f48;
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 20px 0;
-}
 
-.cardapio > .search-bar {
-  border: solid 2px #e92f48;
-  border-radius: 15px;
-  height: 60px;
+#topSVG {
   width: 100%;
-  display: flex;
-  align-items: center;
+  max-height: 130px;
+  min-height: 120px;
 }
 
-.cardapio > .search-bar > #txt-search {
-  background: none;
-  padding: 10px;
-  border: none;
-  font-size: 15px;
-  outline: 0;
+#topText {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #e92f48;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 37px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.cardapio > .search-bar > .material-symbols-outlined {
-  font-size: 35px;
-  margin: 5px;
-  cursor: pointer;
+
+.containerInput {
+  width: 100%;
+  padding: 0px 20px;
+  max-width: 1140px;
 }
 
-.cardapio {
-  padding: 10px 20px;
+.input-text {
+  background: rgba(153, 153, 153, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 9px;
+  height: 50px;
+  font-size: 17px;
+  color: rgb(31, 23, 23);
+  padding-left: 40px;
+}
+
+.input-text::placeholder {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.input-text:focus {
+  transition: all 0.2s;
+
+  color: black;
+  box-shadow: 0px 0px 0px;
+  border-color: #950b1d57;
+  outline: none;
+}
+
+.inlineIcon {
+  position: relative;
+}
+.inlineIcon i {
+  font-size: 22px;
+  position: absolute;
+  padding: 14px 10px;
+  pointer-events: none;
+  color: rgb(0, 0, 0);
 }
 
 .cardapio > .container {
@@ -50,7 +81,7 @@
 }
 
 .cardapio > .container > .item {
-  flex: 1 1 200px;
+  flex: 1 1 300px;
   color: #fff;
   border-radius: 10px;
   background: #e92f48;
@@ -62,11 +93,12 @@
   min-height: 150px;
 
   margin: 10px;
-  transition: 0.2s;
 }
 
 .cardapio > .container > .item:hover {
-  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
+  transition: 0.3s;
+  filter: drop-shadow(1px 1px 7px rgba(0, 0, 0, 0.678));
+  transform: scale(1.01);
 }
 
 .cardapio > .container > .item > div {
@@ -82,4 +114,14 @@
   border-radius: 10px 10px 0 0;
   width: 100%;
   height: 85%;
+}
+
+
+@media screen and (max-width: 295px){
+
+ .container{
+  margin-top: 0;
+  transform: scale(.9);
+ }
+
 }
