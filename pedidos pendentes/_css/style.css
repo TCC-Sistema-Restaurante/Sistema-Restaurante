@@ -14,21 +14,19 @@ body {
 
 #topSVG {
   width: 100%;
-  height: 28vw;
-  max-height: 200px;
-  min-height: 180px;
+  min-height: 170px;
+  max-height: 170px;
+
 }
 
 #topImg {
   position: absolute;
-  top: 0.5vw;
+  top: 10px;
   left: 50%;
   transform: translate(-50%);
-
   width: 40vw;
-
-  min-width: 420px;
-  max-width: 570px;
+  min-width: 340px;
+  max-width: 450px;
 }
 
 #titulo {
@@ -45,11 +43,12 @@ body {
 }
 
 .input-text {
-  background: #fbfbfb;
-  border: 1px solid #585858;
-  border-radius: 10px;
-  height: 40px;
+  background: rgba(153, 153, 153, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 9px;
+  height: 50px;
   font-size: 17px;
+  color: rgb(31, 23, 23);
   padding-left: 40px;
 }
 
@@ -60,8 +59,11 @@ body {
 }
 
 .input-text:focus {
+  transition: all 0.2s;
+
+  color: black;
   box-shadow: 0px 0px 0px;
-  border-color: #950b1e;
+  border-color: #950b1d57;
   outline: none;
 }
 
@@ -69,13 +71,12 @@ body {
   position: relative;
 }
 .inlineIcon i {
-  font-size: 20px;
+  font-size: 22px;
   position: absolute;
-  padding: 10px 10px;
+  padding: 14px 10px;
   pointer-events: none;
-  color: rgb(169, 166, 166);
+  color: rgb(0, 0, 0);
 }
-
 .container {
   max-width: 1568px;
 
@@ -96,7 +97,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 38px;
-  min-width: 400px;
+  min-width: 300px;
   max-width: 600px;
   height: 260px;
   margin: 15px;
@@ -122,7 +123,7 @@ body {
 .parteEsquerda i {
   margin-top: 55px;
   color: #ffffff;
-  font-size: 50px;
+  font-size: 65px;
 }
 
 .parteEsquerda p:nth-child(4) {
@@ -159,3 +160,19 @@ body {
   transition: 0.3s;
   background: #278d38;
 }
+
+
+@media screen and (max-width: 400px){
+
+  .box{
+   margin-top: 0;
+   transform: scale(.8);
+  }
+
+  #topImg {
+    min-width: 300px;
+    top: 30px;
+
+  }
+ 
+ }
