@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
 
 .topnav {
   overflow: hidden;
@@ -31,12 +24,12 @@
   display: none;
 }
 
-.dropdown {
+.dropdownMenu {
   float: right;
   overflow: hidden;
 }
 
-.dropdown .dropbtn {
+.dropdownMenu .dropbtn {
   font-size: 17px;
   border: none;
   outline: none;
@@ -72,29 +65,39 @@
   text-align: left;
 }
 
-.topnav a:hover,
-.dropdown:hover .dropbtn {
+.topnav a:hover, .topnav a:focus  {      
+  transition: .3s;
+  box-shadow: 
+  inset -3.5em 0 0 0 #bb293d,
+  inset 3.5em 0 0 0 #bb293d;  
+}
+
+
+.dropdown-content a:hover {
   background-color: #bb293d;
   color: #fff;
 }
 
-.dropdown-content a:hover {
-  background-color: #a36870;
-  color: #fff;
-}
 
-.dropdown:hover .dropdown-content {
+.dropdownMenu:hover .dropdown-content {
   display: block;
 }
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child),
-  .dropdown .dropbtn {
+  .dropdownMenu .dropbtn {
     display: none;
   }
   .topnav a.icon {
     float: right;
     display: block;
+  }
+
+  .topnav a:hover, .topnav a:focus  {      
+    transition: .3s;
+    box-shadow: 
+    inset -14.5em 0 0 0 #bb293d,
+    inset 14.5em 0 0 0 #bb293d;  
   }
 }
 
@@ -112,37 +115,26 @@
     display: block;
     text-align: left;
   }
-  .topnav.responsive .dropdown {
+  .topnav.responsive .dropdownMenu {
     float: none;
   }
   .topnav.responsive .dropdown-content {
     position: relative;
   }
-  .topnav.responsive .dropdown .dropbtn {
+  .topnav.responsive .dropdownMenu .dropbtn {
     display: block;
     width: 100%;
     text-align: left;
   }
 }
 
-.topnav a:hover,
-.dropdown:hover .dropbtn {
-  background-color: #ce4255;
-  color: #fff;
-}
-
-.dropdown-content a:hover {
-  background-color: #ce4255;
-  color: #fff;
-}
-
-.dropdown:hover .dropdown-content {
+.dropdownMenu:hover .dropdown-content {
   display: block;
 }
 
 @media screen and (max-width: 600px) {
   nav a:not(:first-child),
-  .dropdown .dropbtn {
+  .dropdownMenu .dropbtn {
     display: none;
   }
   nav a .icon {
@@ -172,7 +164,7 @@
     text-align: left;
   }
 
-  .responsive .dropdown {
+  .responsive .dropdownMenu {
     float: none;
   }
 
@@ -180,7 +172,7 @@
     position: relative;
   }
 
-  .responsive .dropdown .dropbtn {
+  .responsive .dropdownMenu .dropbtn {
     display: block;
     width: 100%;
     text-align: left;
