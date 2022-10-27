@@ -12,52 +12,37 @@ body {
   background: #ffffff;
 }
 
-#titulo {
+
+#topSVG {
+  position: fixed;
+  top: 0; 
+  z-index: 5; 
+  width: 100%;
+  max-height: 130px;
+  min-height: 120px;
+}
+
+#topText {
+  white-space: nowrap;
   text-align: center;
-  font-weight: 600;
-  font-size: 50px;
+  position: fixed;
+  z-index: 5; 
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%);
   color: #e92f48;
-}
-.containerInput {
-  min-width: 95%;
-  max-width: 1568px;
-}
-
-.input-text {
-  background: #fbfbfb;
-  border: 1px solid #585858;
-  border-radius: 10px;
-  height: 40px;
-  font-size: 17px;
-  padding-left: 40px;
-}
-
-.input-text::placeholder {
-  font-weight: 500;
-  font-size: 17px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 37px;
   line-height: 24px;
-}
-
-.input-text:focus {
-  box-shadow: 0px 0px 0px;
-  border-color: #950b1e;
-  outline: none;
-}
-
-.inlineIcon {
-  position: relative;
-}
-.inlineIcon i {
-  font-size: 20px;
-  position: absolute;
-  padding: 10px 10px;
-  pointer-events: none;
-  color: rgb(169, 166, 166);
+  color: #FFFFFF;
+  text-shadow: 7px 7px 15px rgba(0, 0, 0, 0.473);
 }
 
 .container {
   max-width: 1400px;
-  margin-top: 50px;
+  margin-top: 120px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -129,3 +114,12 @@ body {
   line-height: 12px;
   font-weight: 600;
 }
+
+@media screen and (max-width: 450px){
+
+  .box{
+   margin-top: 0;
+   transform: scale(.8);
+  }
+ 
+ }
