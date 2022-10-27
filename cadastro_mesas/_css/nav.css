@@ -64,19 +64,6 @@
   text-align: left;
 }
 
-/* .topnav a:hover,
-.dropdownMenu:hover .dropbtn {      
-  transition: 0.25s;
-  background-color: #bb293d;
-  color: #fff;
-}
-
-.dropdown-content a:hover {
-  background-color: #bb293d;
-  color: #fff;
-} */
-
-
 .topnav a:hover, .topnav a:focus  {      
   transition: .3s;
   box-shadow: 
