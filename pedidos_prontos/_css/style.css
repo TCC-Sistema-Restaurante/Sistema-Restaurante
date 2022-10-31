@@ -123,3 +123,12 @@ body {
   }
  
  }
+
+
+ @media screen and (max-width: 280px){
+
+  #topText{
+   font-size: 12vw;
+  }
+ 
+ }
