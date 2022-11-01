@@ -95,14 +95,20 @@
 
 
 
+
 @media screen and (max-width: 700px) {
     .container {
         flex-direction: column;
         width: 100%;
     }
 
-    .container>div {
+    .container div {
         width: 100%;
+    }
+
+    .icone{
+        width: 30%!important;
+        min-width: 100px;
     }
 }
 
