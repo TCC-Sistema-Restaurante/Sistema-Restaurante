@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+#topSVG {
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  width: 100%;
+  max-height: 130px;
+  min-height: 120px;
+}
+
+#topText {
+  white-space: nowrap;
+  text-align: center;
+  position: fixed;
+  z-index: 5;
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #e92f48;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 37px;
+  line-height: 24px;
+  color: #ffffff;
+  text-shadow: 7px 7px 15px rgba(0, 0, 0, 0.473);
+}
+
+.pedido {
+  margin-top: 120px !important ;
+
+  padding: 20px 30px 0 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.pedido > a {
+  color: #e92f48;
+}
+
+.pedido > form > .sizes {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pedido > form > .sizes > h3 {
+  color: #636363;
+}
+
+.sizes > .item {
+  background-color: #dfdfdf;
+  border-radius: 15px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sizes > .item > h6 {
+  margin-left: 5px;
+}
+
+.sizes > .item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sizes > .item > .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 20px;
+  width: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.sizes > .item:hover input[type="radio"] ~ .checkmark {
+  background-color: #ccc;
+}
+
+.sizes > .item input[type="radio"]:checked ~ .checkmark {
+  background-color: #e92f48;
+}
+
+.sizes > .item > .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.sizes > .item > input[type="radio"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.sizes > .item > .checkmark:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+
+.flavor {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flavor > h3 {
+  color: #636363;
+}
+
+.flavor > .search-bar {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.flavor > .search-bar > span {
+  cursor: pointer;
+}
+
+.flavor > .search-bar > input {
+  padding: 5px;
+  background: none;
+  border-bottom: #636363 solid 2px;
+  width: 90%;
+  outline: none;
+}
+
+.flavor > .item {
+  background: #dfdfdf;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.flavor > .item {
+  background-color: #dfdfdf;
+  border-radius: 15px;
+  padding: 15px;
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flavor > .item > div {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.flavor > .item > div > .checkmark {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  background-color: #eee;
+}
+
+.flavor > .item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.flavor > .item:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.flavor > .item input:checked ~ .checkmark {
+  background-color: #e92f48;
+}
+
+.flavor > .item > div > .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.flavor > .item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.flavor > .item .checkmark:after {
+  left: 23px;
+  top: 20px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.flavor > .item > div > h4 {
+  margin-left: 10px;
+}
+
+form > input[type="submit"] {
+  background-color: #e92f48;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  width: 100%;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+form > input[type="submit"]:hover {
+  transition: 0.25s;
+  transform: scale(1.01);
+  background-color: #dd1933;
+}
+
+@media screen and (max-width: 280px) {
+  #topText {
+    font-size: 12vw;
+  }
+}
