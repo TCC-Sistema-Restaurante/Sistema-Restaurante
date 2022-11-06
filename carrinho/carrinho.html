@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css" type="text/css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>Carrinho</title>
 </head>
 
@@ -20,11 +21,11 @@
     </nav>
 
     <div class="text-center">
-        <h2 style="color: #3A3A3A; font-size: 2.5em; margin-top: 60px !important;">Resumo do Pedido</h2>
+        <h2 style="color: #3A3A3A; font-size: 2.5em; margin-top: 60px !important; ">Resumo do Pedido</h2>
     </div>
 
-    <section class="sec">
-        <div class="container">
+    <section class="sec w-100">
+        <div class="container-fluid">
             <div class="table-responsive-md">
                     <table class="table">
                         <thead>
@@ -193,7 +194,7 @@
                     </table>
                 </div>
 
-                <div class="row mt-4" style="margin-bottom: 0px;">
+                <div class="row mt-2" style="margin-bottom: 70px;">
                     <div class="col-6" >
                         <span style="color: #3A3A3A; font-size: 2em; margin-left: 20px;">Total</span>
                     </div>
@@ -201,16 +202,49 @@
                         <span style="color: #3A3A3A; font-size: 2em; margin-right: 20px;">R$25,50</span>
                     </div>
                 </div>
-                <form action="">
-                    <input type="submit" value="FINALIZAR" />
-                  </form>
+                
             </div>
+            
         </div>
 
         
     </section>
-
-       
+    <form action="">
+        <input type="submit" value="FINALIZAR" />
+    </form>
+    
+    <div class="side-bar">
+        <div class="button-menu">
+          <span class="material-symbols-outlined"> menu </span>
+        </div>
+  
+        <div class="lateral-menu">
+          <div class="itens" id="mesas">
+            <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
+            <a href="#">Mesas</a>
+          </div>
+          <div class="itens" id="pedidos-pendentes">
+            <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
+            <a href="#">
+              Pedidos<br />
+              prontos
+            </a>
+          </div>
+          <div class="itens">
+            <img src="../menu_lateral/_img/categorias.png" id="icon-categorias" alt="" />
+            <a href="#">Categorias</a>
+          </div>
+          <div class="categorias">
+            <a href="#" id="pizzas">Pizzas</a>
+            <a href="#" id="sanduiches">Sanduiches</a>
+            <a href="#" id="sobremesas">Sobremesas</a>
+            <a href="#" id="petiscos">Petiscos</a>
+          </div>
+        </div>
+      </div>
+  
+      <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+      <script src="../menu_lateral/_js/Script.js"></script>
     <script>
 
         function menos(elemento){
