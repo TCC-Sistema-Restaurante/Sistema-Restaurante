@@ -77,9 +77,13 @@ nav .navbar {
   margin: 0;
 }
 
-/* @media (min-width: 978px) {
-  #piechart {
-    width: 600px;
-    height: 300px;
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+  #cards-cash > .card > .sing {
+    padding: 5px 20px;
+    border-radius: 25px;
+    position: absolute;
+    left: -65px;
+    top: 15px;
+
   }
-} */
+}

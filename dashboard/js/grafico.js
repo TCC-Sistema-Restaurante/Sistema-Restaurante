@@ -14,12 +14,12 @@ function drawChart() {
   var options = {
     // title: "My Daily Activities",
     legend: "bottom",
-    width: 800,
-    height: 400,
+    width: 600,
+    height: 300,
+    chartArea:{
+      left:20,
+},
     responsive: true,
-    // backgroundColor: {
-    //     fill:'gray'
-    //     }
   };
 
   var chart = new google.visualization.PieChart(
@@ -28,8 +28,8 @@ function drawChart() {
 
   var barchart_options = {
     // title: "Barchart: How Much Pizza I Ate Last Night",
-    width: 800,
-    height: 400,
+    width: 600,
+    height: 300,
     responsive: true,
     legend: "none",
   };
@@ -40,3 +40,7 @@ function drawChart() {
 
   chart.draw(data, options);
 }
+
+$(window).resize(function(){
+  drawChart();
+});
