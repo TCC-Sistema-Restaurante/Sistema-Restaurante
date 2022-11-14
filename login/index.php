@@ -8,15 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <!-- Latform styles -->
+    <!--styles -->
     <link rel="stylesheet" href="_css/login.css" type="text/css">
     <link rel="icon" href="_img/Logo_Gusteau_Branca.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
-<body>
-        
+<body style="height: 100% !important;">
     <div class="form-wrapper">
         <div class="container">
             <div class="card">
@@ -27,10 +26,10 @@
                     <div class="text-center my-4">
                         <p class="text-muted opacity-50">Faça login no Gusteau para continuar</p>
                     </div>
-                    <form>
+                    <form action="" method="POST">
                         <div class="form-group mb-3">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="usuario" placeholder="Enter fullname" autofocus>
+                                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Enter fullname" autofocus>
                                 <label for="usuario">Usuário</label>
                             </div>
                         </div>
@@ -42,13 +41,13 @@
                                         <button onclick="mostrarSenha(event)"><i id="icon" class="fa-regular fa-eye"></i></button>
                                     </label>
                                 </div>
-                                <input type="password"  class="form-control" id="password" placeholder="Enter password">
+                                <input type="password" name="senha"  class="form-control" id="password" placeholder="Enter password">
                                 <label for="password">Senha</label>
                                 
                                 </div>
                         </div>
                         <div class="form-group mt-5 mb-2">
-                            <button class="btn btn-primary btn-block">Login</button>
+                            <button class="btn btn-primary btn-block" type="submit">Login</button>
                         </div>
                     </form>
                 </div>
@@ -58,27 +57,20 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+    <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script type="text/javascript">
-        function mostrarSenha(event) {
-        event.preventDefault();
-        var inputSenha = document.getElementById("password");
-        var icon = document.getElementById("icon");
-        if(inputSenha.type == "password"){
-            inputSenha.type = "text";
-            icon.className = "fa-regular fa-eye-slash"
+    <!-- Scripts -->
+    <script src="../_js/functions.js"></script>
 
-        }
-        else{
-            inputSenha.type = "password";
-            icon.className = "fa-regular fa-eye"
-
-
-        }
-
-        ;
-    
-    }
-    </script>
 </body>
 </html>
+
+<?php
+    // Executa o código quando os campos de úsuario e senha não estiverem vazios
+    if (isset($_POST['usuario']) || isset($_POST['senha'])) {
+        include_once '../_scripts/functions.php';
+        login($_POST);
+    }
+
+?>
