@@ -1,8 +1,8 @@
 <?php
-$servidor = 'localhost';
-$usuario = 'root';
-$senha = '';
-$banco = 'gusteau_database';
+$servidor = 'sql541.main-hosting.eu';
+$usuario = 'u668629163_gusteau';
+$senha = 'Gusteau@123';
+$banco = 'u668629163_gusteau_databa';
 
 //INTANCIAMOS A CLASSE PARA ACESSAR O BANCO
 $mysqli = new mysqli($servidor, $usuario, $senha, $banco);
