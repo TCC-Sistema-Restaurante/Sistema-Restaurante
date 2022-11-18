@@ -42,16 +42,32 @@ nav .navbar {
   /* box-shadow: 1px -1px; */
 }
 
-.card-info h3 {
+.card-body h3 {
   color: #e92f48;
+  font-weight: bolder;
+  font-size: xx-large;
+
 }
 
 .grafico h5 {
   color: #ffffff;
 }
 
+.carousel{
+  margin-top: 8%;
+}
+
+#cards-cash{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 #cards-cash > .card {
   display: flex !important;
+  width: 70%;
   flex-direction: row;
   position: relative;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
@@ -75,6 +91,7 @@ nav .navbar {
   padding: 0 10px;
   border-radius: 50%;
   margin: 0;
+  
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) { 
