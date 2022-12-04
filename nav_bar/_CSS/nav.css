@@ -46,6 +46,9 @@
   font-size: 15px;
   font-weight: 700;
 }
+a:hover{
+  color: #fff!important;
+}
 
 .dropdown-content {
   display: none;
