@@ -5,35 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="_css/style.css" type="text/css" rel="stylesheet">
-    <link href="_css/nav.css" type="text/css" rel="stylesheet" >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link href="_css/style.css" type="text/css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
   </head>
 
   <body>
-    <div class="topnav" id="myTopnav">
-      <a href="#" class="active">Voltar</a>
-  
-      <a href="#">Pedidos</a>
-      <a href="#">Cardápio</a>
-      <div class="dropdownMenu">
-        <button class="dropbtn">
-          Cadastros<span class="material-symbols-outlined"> arrow_drop_down </span>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
-      <a href="#">Dashboard</a>
-      <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
+
+  <?php include "../nav_bar/nav.php";?>
+
+    
       <section class="topoSection mb-4  ">
         <div class="row d-flex align-items-center">
           <div class="col d-flex justify-content-start">
@@ -41,7 +24,7 @@
           </div>
 
           <div class="col d-flex justify-content-end">
-            <div class=""><button class="addBtn"><i class='bx bx-plus'></i>Add mesa</button></div>
+            <div class=""><button class="addBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class='bx bx-plus'></i>Add mesa</button></div>
           </div>
         </div>
 
@@ -58,6 +41,34 @@
           </div>
       </div>
     </section>
+
+      <!-- Modal -->
+      <div class="modal t-modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar mesa</h1>
+              <div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                  <input type="number" class="form form-control" id="nome" placeholder="Nome">
+                  <label class="formLabel" for="nome">Quantidade de mesas</label>
+              </div> 
+              
+              <div class="form-floating">
+                  <input type="number" class="form form-control" id="nome" placeholder="Nome">
+                  <label class="formLabel" for="nome">Começar a partir de:</label>
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
   
     <section class="sec3 ">
       <div class="container ">
