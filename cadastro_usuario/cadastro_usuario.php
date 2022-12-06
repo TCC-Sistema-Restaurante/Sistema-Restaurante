@@ -1,3 +1,6 @@
+<?php
+    include "../_scripts/functions.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,32 +17,18 @@
 
 </head>
 <body>
-    <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Voltar</a>
-    
-        <a href="#">Pedidos</a>
-        <a href="#">Cardápio</a>
-        <div class="dropdownMenu">
-          <button class="dropbtn">
-            Cadastros<span class="material-symbols-outlined"> arrow_drop_down </span>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div>
-        <a href="#">Dashboard</a>
-        <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
-      </div>
+    <?php
+    include "../nav_bar/nav.php";
+?>
 
-    <form class="formulario">
+
+    <form method="POST" class="formulario">
         <div class="mb-4"><h1>Cadastrar usuário</h1></div>
         
         <div class="row">
             <div class="mb-3 col-md-12">
                 <div class="form-floating">
-                    <input type="text" class="form form-control" id="nome" placeholder="Nome">
+                    <input required type="text" class="form form-control" id="nome" name="nome" placeholder="Nome">
                     <label class="formLabel" for="nome">Nome</label>
                 </div>
             </div>
@@ -47,40 +36,44 @@
         <div class="row">
             <div class="mb-3 col-md-6">
                 <div class="form-floating">
-                    <input type="text" class=" form form-control" id="usuario" placeholder="Usuário">
+                    <input required type="text" class=" form form-control" id="usuario" name="usuario" placeholder="Usuário">
                     <label class="formLabel" for="nome">Usuário</label>
                 </div>                
             </div>
             <div class="mb-3 col-md-6">
                 <div class="form-floating">
-                    <input type="password" class=" form form-control" id="senha" placeholder="Senha">
-                    <label class="formLabel" for="nome">Senha</label>
+                    <input required type="password" class=" form form-control" id="senha" name="senha" placeholder="Senha">
+                    <label class="formLabel" for="password">Senha</label>
                 </div>                
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
                 <div class="form-floating">
-                    <input type="number" class="form form-control" id="cpf" placeholder="CPF">
-                    <label class="formLabel" for="nome">CPF</label>
+                    <input type="text" class="form form-control" name="cpf" id="cpf" placeholder="CPF" required>
+                    <label class="formLabel" for="cpf">CPF</label>
                 </div>
             </div>
             <div class="mb-4 col-md-6">
-                <select class="select wide" aria-label="">
+                <select name="cargo" class="select wide" aria-label="" required>
                     <option selected disabled>Função</option>
-                    <option value="1">Garçom</option>
-                    <option value="2">Cozinheiro</option>
-                    <option value="3">Gerente</option>
+                    <option value="Garçom">Garçom</option>
+                    <option value="Cozinheiro">Cozinheiro</option>
+                    <option value="Gerente">Gerente</option>
                   </select>
             </div>
         </div>
 
         <div class="d-grid gap-2">
-            <button class="btnCadastro confirmar" type="button">Cadastrar</button>
+            <button class="btnCadastro confirmar" type="submit">Cadastrar</button>
             <button class="btnCadastro cancelar" type="button" id="cancelar">Cancelar</button>
         </div>
     </form>
 
+    <script src="../_js/mascara.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
         !function(e){e.fn.niceSelect=function(t){function s(t){t.after(e("<div></div>").addClass("nice-select").addClass(t.attr("class")||"").addClass(t.attr("disabled")?"disabled":"").attr("tabindex",t.attr("disabled")?null:"0").html('<span class="current"></span><ul class="list"></ul>'));var s=t.next(),n=t.find("option"),i=t.find("option:selected");s.find(".current").html(i.data("display")||i.text()),n.each(function(t){var n=e(this),i=n.data("display");s.find("ul").append(e("<li></li>").attr("data-value",n.val()).attr("data-display",i||null).addClass("option"+(n.is(":selected")?" selected":"")+(n.is(":disabled")?" disabled":"")).html(n.text()))})}if("string"==typeof t)return"update"==t?this.each(function(){var t=e(this),n=e(this).next(".nice-select"),i=n.hasClass("open");n.length&&(n.remove(),s(t),i&&t.next().trigger("click"))}):"destroy"==t?(this.each(function(){var t=e(this),s=e(this).next(".nice-select");s.length&&(s.remove(),t.css("display",""))}),0==e(".nice-select").length&&e(document).off(".nice_select")):console.log('Method "'+t+'" does not exist.'),this;this.hide(),this.each(function(){var t=e(this);t.next().hasClass("nice-select")||s(t)}),e(document).off(".nice_select"),e(document).on("click.nice_select",".nice-select",function(t){var s=e(this);e(".nice-select").not(s).removeClass("open"),s.toggleClass("open"),s.hasClass("open")?(s.find(".option"),s.find(".focus").removeClass("focus"),s.find(".selected").addClass("focus")):s.focus()}),e(document).on("click.nice_select",function(t){0===e(t.target).closest(".nice-select").length&&e(".nice-select").removeClass("open").find(".option")}),e(document).on("click.nice_select",".nice-select .option:not(.disabled)",function(t){var s=e(this),n=s.closest(".nice-select");n.find(".selected").removeClass("selected"),s.addClass("selected");var i=s.data("display")||s.text();n.find(".current").text(i),n.prev("select").val(s.data("value")).trigger("change")}),e(document).on("keydown.nice_select",".nice-select",function(t){var s=e(this),n=e(s.find(".focus")||s.find(".list .option.selected"));if(32==t.keyCode||13==t.keyCode)return s.hasClass("open")?n.trigger("click"):s.trigger("click"),!1;if(40==t.keyCode){if(s.hasClass("open")){var i=n.nextAll(".option:not(.disabled)").first();i.length>0&&(s.find(".focus").removeClass("focus"),i.addClass("focus"))}else s.trigger("click");return!1}if(38==t.keyCode){if(s.hasClass("open")){var l=n.prevAll(".option:not(.disabled)").first();l.length>0&&(s.find(".focus").removeClass("focus"),l.addClass("focus"))}else s.trigger("click");return!1}if(27==t.keyCode)s.hasClass("open")&&s.trigger("click");else if(9==t.keyCode&&s.hasClass("open"))return!1});var n=document.createElement("a").style;return n.cssText="pointer-events:auto","auto"!==n.pointerEvents&&e("html").addClass("no-csspointerevents"),this}}(jQuery);
@@ -103,3 +96,36 @@
     
 </body>
 </html>
+
+
+<?php
+
+if (!empty($_POST['nome']) || !empty($_POST['cpf'])) {
+
+    if (cadastrarUsuario($_POST)) { ?>        
+
+        <script language='javascript'>
+            swal.fire({ 
+                icon:"success",
+                text: "Feito com Sucesso!",
+                type: "success"}).then(okay => {
+                    // if (okay) {
+                    //     window.location.href = "painel.php?r=";
+                    // }
+                });
+            </script>
+            <?php }else { ?>
+        <script language='javascript'>
+            swal.fire({ 
+                icon:"error",
+                text: "Ops! Ouve um erro.",
+                type: "success"}).then(okay => {
+                    // if (okay) {
+                    //     window.location.href = "painel.php?r=";
+                    // }
+                });
+            </script>
+            <?php }
+
+    }
+?>

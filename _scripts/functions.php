@@ -2,7 +2,7 @@
 
 // Login functions
 function login($dados){
-    include_once "config.php";
+    include "config.php";
 
     // Adiciona os valores do inputs ás váriaveis (real_escape_string para previnir sql injector)
     $usuario = $mysqli->real_escape_string($dados['usuario']);
@@ -55,6 +55,73 @@ function login($dados){
     <?php
     }
 }
+
+function produtoExiste($nome){
+    
+    include "config.php";
+    $sql = "SELECT nome_produto FROM produto WHERE nome_produto='$nome'";
+    $query = $mysqli->query($sql);
+    $total = mysqli_num_rows($query);
+
+    return $total;
+}
+
+function cadastrarProduto($dados, $upload){
+    include "config.php";
+
+    $nome = $dados['nome'];
+    $tamanho = $dados['tamanho'];
+    $categoria = $dados['categoria'];
+    $status = $dados['status'];
+    $valor = $dados['valor'];
+    $descricao = $dados['descricao'];
+    $dir = "../_imgBanco/";
+    $img = $_FILES["picture-input"];
+    $imgNome = $img["name"];
+
+
+    if (produtoExiste($nome) == 0 && move_uploaded_file($img["tmp_name"], "$dir/".$imgNome)) {
+        $sql = "INSERT INTO `produto` (`id`, `nome_produto`, `data_cadastro`, `tamanho`, `categoria`, `valor`, `descricao`, `img`, `status`) VALUES (NULL, '$nome', current_timestamp(), '$tamanho', '$categoria', '$valor', '$descricao', '$dir/$$imgNome', '$status')";
+
+        $query = $mysqli->query($sql) or die("ERRO: " . $mysqli->error);
+        return $query;
+    } else {
+        return False;
+    }
+}
+
+function usuarioExiste($cpf)
+{
+    include "config.php";
+    $sql = "SELECT cpf FROM usuario WHERE cpf='$cpf'";
+    $query = $mysqli->query($sql);
+    $total = mysqli_num_rows($query);
+
+    return $total;
+}
+
+function cadastrarUsuario($dados)
+{
+    include "config.php";
+
+    $nome = $dados['nome'];
+    $cpf = $dados['cpf'];
+    $usuario = $dados['usuario'];
+    $senha = $dados['senha'];
+    $cargo = $dados['cargo'];
+
+
+    if (usuarioExiste($cpf) == 0) {
+
+        $sql = "INSERT INTO `usuario` (`id`, `nome`, `usuario`, `senha`, `cpf`, `cargo`) VALUES (NULL, '$nome', '$usuario', '$senha', '$cpf', '$cargo')";
+
+        $query = $mysqli->query($sql) or die("ERRO: " . $mysqli->error);
+        return $query;
+    } else {
+        return False;
+    }
+}
+
 
 ?>
 
