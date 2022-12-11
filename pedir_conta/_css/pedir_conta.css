@@ -129,6 +129,7 @@
   background-color: #f4f4f4;
   padding: 15px;
   font-size: 1rem;
+  outline: none;
 }
 
 .pedir-conta form input[type="submit"] {
@@ -138,6 +139,7 @@
   padding: 25px;
   color: #fff;
   font-size: 1.5rem;
+  font-weight: 700;
   position: absolute;
   bottom: -150px;
   left: 0;

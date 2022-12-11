@@ -1,0 +1,448 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #ffffff;
+}
+
+#title {
+  display: flex;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+#title h1 {
+  margin: 5px;
+  color: #e92f48;
+  font-weight: 800;
+}
+
+.inputs {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.inputs div {
+  display: flex;
+}
+
+.inputs input[type="date"] {
+  width: auto;
+  padding: 0 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border-bottom: #e92f48 solid 5px;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f7f7f7;
+  height: 50px;
+  font-size: 17px;
+  outline: none;
+  color: #1f1717;
+}
+
+.input-text {
+  width: 100%;
+  background: #99999933;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 9px;
+  height: 50px;
+  font-size: 17px;
+  color: #1f1717;
+  padding-left: 40px;
+  margin: 5px;
+}
+
+.input-text::placeholder {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.input-text:focus {
+  transition: all 0.2s;
+  color: black;
+  box-shadow: 0px 0px 0px;
+  border-color: #950b1d57;
+  outline: none;
+}
+
+.inlineIcon {
+  position: relative;
+}
+
+.inlineIcon i {
+  font-size: 22px;
+  position: absolute;
+  padding: 18px 12px;
+  pointer-events: none;
+  color: rgb(0, 0, 0);
+}
+
+hr {
+  max-width: 1100px;
+  width: 95%;
+  margin: 10px auto;
+}
+
+section {
+  max-width: 1100px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.container_ {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  background: linear-gradient(
+    90deg,
+    rgba(233, 47, 72, 1) 30%,
+    rgba(245, 245, 245, 1) 30%
+  );
+  filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.25));
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 95%;
+  height: auto;
+  margin: 10px 6px;
+  padding: 6px;
+  padding-right: 10px;
+}
+
+.box .row {
+  --bs-gutter-x: 0;
+}
+
+.parteEsquerda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-right: 15px;
+}
+
+.parteEsquerda p {
+  font-weight: 500;
+  font-size: 120%;
+  color: #ffffff;
+  margin: 0;
+}
+
+.parteEsquerda i {
+  color: #ffffff;
+  font-size: 300%;
+}
+
+.parteDireita {
+  margin-top: 10px;
+  padding: 0;
+}
+
+.parteDireita h4 {
+  font-weight: 700;
+  color: #e92f48;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.parteDireita h6 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.parteDireita p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* select */
+.input-group {
+  display: flex !important;
+  flex-wrap: nowrap;
+  margin: 0;
+  justify-content: left !important;
+}
+
+.selectButton {
+  background: #e92f48;
+  color: white;
+  padding: 14px 15px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16%;
+  height: 50px;
+  margin: 5px 0;
+  margin-right: 10px;
+}
+
+.selectButton i {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.selectButton:hover,
+.selectButton:focus {
+  position: relative;
+  border-radius: 0px;
+  animation: pulsar 1s;
+  box-shadow: 0 0 0 5px transparent;
+  background-color: #e01c36;
+  z-index: 0;
+  transition: 0.2s;
+}
+
+@keyframes pulsar {
+  0% {
+    box-shadow: 0 0 0 #e01c36;
+  }
+}
+
+.nice-select {
+  margin: 5px 0;
+  height: 50px;
+  line-height: 55px;
+  /* este valor deve ser o mesmo acima */
+  border: none;
+  /* cor da borda do select*/
+  border-bottom: #e92f48 solid 5px;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 15px;
+  position: relative;
+  text-align: left !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  min-width: 135px;
+  max-width: 250px;
+  margin-left: 5px;
+  border-radius: 5px 0px 0px 5px !important;
+}
+
+.nice-select:hover {
+  border-color: #e92f48;
+  /* cor da borda do select ao passar o mouse */
+}
+
+.nice-select:after {
+  border-bottom: 3px solid #000;
+  border-right: 3px solid #000;
+  content: "";
+  display: block;
+  height: 9px;
+  width: 9px;
+  margin-top: -4px;
+  pointer-events: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  -webkit-transform-origin: 66% 66%;
+  -ms-transform-origin: 66% 66%;
+  transform-origin: 66% 66%;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.nice-select.open:after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.nice-select.open .list {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: scale(1) translateY(0);
+  -ms-transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0);
+}
+
+.nice-select.disabled {
+  background-color: #f7f7f7;
+  border-color: #e01c36;
+  color: #999;
+  pointer-events: none;
+}
+
+.nice-select.disabled:after {
+  border-color: rgb(163, 163, 163);
+}
+
+.nice-select.wide {
+  width: 84%;
+}
+
+.nice-select.wide .list {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.nice-select.right {
+  float: right;
+}
+
+.nice-select.right .list {
+  left: auto;
+  right: 0;
+}
+
+.nice-select.small {
+  font-size: 12px;
+}
+
+.nice-select.small:after {
+  height: 4px;
+  width: 4px;
+}
+
+.nice-select.small .option {
+  line-height: 34px;
+  min-height: 34px;
+}
+
+.nice-select .list {
+  background-color: white;
+  border-radius: 0px 0px 20px 20px !important;
+  box-shadow: 0 0 0 1px rgb(212, 211, 211);
+  /* cor da borda dos options em RGB */
+  box-sizing: border-box;
+  margin-top: 1.5px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  padding: 15px;
+  top: 100%;
+  left: 0;
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: scale(0.75) translateY(-21px);
+  -ms-transform: scale(0.75) translateY(-21px);
+  transform: scale(0.75) translateY(-21px);
+  -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25),
+    opacity 0.15s ease-out;
+  transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+  z-index: 9;
+}
+
+.nice-select .option {
+  border: rgba(119, 119, 119, 0.377) 0.5px solid;
+  border-radius: 15px;
+  background-color: #f7f7f7;
+  padding: 5px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: 300;
+  line-height: 30px;
+  /* altura das options */
+  min-height: 30px;
+  /* este valor deve ser o mesmo do acima */
+  list-style: none;
+  outline: none;
+  text-align: left;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.option:hover {
+  background-color: #e92f48 !important;
+}
+
+.nice-select .option:hover,
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
+  background-color: #e92f48;
+  /* corde fundo da option selecionada e ao passar o mouse */
+  color: rgb(255, 255, 255);
+  /* cor da option ao passar o mouse e do item selecionado*/
+}
+
+.nice-select .option.selected {
+  font-weight: 500;
+  background-color: #f7f7f7;
+  color: #000;
+}
+
+.nice-select .option.disabled {
+  background-color: #dbd8d8;
+  color: #000;
+  cursor: default;
+}
+
+.no-csspointerevents .nice-select .list {
+  display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+  display: block;
+}
+
+@media only screen and (max-width: 960px) {
+  .inputs {
+    display: block;
+    padding: 5px;
+  }
+
+  .nice-select.wide {
+    margin: 5px 0;
+  }
+
+  .inputs .input-text {
+    width: 90%;
+  }
+
+  .inputs div {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .inputs div div {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  section {
+    display: block;
+  }
+
+  .container_ {
+    width: 100%;
+  }
+}

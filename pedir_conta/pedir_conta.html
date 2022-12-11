@@ -45,7 +45,13 @@
       <form action="#">
         <h3>Forma de pagamento:</h3>
         <div>
-          <input type="radio" name="payment" id="cash" class="input-hidden" />
+          <input
+            type="radio"
+            name="payment"
+            id="cash"
+            class="input-hidden"
+            required
+          />
           <label for="cash">
             <img src="_img/cash.png" alt="I'm sad" />
             <h4>Dinheiro</h4>
@@ -56,22 +62,28 @@
             name="payment"
             id="credt_card"
             class="input-hidden"
-            checked
+            required
           />
           <label for="credt_card">
             <img src="_img/credt_card.png"I'm sad" />
             <h4>Cartão</h4>
           </label>
 
-          <input type="radio" name="payment" id="pix" class="input-hidden" />
+          <input
+            type="radio"
+            name="payment"
+            id="pix"
+            class="input-hidden"
+            required
+          />
           <label for="pix">
             <img src="_img/pix.png" alt="I'm happy" />
             <h4>PIX</h4>
           </label>
         </div>
         <h3>Valor recebido:</h3>
-        <input type="number" name="" id="" />
-        <input type="submit" value="Enviar" />
+        <input type="number" name="" id="" required />
+        <input type="submit" value="ENVIAR" />
       </form>
     </section>
 
