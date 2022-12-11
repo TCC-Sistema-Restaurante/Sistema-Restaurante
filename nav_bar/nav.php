@@ -26,4 +26,4 @@
 </div>
 
 
-<script src="_JS/script.js"></script>
+<script src="../nav_bar/_JS/script.js"></script>
