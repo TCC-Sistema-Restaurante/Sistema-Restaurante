@@ -1,9 +1,15 @@
 <!-- Styles -->
-
+<style>
+#coluna {
+  margin-top: 20px;
+  width: 80%;
+  height: 400px;
+}
+</style>
 
 <!-- Resources -->
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
 <!-- Chart code -->
@@ -14,60 +20,136 @@ am5.ready(function() {
 // https://www.amcharts.com/docs/v5/getting-started/#Root_element
 var root = am5.Root.new("pizza");
 
+
 // Set themes
 // https://www.amcharts.com/docs/v5/concepts/themes/
 root.setThemes([
   am5themes_Animated.new(root)
 ]);
 
+
 // Create chart
-// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
-var chart = root.container.children.push(
-  am5percent.PieChart.new(root, {
-    endAngle: 270
-  })
-);
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+const chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: true,
+  panY: true,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  pinchZoomX:true
+}));
 
-// Create series
-// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
-var series = chart.series.push(
-  am5percent.PieSeries.new(root, {
-    valueField: "value",
-    categoryField: "category",
-    endAngle: 270
-  })
-);
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+const cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+cursor.lineY.set("visible", false);
 
-series.states.create("hidden", {
-  endAngle: -90
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+const xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+xRenderer.labels.template.setAll({
+  rotation: -90,
+  centerY: am5.p50,
+  centerX: am5.p100,
+  paddingRight: 15
 });
 
-// Set data
-// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
-series.data.setAll([{
-  category: "Lithuania",
-  value: 501.9
-}, {
-  category: "Czechia",
-  value: 301.9
-}, {
-  category: "Ireland",
-  value: 201.1
-}, {
-  category: "Germany",
-  value: 165.8
-}, {
-  category: "Australia",
-  value: 139.9
-}, {
-  category: "Austria",
-  value: 128.3
-}, {
-  category: "UK",
-  value: 99
-}]);
+const xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+  maxDeviation: 0.3,
+  categoryField: "country",
+  renderer: xRenderer,
+  tooltip: am5.Tooltip.new(root, {})
+}));
 
-series.appear(1000, 100);
+const yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  maxDeviation: 0.3,
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+const series = chart.series.push(am5xy.ColumnSeries.new(root, {
+  name: "Series 1",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value",
+  sequencedInterpolation: true,
+  categoryXField: "country",
+  tooltip: am5.Tooltip.new(root, {
+    labelText:"{valueY}"
+  })
+}));
+
+series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+series.columns.template.adapters.add("fill", function(fill, target) {
+  return chart.get("colors").getIndex(series.columns.indexOf(target));
+});
+
+series.columns.template.adapters.add("stroke", function(stroke, target) {
+  return chart.get("colors").getIndex(series.columns.indexOf(target));
+});
+
+
+
+// Set data
+const data = [{
+  country: "USA",
+  value: 2025
+}, {
+  country: "China",
+  value: 1882
+}, {
+  country: "Japan",
+  value: 1809
+}, {
+  country: "Germany",
+  value: 1322
+}, {
+  country: "UK",
+  value: 1122
+}, {
+  country: "France",
+  value: 1114
+}, {
+  country: "India",
+  value: 984
+}, {
+  country: "Spain",
+  value: 711
+}, {
+  country: "Netherlands",
+  value: 665
+}, {
+  country: "South Korea",
+  value: 443
+}, {
+  country: "Canada",
+  value: 441
+}];
+
+xAxis.data.setAll(data);
+series.data.setAll(data);
+
+
+chart.get("colors").set("colors", [
+  am5.color("#5d121c"),
+  am5.color("#741724"),
+  am5.color("#8b1c2b"),
+  am5.color("#a32032"),
+  am5.color("#ba2539"),
+  am5.color("#d12a40"),
+  am5.color("#d12a40"),
+  am5.color("#eb435a"),
+  am5.color("#d53f53"),
+  am5.color("#da5466")
+]);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series.appear(1000);
+chart.appear(1000, 100);
 
 }); // end am5.ready()
 </script>

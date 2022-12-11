@@ -1,6 +1,7 @@
 <!-- Styles -->
 <style>
 #barra {
+  
   width: 80%;
   height: 420px;
 }
@@ -176,6 +177,20 @@ var data = [{
 
 yAxis.data.setAll(data);
 series.data.setAll(data);
+
+chart.get("colors").set("colors", [
+  am5.color("#5d121c"),
+  am5.color("#741724"),
+  am5.color("#8b1c2b"),
+  am5.color("#a32032"),
+  am5.color("#ba2539"),
+  am5.color("#d12a40"),
+  am5.color("#d12a40"),
+  am5.color("#eb435a"),
+  am5.color("#d53f53"),
+  am5.color("#da5466")
+]);
+
 
 
 // Make stuff animate on load
