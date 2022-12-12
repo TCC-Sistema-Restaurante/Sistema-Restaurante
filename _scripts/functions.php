@@ -122,6 +122,27 @@ function cadastrarUsuario($dados)
     }
 }
 
+function mesasPedidosPendentes(){
+    include "config.php";
+    $sql = "SELECT DISTINCT id_mesa FROM pedido WHERE situacao = 'aguardando preparo'";
+    $query = $mysqli->query($sql);
+    return $query;
+}
+
+function listarPedidosMesa($id_mesa){
+    include "config.php";
+    $sql = "SELECT * FROM pedido WHERE situacao = 'aguardando preparo' AND id_mesa = '$id_mesa'";
+    $query = $mysqli->query($sql);
+    return $query;
+}
+
+function retornarProduto($id_produto){
+    include "config.php";
+    $sql = "SELECT nome_produto FROM produto WHERE id = '$id_produto'";
+    $query = $mysqli->query($sql);
+    $dados = $query->fetch_array();
+    return $dados['nome_produto'];
+}
 
 ?>
 
