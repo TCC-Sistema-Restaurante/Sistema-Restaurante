@@ -33,7 +33,7 @@ include "../_scripts/functions.php";
                     <form action="" method="POST">
                         <div class="form-group mb-3">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Enter fullname" autofocus>
+                                <input required type="text" class="form-control" name="usuario" id="usuario" placeholder="Enter fullname" autofocus>
                                 <label for="usuario">Usuário</label>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ include "../_scripts/functions.php";
                                         <button onclick="mostrarSenha(event)"><i id="icon" class="fa-regular fa-eye"></i></button>
                                     </label>
                                 </div>
-                                <input type="password" name="senha"  class="form-control" id="password" placeholder="Enter password">
+                                <input required type="password" name="senha"  class="form-control" id="password" placeholder="Enter password">
                                 <label for="password">Senha</label>
                                 
                                 </div>
@@ -73,7 +73,6 @@ include "../_scripts/functions.php";
 <?php
     // Executa o código quando os campos de úsuario e senha não estiverem vazios
     if (isset($_POST['usuario']) || isset($_POST['senha'])) {
-        include_once '../_scripts/functions.php';
         login($_POST);
     }
 
