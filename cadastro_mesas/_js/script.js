@@ -2,16 +2,34 @@ function checkboxStatus(element) {
   checkbox = element
   texto = checkbox.nextElementSibling.firstChild
   
-  if(checkbox.value == "Inativo"){
-    texto.textContent = "ATIVO"
-    checkbox.value = "Ativo"
-    texto.style = " margin-left: 8px;"
+  if(checkbox.value == "ocupada"){
+    texto.textContent = "vazia"
+    checkbox.value = "vazia"
+    texto.style = " margin-left: 50px;"
 
   }
   else{
-    checkbox.value = "Inativo"
-    texto.textContent = "INATIVO"
-    texto.style = "margin-left: 32px; "
+    checkbox.value = "ocupada"
+    texto.textContent = "ocupada"
+    texto.style = "margin-left: 8px; "
+
+  }
+}
+
+function checkboxDisponibilidade(element) {
+  checkbox = element
+  texto = checkbox.nextElementSibling.firstChild
+  
+  if(checkbox.value == "inativa"){
+    texto.textContent = "ativa"
+    checkbox.value = "ativa"
+    texto.style = " margin-left: 50px;"
+
+  }
+  else{
+    checkbox.value = "inativa"
+    texto.textContent = "inativa"
+    texto.style = "margin-left: 8px; "
 
   }
 }
@@ -27,10 +45,11 @@ function myFunction() {
 function editar(elemento){
   divPai = elemento.parentNode.parentNode
   checkbox = divPai.children[0]
-  mesa = divPai.children[1]
-  cadeira = divPai.children[2]
-  editarBtn = divPai.children[3]
-
+  checkbox_disp = divPai.children[1]
+  mesa = divPai.children[2]
+  cadeira = divPai.children[3]
+  editarBtn = divPai.children[4]
+  
   // divPai.removeChild(mesa)
 
   numMesa = mesa.textContent
@@ -46,9 +65,10 @@ function editar(elemento){
 function atualizarTable(elemento){
   divPai = elemento.parentNode.parentNode
   checkbox = divPai.children[0].children[0].children[0]
-  mesa = divPai.children[1]
-  cadeira = divPai.children[2]
-  editarBtn = divPai.children[3]
+  checkbox_disp = divPai.children[1]
+  mesa = divPai.children[2]
+  cadeira = divPai.children[3]
+  editarBtn = divPai.children[4]
 
   numMesa = document.querySelector("#inputMesa").value;
   numMesatamanho = numMesa.lenght
