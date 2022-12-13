@@ -42,16 +42,22 @@
 <?php } ?>
 
     
-      <section class="topoSection mb-4  ">
-        <div class="row d-flex align-items-center">
-          <div class="col d-flex justify-content-start">
-              <h1>Mesas</h1>
-          </div>
 
-          <div class="col d-flex justify-content-end">
-            <div class=""><button class="addBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class='bx bx-plus'></i>Add mesa</button></div>
+  <section class="topoSection mb-4  ">
+      <h1>Mesas</h1>
+      <div class="row">
+
+        <div class="col-md-10">
+          <div class="containerInput mt-4">
+            <div class="mb-3">
+              <span class="inlineIcon">
+                <i class='bx bx-search'></i>            
+              </span>
+              <input type="text" class="input-text" placeholder="Pesquisar Mesa"/>
+            </div>
           </div>
         </div>
+<<<<<<< Updated upstream
         <form action="listagem-mesas.php" method="POST">
           <input type="hidden" name="acao" value="pesquisar">
           <div class="containerInput mt-4">
@@ -72,6 +78,17 @@
           </div>
         </form>
       </section>
+=======
+
+        <div class="col-md-2">
+          <div>
+            <button class="NovoBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class='bx bx-plus'></i>Add</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+>>>>>>> Stashed changes
 
       <!-- Modal -->
       <form action="gravar-mesa.php" method="post">
