@@ -17,8 +17,7 @@
 }
 
 .cardapio {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 100px;
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -58,7 +57,7 @@
   cursor: pointer;
 }
 
-.cardapio > .bar > .add-bar {
+.cardapio > .bar > button {
   background-color: #34a323;
   color: #fff;
   border-radius: 15px;
@@ -74,13 +73,33 @@
   cursor: pointer;
   transition: 0.4s;
 }
-.cardapio > .bar > .add-bar:hover {
+.cardapio > .bar > button:hover {
   background-color: #74b969;
 }
+.cardapio > .bar > button > h3 {
+  margin: 0;
+  font-weight: 700;
+}
 
-@media screen and (max-width: 500px) {
-  .cardapio > .bar > .add-bar > h3 {
-    display: none;
+@media screen and (max-width: 700px) {
+  .cardapio {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cardapio > .bar {
+    display: block;
+  }
+
+  .cardapio > .bar > .search-bar {
+    width: 100%;
+    margin: 10px;
+  }
+
+  .cardapio > .bar > button {
+    width: 100%;
+    margin: 10px;
   }
 }
 .cardapio > .container {
@@ -91,14 +110,14 @@
 }
 
 .cardapio > .container > .item {
-  flex: 1 1 200px;
+  flex: 1 1 205px;
   color: #fff;
   border-radius: 10px;
   background: #e92f48;
   min-width: 200px;
   min-height: 260px;
   max-width: 260px;
-  max-height: 300px;
+  max-height: 350px;
   margin: 10px;
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
 }
@@ -125,9 +144,14 @@
   opacity: 100%;
 }
 
-.cardapio > .container > .item > .image > .edit-delet > span {
+.cardapio > .container > .item > .image > .edit-delet > button {
+  background: none;
+}
+
+.cardapio > .container > .item > .image > .edit-delet > button > span {
   padding: 5px;
   cursor: pointer;
+  color: #fff;
 }
 
 .cardapio > .container > .item > .image > img {
@@ -148,10 +172,11 @@
   margin: 5px;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .cardapio > .container > .item > h2 {
   padding: 10px;
   text-align: right;
+  font-weight: 700;
 }

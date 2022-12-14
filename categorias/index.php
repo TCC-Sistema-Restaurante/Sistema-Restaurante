@@ -16,7 +16,7 @@
     <?php include "../nav_bar/nav.php";?>
 
     <section class="topoSection mb-4  ">
-      <h1>Categorias</h1>
+      <h1 onclick="deletar_objt()">Categorias</h1>
       <div class="row">
 
         <div class="col-md-10">
@@ -54,7 +54,7 @@
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar categoria</h1>
             <div>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" id="form-btn-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
           </div>
           <form method="POST" id="form" enctype="multipart/form-data" >
@@ -67,11 +67,11 @@
                 <label class="picture" for="picture-input">
                     <span class="picture-image"></span>
                 </label>
-                <input type="file" name="picture-input" id="picture-input" />
+                <input type="file" accept="image/png,image/jpeg" name="picture-input" id="picture-input" />
                 
             </div>
             <div class="modal-footer">
-              <button type="submit" id="btnCadastro" class="btn btn-primary">Cadastrar</button>
+              <button type="submit" id="btnCadastro" class="btn btn-primary" >Cadastrar</button>
             </div>
           </form>
         </div>
@@ -85,7 +85,7 @@
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar categoria</h1>
             <div>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="edit-btn-close"></button>
             </div>
           </div>
           <div class="modal-body">
@@ -93,20 +93,45 @@
                 <input type="nome" class="form form-control" name="nomeEditar" id="nomeEditar" placeholder="Nome">
                 <label class="formLabel" for="nome">Nome</label>
             </div> 
+            <input type="text" hidden class="form form-control" name="idEditar" id="inputId" placeholder="Id">
 
             <label class="picture" for="picture-input-edit">
                 <span class="picture-image-edit"></span>
             </label>
-            <input required type="file" name="picture-input-edit" id="picture-input-edit" />
+            <input required type="file" accept="image/png,image/jpeg" name="picture-input-edit" id="picture-input-edit" />
               
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Cadastrar</button>
+            <button type="button" class="btn btn-primary" id="btn-editar">Salvar</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Modal deletar -->
+<div class="modal-delet">
+  <div class="modal t-modal fade" id="modalDeletar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <div>
+            <button type="button" class="btn-close" id="delet-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-delet">
+            <span class="material-symbols-outlined"> warning </span>
+            <h3>Tem certeza que dezeja excluir esse item?</h3>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button id="deletar-item" class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
@@ -116,11 +141,13 @@
         const button = event.relatedTarget
 
         const dados_Nome = button.getAttribute('data-bs-whateverNome')
+        const dados_id = button.getAttribute('data-bs-whateverId')
         const dados_Img = button.getAttribute('data-bs-whateverImg')
 
         const inputNome = modal.querySelector('#nomeEditar')
+        const inputId = modal.querySelector('#inputId')
         inputNome.value = dados_Nome
-        
+        inputId.value = dados_id
         var pictureImageEdit = document.querySelector(".picture-image-edit");
         const img = document.createElement("img");
         img.src = dados_Img;
@@ -128,6 +155,57 @@
         pictureImageEdit.innerHTML = "";
         pictureImageEdit.appendChild(img);      
       })
+
+
+      $('#btn-editar').click(function (e) { 
+        //e.preventDefault();
+        var nomeEditar = $("#nomeEditar").val();
+        var idEditar = $("#inputId").val();
+        var imagem =  document.getElementById('picture-input-edit').files[0];
+        var imgSrc = document.querySelector(".picture-image-edit").children[0].getAttribute("src"); 
+        console.log(imgSrc)      
+        var form_data = new FormData();
+        form_data.append("file", imagem);
+        form_data.append("nomeEditar", nomeEditar);
+        form_data.append("idEditar", idEditar);
+        form_data.append("imgSrc", imgSrc);
+
+
+        $.ajax({
+          url: 'editar.php',
+          method: "POST",
+          dataType: "json",
+          processData: false,
+          contentType: false,  
+          data: form_data,
+
+        }).done(function (resultado) {
+          if(resultado == "salvo!"){
+          swal.fire({
+              icon: "success",
+              text: "Editado com sucesso!",
+              type: "success"
+            }).then(okay => {
+              if (okay) {
+                $('#edit-btn-close').click()
+                MostrarCategorias()
+              }
+            });
+          }else{
+            swal.fire({
+              icon: "error",
+              text: "Ops! Houve um erro.",
+              type: "success"
+            }).then(okay => {
+              if (okay) {
+                $('#edit-btn-close').click()
+                MostrarCategorias()
+              }
+            });
+          }
+        });
+      });
+
 
     </script>
       
@@ -162,32 +240,105 @@
         form_data.append("file", imagem);
         form_data.append("nome", nome);
 
-        $.ajax({
+        $.ajax({  
           url: 'enviar.php',
-          type: "post",
+          method: "POST",
           dataType: "json",
           processData: false,
           contentType: false,  
           data: form_data,
-
-          success: function(data,status){
-            if(data.status == 'success'){
-              alert("Thank you for subscribing!");
-            }
-             else if(data.status == 'error'){
-                alert("Error on query!");
-            }
-            console.log(status)
-            MostrarCategorias();
+        }).done(function (resultado) {
+          if(resultado == "salvo!"){
+          swal.fire({
+              icon: "success",
+              text: "Cadastrado com sucesso!",
+              type: "success"
+            }).then(okay => {
+              if (okay) {
+                $('#form-btn-close').click()
+                MostrarCategorias()
+              }
+            });
+          }else if(resultado == "categoria existente"){
+            swal.fire({
+              icon: "error",
+              text: "Ops! Categoria já existe.",
+              type: "success"
+            }).then(okay => {
+              if (okay) {
+                $('#form-btn-close').click()
+                MostrarCategorias()
+              }
+            });
+          }else{
+            swal.fire({
+              icon: "error",
+              text: "Ops! Houve um erro.",
+              type: "success"
+            }).then(okay => {
+              if (okay) {
+                $('#form-btn-close').click()
+                MostrarCategorias()
+              }
+            });
           }
-          
         });
-
-        
-     })
+        $('#nome').val('');
+        var inputFile = document.querySelector("#picture-input");
+        var pictureImage = document.querySelector(".picture-image");
+        var pictureImageTxt = "Escolha uma imagem";
+        pictureImage.innerHTML = pictureImageTxt;        
+        document.getElementsByClassName('picture-img').remove()
+      });
 
     
    </script>
+
+  <script>
+    // window.onload=function(){
+    //   var id = $("#inputIdApagar").val();
+    //   var spanbtn = document.getElementsByClassName('btn-deletar');
+
+    //   spanbtn.onclick = function(){
+    //     Swal.fire({
+    //     title: 'Deseja deletar esse item?',
+    //     text: "A categoria será removida permanentemente.",
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     confirmButtonColor: '#3085d6',
+    //     cancelButtonColor: '#d33',
+    //     confirmButtonText: 'Sim, Deletar!'
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+    //       Swal.fire(
+    //         'Deletado!',
+    //         'A categoria foi deletada',
+    //         'success'
+    //       )
+  
+    //     }
+
+    //   })
+
+    //   }
+    // }
+
+    $('#deletar-item').click(function (e) { 
+      const id_item = $('#inputIdApagar').val();
+
+      $.ajax({
+        type: "POST",
+        url: "deletar.php",
+        data:{id_item:id_item},
+        dataType: "json",
+      });
+
+      $('#delet-btn-close').click()
+      MostrarCategorias()
+    });
+    
+  </script>
+
     <script src="_js/script.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -197,5 +348,4 @@
 
   </body>
 </html>
-
 

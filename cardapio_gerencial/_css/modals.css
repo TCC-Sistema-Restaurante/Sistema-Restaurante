@@ -1,76 +1,30 @@
 /* - - - - - - MODALS - - - - - - */
 
 /* Delet */
-.modals {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #35353585;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  animation: float ease-in-out normal;
-  animation-duration: 0.5s;
-  transition: 0.3s;
-}
-
-.modals > .modal-delet {
-  background-color: #ffffff;
-  padding: 30px;
+.modal-delet {
   text-align: center;
-  width: 90%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  flex-direction: column;
-  display: none;
 }
-
-.modals > .modal-delet > span {
-  color: #c8161d;
+.modal-delet > span {
+  color: #dc3545;
   font-size: 80px;
-  margin: 10px;
-}
-
-#deletar {
-  background-color: #c8161d;
-  color: #fff;
+  margin: 10px auto;
 }
 
 /* Edit */
-
-.modals > .modal-edit {
-  display: none;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 20px;
-  width: 90%;
-  max-width: 900px;
-}
-
-.modal-edit > form {
-  width: 100%;
-}
-
-.modal-edit > form > input {
+.form-edit > input {
   width: 98%;
   height: 100px;
 }
 
-.modal-edit > form > div {
+.form-edit > div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.modal-edit > form > input,
-.modal-edit > form > div > input,
-.modal-edit > form > div > select {
+.form-edit > input,
+.form-edit > div > input,
+.form-edit > div > select {
   padding: 10px;
   margin: 5px;
   border-bottom: solid 3px #e92f48;
@@ -79,7 +33,7 @@
   outline: 0;
 }
 
-.modal-edit > form > div > textarea {
+.form-edit > div > textarea {
   padding: 10px;
   margin: 5px;
   outline: 0;
@@ -136,44 +90,19 @@
 }
 
 @media screen and (max-width: 500px) {
-  .modal-edit > form > div {
+  .form-edit > div {
     flex-direction: column;
   }
-
-  .modal-edit > form > input,
-  .modal-edit > form > div > input,
-  .modal-edit > form > div > select,
-  .modal-edit > form > div > textarea {
+  .form-edit > input,
+  .form-edit > div > input,
+  .form-edit > div > select,
+  .form-edit > div > textarea {
     min-width: 100%;
   }
 }
 
 /* Add */
-
-.modal-add {
-  display: flex;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 20px;
-  width: 90%;
-  max-width: 900px;
-}
-
-.modal-add > form {
-  width: 100%;
-}
-
-.modal-add > form > button {
-  color: #fff;
-  background: #1fae35;
-  margin: 0;
-}
-
-.modal-add > form > h2 {
-  color: #e92f48;
-}
-
-.modal-add > form > table {
+.table-products {
   background: #ececec;
   margin: 20px 0;
   width: 100%;
@@ -189,6 +118,7 @@
   text-align: left;
   padding: 4px 25px;
 }
+
 #colum-1 {
   border-radius: 10px 0 0 0;
   border-right: #ffffff solid 1px;
