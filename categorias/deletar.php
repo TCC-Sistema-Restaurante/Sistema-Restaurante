@@ -8,7 +8,7 @@ include "../_scripts/config_pdo.php";
 
 try {
        
-    $idApagar = $_POST['id_item'];
+    $idApagar = $_POST['id_delet'];
 
     
     $query = $pdo->prepare("DELETE FROM categoria WHERE categoria.id = '$idApagar'");
