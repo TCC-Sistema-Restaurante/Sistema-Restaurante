@@ -10,10 +10,11 @@ try {
        
     $nomeEditar = $_POST['nomeEditar'];
     $id = $_POST['idEditar'];
+    $imgSrc = $_POST['imgSrc'];
     $dir = "../_imgBanco";
+
     $_FILES['file']['name'] = tratar_arquivo_upload(utf8_decode($_FILES['file']['name']), utf8_decode($nomeEditar));
     $imgNome = $_FILES['file']['name'];
-    $imgSrc = $_POST['imgSrc'];
     $imgtest1 = str_replace('../_imgBanco/', '', $imgSrc );
     $imgteste = explode(".", $imgtest1);
     $imgteste1 = $imgteste[0];
