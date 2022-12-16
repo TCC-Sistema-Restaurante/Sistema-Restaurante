@@ -66,7 +66,7 @@
 
         <div class="d-grid gap-2">
             <button class="btnCadastro confirmar" type="submit">Cadastrar</button>
-            <button class="btnCadastro cancelar" type="button" id="cancelar">Cancelar</button>
+            <a class="btnCadastro cancelar" type="button" id="cancelar" href="../usuarios/index.php">Cancelar</a>
         </div>
     </form>
 

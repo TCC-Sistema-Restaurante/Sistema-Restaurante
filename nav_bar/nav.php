@@ -7,18 +7,18 @@
 
 
 <div class="topnav" id="myTopnav">
-  <a href="#" class="active">Voltar</a>
+  <a href="javascript:history.back()" class="active">Voltar</a>
 
-  <a href="#">Pedidos</a>
+  <a href="../lista_pedidos/lista_pedidos.php">Pedidos</a>
   <a href="#">Cardápio</a>
   <div class="dropdownMenu">
     <button class="dropbtn">
       Cadastros<span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="../cadastro_mesas/listagem-mesas.php">Mesa</a>
+      <a href="../cadastro_produto/cadastro_produto.php">Produto</a>
+      <a href="../cadastro_usuario/cadastro_usuario.php">Usuário</a>
     </div>
   </div>
   <a href="#">Dashboard</a>
