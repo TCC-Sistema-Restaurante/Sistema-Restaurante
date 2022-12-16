@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+#topSVG {
+    position: fixed;
+    top: 0; 
+    z-index: 5; 
+    width: 100%;
+    max-height: 130px;
+    min-height: 120px;
+  }
+  
+#topText {
+  white-space: nowrap;
+  text-align: center;
+  position: fixed;
+  z-index: 5; 
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #e92f48;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-shadow: 7px 7px 15px rgba(0, 0, 0, 0.473);
+}
+
+section {
+    max-width: 1100px;
+    display: flex;
+    margin: 0 auto;
+  }
+  
+.container_ {
+  margin-top: 100px;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    background: linear-gradient(
+      90deg,
+      rgba(233, 47, 72, 1) 30%,
+      rgba(245, 245, 245, 1) 30%
+    );
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.25));
+  
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    width: 95%;
+    height: auto;
+    margin: 10px 6px;
+    padding: 6px;
+    padding-right: 10px;
+  }
+  
+  .box .row {
+    --bs-gutter-x: 0;
+  }
+  
+  .parteEsquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-right: 15px;
+  }
+  
+  .parteEsquerda p {
+    font-weight: 500;
+    font-size: 150%;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .parteEsquerda i {
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 200%;
+  }
+  
+  .parteDireita {
+    margin-top: 10px;
+    padding: 0;
+  }
+  
+  .parteDireita h4 {
+    font-weight: 700;
+    color: #e92f48;
+    margin: 0;
+    margin-bottom: 5px;
+    
+  }
+  
+  .parteDireita h6 {
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .parteDireita p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+
+  .parteDireita button {
+    color: white;
+    padding: 4px 30px;
+    background: #e92f48;;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    
+  }
+  
+  .parteDireita button:hover {
+    transition: 0.3s;
+    background: #e92f48;;
+  }
+
+  
+@media only screen and (max-width: 550px) {
+  section {
+    display: block;
+  }
+
+  .container_ {
+    width: 100%;
+  }
+}
+
+
+ /* Menu lateral */
+
+ .lateral-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0 10px 10px 0;
+  width: 200px;
+  padding-top: 30px;
+  height: 100vh;
+  top: 0;
+  z-index: 9;
+
+  left: -200px;
+  transition: left 0.5s ease;
+}
+
+.lateral-menu.click {
+  left: 0;
+  filter: drop-shadow(5px 5px 10px #00000050);
+}
+
+.button-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  cursor: pointer;
+  transition: left 0.5s ease;
+}
+
+.button-menu.click {
+  left: 150px;
+}
+
+.button-menu span {
+  font-weight: 500;
+  font-size: 30px;
+  color: #fff;
+}
+
+.button-menu.click span {
+  color: #e92f48;
+}
+
+.lateral-menu div a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  color: #667c8a;
+}
+
+.lateral-menu div a:hover {
+  color: #8a6666;
+}
+
+.lateral-menu .itens {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.lateral-menu .itens:nth-child(3) {
+  padding-bottom: 0;
+}
+
+.lateral-menu .categorias {
+  display: flex;
+  flex-direction: column;
+}
+
+.lateral-menu .categorias a {
+  margin: 5px 10px 5px 75px;
+  font-size: 16px;
+}
+
+.lateral-menu .itens #icon-mesa {
+  width: 40px;
+  margin: 12px;
+}
+.lateral-menu .itens #icon-carrinho {
+  width: 30px;
+  margin: 15px;
+}
+.lateral-menu .itens #icon-categorias {
+  width: 25px;
+  margin: 15px;
+}

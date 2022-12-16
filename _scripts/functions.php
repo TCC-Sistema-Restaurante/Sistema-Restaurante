@@ -226,6 +226,20 @@ function retornarProduto($id_produto){
     return $dados['nome_produto'];
 }
 
+function retornarPrecoPedidoaCancelar($id_mesa){
+    include "config.php";
+    $sql = "SELECT sum(valor_unitario) as valor_total FROM `produto`
+    INNER JOIN pedido on produto.id = pedido.id_produtos 
+    WHERE situacao = 'aguardando preparo' AND id_mesa = '$id_mesa'";
+    $dados = $query->fetch_array();
+    return $dados['valor_total'];
+
+}
+
+function cancelarPedido(){
+
+}
+
 ?>
 
 
