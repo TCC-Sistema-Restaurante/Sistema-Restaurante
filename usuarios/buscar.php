@@ -63,11 +63,20 @@ if ($rowCount > 0) {
                 '.$row["senha"].'
             </td>
             <td >
-                <button type="button" class="tableBtn tableBtnEditar">
-                    <i class="bx bx-edit-alt"></i> </button>
-                </td>
+                <button type="button" class="tableBtn tableBtnEditar" data-bs-toggle="modal" data-bs-target="#modalEditar"
+                data-bs-whateverId="' .$row["id"]. '"
+                data-bs-whateverNome="' .$row["nome"]. '"
+                data-bs-whateverUsuario="' .$row["usuario"]. '"
+                data-bs-whateverSenha="' .$row["senha"]. '"
+                data-bs-whateverCpf="' .$row["cpf"]. '"
+                data-bs-whateverFuncao="' .$row["cargo"]. '"
+                
+                >
+                    <i class="bx bx-edit-alt"></i>
+                </button>
+            </td>
             <td >
-                <button type="button" class="tableBtn tableBtnEditar">
+                <button type="button" class="tableBtn tableBtnEditar" data-bs-toggle="modal" data-bs-target="#modalDeletar" data-bs-whateverIdDelet="' .$row["id"]. '" >
                     <i class="bx bx-trash"></i>                  
                 </button>
             </td>
