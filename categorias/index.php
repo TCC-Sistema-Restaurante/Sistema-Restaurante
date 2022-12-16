@@ -122,7 +122,7 @@
         <div class="modal-body">
           <div class="modal-delet">
             <span class="material-symbols-outlined"> warning </span>
-            <h3>Tem certeza que dezeja excluir esse item?</h3>
+            <h3>Tem certeza que deseja excluir esse item?</h3>
             <input type="text" hidden class="form form-control" name="idEditar" id="inputIdEdit" placeholder="Id">
           </div>
         </div>
