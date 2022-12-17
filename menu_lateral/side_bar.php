@@ -12,7 +12,7 @@
   <div class="lateral-menu">
     <div class="itens" id="mesas">
       <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
-      <a href="#">Mesas</a>
+      <a href="../lista-mesas/mesas_garcom.php">Mesas</a>
     </div>
     <div class="itens" id="pedidos-pendentes">
       <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />

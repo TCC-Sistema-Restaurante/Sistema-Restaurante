@@ -50,12 +50,12 @@ if ($rowCount > 0) {
                   </h3>
                   <div class="row justify-content-center">
                     <div class="text-center mt-4">
-                      <button type="button" class="botao-conta px-5" id="btn-pedir-conta">
+                    <a onClick="" href="../pedir_conta/pedir_conta.php?'.$row["numero"].'?'.$row["soma"].'" class="pedir-conta">
                         Pedir conta
-                      </button>
-                      <button type="button" class="botao-pedido px-5">
+                      </a>
+                      <a href="../cardapio_garcom/cardapio.html" class="iniciar-pedido" id="'.$row["numero"].'">
                         Novo pedido
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -16,7 +16,7 @@
       Cadastros<span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
     <div class="dropdown-content">
-      <a href="../cadastro_mesas/listagem-mesas.php">Mesa</a>
+      <a href="../cadastro_mesas/index.php">Mesa</a>
       <a href="../cadastro_produto/cadastro_produto.php">Produto</a>
       <a href="../cadastro_usuario/cadastro_usuario.php">Usuário</a>
     </div>
