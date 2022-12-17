@@ -25,35 +25,7 @@
     </nav>
     <section>
     <div class="container_">
-      <?php
-        $lista_mesas = mesasPedidosPendentes();
-        while ($ids_mesa = $lista_mesas->fetch_array()){
-        ?>
-        <div class="box mb-3">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <p>MESA</p>
-              <p><?=$ids_mesa['id_mesa']?></p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <h4 class="mt-3 mb-3">R$<?retornarPrecoPedidoaCancelar($ids_mesa['id_mesa'])?></h4>
-              
-
-              <h6>AGUARDANDO PREPARO</h6>
-              <?php 
-              $pedidos_pendentes = listarPedidosMesa($ids_mesa['id_mesa']);
-              while ($pedido = $pedidos_pendentes->fetch_array()){ ?>
-              
-              <h7><?= retornarProduto($pedido['id_produtos'])?></h7>
-              
-              <?php } ?>
-              <button class="mt-3" data-bs-target="#modalDeletar">Cancelar</button>
-                        
-            </div>
-          </div>
-        </div>
-        <?php } ?>
+     
       </div>
     </section>
 
@@ -102,7 +74,7 @@
         <div class="modal-body">
           <div class="modal-delet">
             <span class="material-symbols-outlined"> warning </span>
-            <h3>Tem certeza que deseja excluir esse item?</h3>
+            <h3>Tem certeza que deseja cancelar esse pedido?</h3>
             <input type="text" hidden class="form form-control" name="idEditar" id="inputIdEdit" placeholder="Id">
           </div>
         </div>
@@ -123,7 +95,85 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="../menu_lateral/_js/Script.js"></script>
-    <script src="_js/ajax_functions.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        MostrarPedidos();
+    });
+
+    function MostrarPedidos() {
+    var displayData = "true";
+    $.ajax({
+        url: "MostrarPedidos.php",
+        type: "post",
+        data: {
+            mostrar: displayData,
+        },
+
+        success: function (data, status) {
+            // console.log(status)
+            $(".container_").html(data);
+        },
+    });
+  }
+
+
+  const modal_delet = document.getElementById("modalDeletar");
+
+  modal_delet.addEventListener("show.bs.modal", (event) => {
+      const button = event.relatedTarget;
+      const id_mesa = button.getAttribute("data-bs-whateverIdmesa");
+      const inputId = $("#inputIdEdit");
+
+      inputId.val(id_mesa);
+  });
+
+  $("#deletar-item").click(function (e) {
+      var id_cancelar = $("#inputIdEdit").val();
+
+      $.ajax({
+          type: "POST",
+          url: "cancelar.php",
+          data: { id_cancelar: id_cancelar },
+          dataType: "json",
+      }).done(function (resultado) {
+        if (resultado == "salvo!") {
+            swal
+                .fire({
+                    icon: "success",
+                    text: "Cancelado com sucesso!",
+                    type: "success",
+                })
+                .then((okay) => {
+                    if (okay) {
+                      MostrarPedidos();
+                    }
+                });
+        } else {
+            swal
+                .fire({
+                    icon: "error",
+                    text: "Ops! Houve um erro.",
+                    type: "success",
+                })
+                .then((okay) => {
+                    if (okay) {
+                        MostrarPedidos();
+                    }
+                });
+          }
+      })
+
+      setTimeout(() => {
+          MostrarPedidos();
+      }, 200);
+
+      $("#delet-btn-close").click();
+  });
+
+    </script>
+
+
 
 </body>
 </html>

@@ -231,6 +231,7 @@ function retornarPrecoPedidoaCancelar($id_mesa){
     $sql = "SELECT sum(valor_unitario) as valor_total FROM `produto`
     INNER JOIN pedido on produto.id = pedido.id_produtos 
     WHERE situacao = 'aguardando preparo' AND id_mesa = '$id_mesa'";
+    $query = $mysqli->query($sql);
     $dados = $query->fetch_array();
     return $dados['valor_total'];
 
