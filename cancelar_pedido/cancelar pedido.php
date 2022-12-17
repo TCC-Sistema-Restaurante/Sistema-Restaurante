@@ -48,7 +48,7 @@
               <h7><?= retornarProduto($pedido['id_produtos'])?></h7>
               
               <?php } ?>
-              <button class="mt-3">Cancelar</button>
+              <button class="mt-3" data-bs-target="#modalDeletar">Cancelar</button>
                         
             </div>
           </div>
@@ -87,6 +87,32 @@
         </div>
       </div>
     </div>
+
+       <!-- Modal deletar -->
+<div class="modal-delet">
+  <div class="modal t-modal fade" id="modalDeletar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <div>
+            <button type="button" class="btn-close" id="delet-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-delet">
+            <span class="material-symbols-outlined"> warning </span>
+            <h3>Tem certeza que deseja excluir esse item?</h3>
+            <input type="text" hidden class="form form-control" name="idEditar" id="inputIdEdit" placeholder="Id">
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button id="deletar-item" class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -97,6 +123,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="../menu_lateral/_js/Script.js"></script>
+    <script src="_js/ajax_functions.js"></script>
 
 </body>
 </html>
