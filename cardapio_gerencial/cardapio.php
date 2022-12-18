@@ -37,23 +37,33 @@
     <section class="cardapio">
       <h1>Cardápio</h1>
 
-      <div class="bar">
-        <!-- Barra de pesquisa -->
-        <div class="search-bar">
-          <span class="material-symbols-outlined"> search </span>
-          <input type="text" id="txt-search" placeholder="Buscar..." />
+  
+      <div class="row topoSection mb-4 ">
+
+        <div class="col-md-10">
+          <div class="containerInput mt-4">
+            <div class="mb-3">
+              <span class="inlineIcon">
+                <i class='bx bx-search'></i>            
+              </span>
+              <input type="text" id="buscar" class="input-text" placeholder="Pesquisar produto"/>
+            </div>
+          </div>
         </div>
 
-        <!-- Btn Add -->
+        <div class="col-md-2">
+            <!-- Btn Add -->
         <button
           class="NovoBtn"
           data-bs-toggle="modal"
-          data-bs-target="#modal-add"
-        >
-          <h3>Add</h3>
-          <span class="material-symbols-outlined"> add </span>
+          data-bs-target="#modal-add">
+          <i class='bx bx-plus'></i>
+          Add
         </button>
+        </div>
+
       </div>
+
 
       <div class="container">
         <!-- Item -->
