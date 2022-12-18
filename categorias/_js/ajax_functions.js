@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
     MostrarCategorias();
+    setInterval(function(){//Quando o documento estiver pronto, dê um setinvertal em qualquerCoisa()
+        MostrarCategorias();
+      }, 30000)
 });
 
 function MostrarCategorias() {
@@ -116,7 +119,6 @@ $("#btn-editar").click(function (e) {
     var imagem = document.getElementById("picture-input-edit").files[0];
     var imgSrc = document.querySelector(".picture-image-edit").children[0].getAttribute("src");
 
-    console.log(imgSrc);
     var form_data = new FormData();
     form_data.append("file", imagem);
     form_data.append("nomeEditar", nomeEditar);
@@ -140,8 +142,9 @@ $("#btn-editar").click(function (e) {
                 })
                 .then((okay) => {
                     if (okay) {
-                        $("#edit-btn-close").click();
                         MostrarCategorias();
+                        $("#edit-btn-close").click();
+
                     }
                 });
         } else {
@@ -154,11 +157,15 @@ $("#btn-editar").click(function (e) {
                 .then((okay) => {
                     if (okay) {
                         $("#edit-btn-close").click();
-                        MostrarCategorias();
+                        setTimeout(() => {
+                            MostrarCategorias();
+                        }, 200);
                     }
                 });
         }
     });
+
+
 });
 
 // DELETAR CATEGORIA

@@ -93,12 +93,13 @@ function tratar_arquivo_upload($string, $nomeProduto){
     // somente o nome do arquivo
     $nome	= preg_replace('/\.[^.]*$/', '', $nomeProduto);	
     // removendo simbolos, acentos etc
+    $aleatorio = rand(1000, 10000);
     $a = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýýþÿŔŕ?';
     $b = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuuyybyRr-';
     $nome = strtr($nome, utf8_decode($a), $b);
     $nome = str_replace(".","-",$nome);
     $nome = preg_replace( "/[^0-9a-zA-Z\.]+/",'-',$nome);
-    return utf8_decode(strtolower($nome.".".$extensao));
+    return utf8_decode(strtolower($nome."(".$aleatorio.").".$extensao));
 }
 
 function cadastrarProduto($dados, $upload){
