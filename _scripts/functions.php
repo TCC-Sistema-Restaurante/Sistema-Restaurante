@@ -218,23 +218,23 @@ function listarPedidosMesa($id_mesa){
     return $query;
 }
 
-function retornarProduto($id_produto){
-    include "config.php";
-    $sql = "SELECT nome_produto FROM produto WHERE id = '$id_produto'";
-    $query = $mysqli->query($sql);
-    $dados = $query->fetch_array();
-    return $dados['nome_produto'];
-}
+// function retornarProduto($id_mesa){
+//     include "config.php";
+//     $sql = "SELECT nome_produto FROM `produto`
+//     INNER JOIN pedido on produto.id = pedido.id_produtos  WHERE id = '$id_mesa'";
+//     $query = $mysqli->query($sql);
+//     $dados = $query->fetch_array();
+//     return $dados['nome_produto'];
+// }
 
-function retornarPrecoPedidoaCancelar($id_mesa){
+function retornarPedidoaCancelar($id_mesa){
     include "config.php";
-    $sql = "SELECT sum(valor_unitario) as valor_total FROM `produto`
+    $sql = "SELECT valor_unitario , nome_produto FROM `produto`
     INNER JOIN pedido on produto.id = pedido.id_produtos 
-    WHERE situacao = 'aguardando preparo' AND id_mesa = '$id_mesa'";
+    WHERE situacao = 'aguardando preparo' AND id_mesa = $id_mesa";
     $query = $mysqli->query($sql);
-    $dados = $query->fetch_array();
-    return $dados['valor_total'];
-
+    $dados = mysqli_fetch_all($query);
+    return $dados;
 }
 
 function cancelarPedido(){
