@@ -53,84 +53,41 @@
     </section>
     <section>
       <div class="container">
-        <?php
-        $lista_mesas = mesasPedidosPendentes();
-        while ($ids_mesa = $lista_mesas->fetch_array()){
-        ?>
-
-        <div class="box">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <p>MESA</p>
-              <p><?=$ids_mesa['id_mesa']?></p>
-
-              <i class="fa-regular fa-clock"></i>
-              <p>16:42</p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <h4 class="">Detalhes do Pedido</h4>
-              <?php 
-              $pedidos_pendentes = listarPedidosMesa($ids_mesa['id_mesa']);
-              while ($pedido = $pedidos_pendentes->fetch_array()){ ?>
-              
-              <p><?= retornarProduto($pedido['id_produtos'])?></p>
-              
-              <?php } ?>
-
-              <button class="mt-1"  data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$ids_mesa['id_mesa']?>">Preparar</button>
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="modal t-modal fade" id="staticBackdrop<?=$ids_mesa['id_mesa']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                    </div>
-                    <div class="box">
-                    <div class="row">
-                      <div class="col-4 text-center parteEsquerda">
-                        <p>MESA</p>
-                        <p><?=$ids_mesa['id_mesa']?></p>
-
-                        <i class="fa-regular fa-clock"></i>
-                        <p>16:42</p>
-                      </div>
-
-                      <div class="col-8 parteDireita">
-                        <h4 class="">Detalhes do Pedido</h4>
-
-                        <?php 
-                          $pedidos_pendentes = listarPedidosMesa($ids_mesa['id_mesa']);
-                          while ($pedido = $pedidos_pendentes->fetch_array()){ ?>
-                          
-                          <p><?= retornarProduto($pedido['id_produtos'])?></p>
-              
-                        <?php } ?>
-
-                        <button class="mt-1">Entregar</button>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-              
-        <?php } ?>
 
 
       </div>
     </section>
+   
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        MostrarPedidos();
+    });
+
+    function MostrarPedidos() {
+    var displayData = "true";
+    $.ajax({
+        url: "exibirPedidos.php",
+        type: "post",
+        data: {
+            mostrar: displayData,
+        },
+
+        success: function (data, status) {
+            $(".container").html(data);
+        },
+    });
+  };
+
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
