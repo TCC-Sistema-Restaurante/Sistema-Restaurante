@@ -8,32 +8,37 @@ extract($_POST);
 
 if (isset($_POST['mostrar'])) {
 
-    $mostrar = '';
-    $lista_mesas = mesasPedidosPendentes();
-    while ($ids_mesa = $lista_mesas->fetch_array()){
-        $mostrar .= '
+  $mostrar = '';
+  $produtos = '';
+  $lista_mesas = mesasPedidosPendentes();
+  while ($ids_mesa = $lista_mesas->fetch_array()) {
+    $dados = retornarPedidoaCancelar($ids_mesa['id_mesa']);
+    foreach ($dados as $i) {
+      $produtos .= $i[1];
+      $produtos .= '; ';
+    }
+    ;
+
+    $mostrar .= '
         <div class="box">
           <div class="row">
             <div class="col-4 text-center parteEsquerda">
               <p>MESA</p>
-              <p>' . $ids_mesa['id_mesa'] .'</p>
+              <p>' . $ids_mesa['id_mesa'] . '</p>
 
               <i class="fa-regular fa-clock"></i>
               <p>16:42</p>
             </div>
 
             <div class="col-8 parteDireita">
-              <h4 class="">Detalhes do Pedido</h4>';
+              <h4 class="">Detalhes do Pedido</h4>
+              <p>' . $produtos . '</p>';
 
-            $pedidos_pendentes = listarPedidosMesa($ids_mesa['id_mesa']);
-            while ($pedido = $pedidos_pendentes->fetch_array()){ 
-                $mostrar .=
               
-              '<p>' . retornarProduto($pedido['id_produtos']) . '</p>';
-              
-            } 
-            $mostrar .=
-              '<button class="mt-1 btnPreparar" id="' . $ids_mesa['id_mesa'] . '" data-bs-toggle="modal" data-bs-target="#staticBackdrop' . $ids_mesa['id_mesa'] .'">Preparar</button>
+
+
+    $mostrar .=
+      '<button class="mt-1 btnPreparar" id="' . $ids_mesa['id_mesa'] . '" data-bs-toggle="modal" data-bs-target="#staticBackdrop' . $ids_mesa['id_mesa'] . '">Preparar</button>
 
 
             </div>
@@ -59,20 +64,11 @@ if (isset($_POST['mostrar'])) {
                       </div>
 
                       <div class="col-8 parteDireita">
-                        <h4 class="">Detalhes do Pedido</h4>';
-
-                         
-              $pedidos_pendentes = listarPedidosMesa($ids_mesa['id_mesa']);
-
-              while ($pedido = $pedidos_pendentes->fetch_array()){ 
-              
-              
-              $mostrar .= '<p> ' . retornarProduto($pedido['id_produtos']) .'</p>';
-              
-               } 
-                          
+                        <h4 class="">Detalhes do Pedido</h4>
+                        <p> ' . $produtos . '</p>
                         
-            $mostrar .= '<button id="' . $ids_mesa['id_mesa'] . '" class="mt-1 btnEntregar">Entregar</button>
+                        
+                        <button id="' . $ids_mesa['id_mesa'] . '" class="mt-1 btnEntregar">Entregar</button>
                         
 
                       </div>
@@ -81,67 +77,12 @@ if (isset($_POST['mostrar'])) {
                   </div>
                 </div>
               </div>
-              </div>
-              
-              
-              ';
-              
-        
-      }
-      $mostrar .= '<script>
-      document.querySelectorAll(".btnEntregar").forEach(function(button) {
-        button.addEventListener("click", function(event) {
-        const el = event.target || event.srcElement;
-        const id_mesa = el.id;
-        $.ajax({
-              type: "POST",
-              url: "entregar.php",
-              data: { id_mesa: id_mesa },
-              dataType: "json",
-          }).done(function (resultado) {
-            if (resultado == "Entregue") {
-                swal
-                    .fire({
-                        icon: "success",
-                        text: "Entregue com sucesso!",
-                        type: "success",
-                    })
-                    .then((okay) => {
-                        MostrarPedidos();
-                    });
-            } else {
-                swal
-                    .fire({
-                        icon: "error",
-                        text: "Ops! Houve um erro.",
-                        type: "success",
-                    })
-                    .then((okay) => {
-                      MostrarPedidos();
-                    });
-              }
-          })
-      });
-      
-    })
+              </div>';
 
-    document.querySelectorAll(".btnPreparar").forEach(function(button) {
-        button.addEventListener("click", function(event) {
-        const el = event.target || event.srcElement;
-        const id_mesa = el.id;
-        $.ajax({
-              type: "POST",
-              url: "preparar.php",
-              data: { id_mesa: id_mesa },
-              dataType: "json",
-          })
-      });
-      
-    })
-      </script>
-      '; 
-      echo $mostrar;
-    } 
-    
+  }
+
+  echo $mostrar;
+
+}
     
     ?>

@@ -88,6 +88,57 @@
   };
 
     </script>
+
+<script>
+  document.querySelectorAll(".btnEntregar").forEach(function(button) {
+    button.addEventListener("click", function(event) {
+    const el = event.target || event.srcElement;
+    const id_mesa = el.id;
+    $.ajax({
+          type: "POST",
+          url: "entregar.php",
+          data: { id_mesa: id_mesa },
+          dataType: "json",
+      }).done(function (resultado) {
+        if (resultado == "Entregue") {
+            swal
+                .fire({
+                    icon: "success",
+                    text: "Entregue com sucesso!",
+                    type: "success",
+                })
+                .then((okay) => {
+                    MostrarPedidos();
+                });
+        } else {
+            swal
+                .fire({
+                    icon: "error",
+                    text: "Ops! Houve um erro.",
+                    type: "success",
+                })
+                .then((okay) => {
+                  MostrarPedidos();
+                });
+          }
+      })
+    });
+  })
+
+  document.querySelectorAll(".btnPreparar").forEach(function(button) {
+      button.addEventListener("click", function(event) {
+      const el = event.target || event.srcElement;
+      const id_mesa = el.id;
+      $.ajax({
+            type: "POST",
+            url: "preparar.php",
+            data: { id_mesa: id_mesa },
+            dataType: "json",
+        })
+    });
+    
+  })
+      </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
