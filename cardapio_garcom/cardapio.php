@@ -30,6 +30,11 @@
       <h1 id="topText">Cardápio</h1>
     </nav>
 
+      <!-- Side bar -->
+      <?php
+    include"../menu_lateral/side_bar.php"
+    ?>
+
 
     <section class="cardapio">
       <div class="d-flex justify-content-center">

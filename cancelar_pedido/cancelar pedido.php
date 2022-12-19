@@ -38,18 +38,18 @@
       <div class="lateral-menu">
         <div class="itens" id="mesas">
           <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
-          <a href="#">Mesas</a>
+          <a href="../lista-mesas/mesas_garcom.php">Mesas</a>
         </div>
         <div class="itens" id="pedidos-pendentes">
           <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-          <a href="#">
+          <a href="../pedidos_prontos/index.html">
             Pedidos<br />
             prontos
           </a>
         </div>
         <div class="itens">
           <img src="../menu_lateral/_img/categorias.png" id="icon-categorias" alt="" />
-          <a href="#">Categorias</a>
+          <a href="../cardapio_garcom/cardapio.php">Categorias</a>
         </div>
         <div class="categorias">
           <a href="#" id="pizzas">Pizzas</a>

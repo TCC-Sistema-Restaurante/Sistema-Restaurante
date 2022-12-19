@@ -25,6 +25,12 @@
       <img id="topSVG" src="_img/test.svg" alt="" />
       <h1 id="topText">Pedidos prontos</h1>
     </nav>
+
+      <!-- Side bar -->
+      <?php
+    include"../menu_lateral/side_bar.php"
+    ?>
+    
     <section>
       <div class="container">
         <div class="box">

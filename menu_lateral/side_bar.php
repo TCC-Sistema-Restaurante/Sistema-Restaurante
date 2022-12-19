@@ -16,7 +16,7 @@
     </div>
     <div class="itens" id="pedidos-pendentes">
       <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-      <a href="#">
+      <a href="../pedidos_prontos/index.php">
         Pedidos<br />
         prontos
       </a>
@@ -27,7 +27,7 @@
         id="icon-categorias"
         alt=""
       />
-      <a href="#">Categorias</a>
+      <a href="../cardapio_garcom/cardapio.php">Categorias</a>
     </div>
     <div class="categorias">
       <a href="#" id="pizzas">Pizzas</a>
