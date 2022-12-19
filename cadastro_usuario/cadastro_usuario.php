@@ -98,9 +98,9 @@ if (!empty($_POST['nome']) || !empty($_POST['cpf'])) {
                 icon:"success",
                 text: "Feito com Sucesso!",
                 type: "success"}).then(okay => {
-                    // if (okay) {
-                    //     window.location.href = "painel.php?r=";
-                    // }
+                    if (okay) {
+                        window.location.href = "../usuarios/index.php";
+                    }
                 });
             </script>
             <?php }else { ?>
