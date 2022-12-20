@@ -94,7 +94,7 @@ include "../_scripts/functions.php";
 
         <div class="d-grid gap-2">
             <button class="btnCadastro confirmar" type="submit">Cadastrar</button>
-            <button class="btnCadastro cancelar" type="button" id="cancelar">Cancelar</button>
+            <a class="btnCadastro cancelar" href="javascript:history.back()" type="button" id="cancelar">Cancelar</a>
         </div>
     </form>
     <!-- Bootstrap -->

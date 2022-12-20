@@ -53,13 +53,13 @@
 
         <div class="col-md-2">
             <!-- Btn Add -->
-        <button
+        <a
           class="NovoBtn"
-          data-bs-toggle="modal"
-          data-bs-target="#modal-add">
+          href="../cadastro_produto/cadastro_produto.php"
+          >
           <i class='bx bx-plus'></i>
-          Add
-        </button>
+          Cadastrar
+        </a>
         </div>
       </div>
 
@@ -72,8 +72,6 @@
     </section>
 
     <!-- Modal -->
-
-    <?php include "modal_add.php";?>
     <?php include "modal_edit.php";?>
     <?php include "modal_ativo_inativo.php";?>
   </body>

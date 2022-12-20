@@ -67,6 +67,9 @@ h1 {
 
 .cancelar {
   background: #a59797;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
 }
 
 .cancelar:hover {
@@ -93,7 +96,7 @@ h1 {
 
 .selectButton:hover,
 .selectButton:focus {
-   position: relative;
+  position: relative;
   border-radius: 0px;
   animation: pulsar 1s;
   box-shadow: 0 0 0 5px transparent;
@@ -103,11 +106,11 @@ h1 {
 }
 
 @keyframes pulsar {
-   0% {
-     box-shadow: 0 0 0 #e01c36;
-   }
- }
- 
+  0% {
+    box-shadow: 0 0 0 #e01c36;
+  }
+}
+
 .form:focus ~ .formLabel {
   color: #e01c36;
   font-weight: 700;
@@ -192,7 +195,6 @@ h1 {
   border-color: #e92f48;
   /* cor da borda do select ao passar o mouse */
 }
-
 
 .nice-select:after {
   border-bottom: 3px solid #000;
@@ -323,9 +325,8 @@ h1 {
   transition: all 0.2s;
 }
 
-.option:hover{
+.option:hover {
   background-color: #e92f48 !important;
-
 }
 
 .nice-select .option:hover,

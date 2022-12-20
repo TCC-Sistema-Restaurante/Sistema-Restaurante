@@ -139,18 +139,11 @@ a {
 }
 
 .cardapio > .containeres > h1 {
-  text-align: center;
   font-weight: 600;
   padding: 5px;
   color: #e92f48;
   margin-top: 50px;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(217, 217, 217, 0.25) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
 
 .cardapio > .containeres > .container > .item {
