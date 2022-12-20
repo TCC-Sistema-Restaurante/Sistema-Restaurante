@@ -103,6 +103,7 @@ body {
   margin: 15px;
 }
 
+
 .parteEsquerda {
   margin-top: 30px;
 }
@@ -121,7 +122,8 @@ body {
 }
 
 .parteEsquerda i {
-  margin-top: 55px;
+  margin-top: 45px;
+  margin-bottom: 5px;
   color: #ffffff;
   font-size: 65px;
 }
@@ -160,6 +162,94 @@ body {
   background: #278d38;
 }
 
+.modal-lg, .modal-xl {
+    --bs-modal-width: 1000px;
+}
+.modal-content{
+  background-color: unset;
+  height: 700px!important;
+  height: 700px!important;
+  border: unset;
+}
+
+.boxPreparar {
+  background: linear-gradient( 90deg, rgba(233, 47, 72, 1) 30%, rgba(245, 245, 245, 1) 30% );
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 38px;
+}
+
+
+.parteEsquerdaPreparar {
+  margin-top: 30px;
+}
+.parteEsquerdaPreparar p {
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 15px;
+}
+
+.parteEsquerdaPreparar p:nth-child(1) {
+  font-size: 400%;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+.parteEsquerdaPreparar p:nth-child(2) {
+  font-size: 400%;
+}
+
+.parteEsquerdaPreparar i {
+  margin-top: 300px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 700%;
+}
+
+.parteEsquerdaPreparar p:nth-child(4) {
+  font-size: 300%;
+  line-height: 35px;
+}
+.parteDireitaPreparar {
+  margin-top: 22px;
+}
+
+.parteDireitaPreparar h4 {
+  font-size: 43px;
+  font-weight: 700;
+  color: #e92f48;
+}
+
+.parteDireitaPreparar p {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.parteDireitaPreparar button {
+  color: white;
+  padding: 5px 50px;
+  background: #36b54c;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.parteDireitaPreparar button:hover {
+  transition: 0.3s;
+  background: #278d38;
+}
+
+div .btn-close {
+  z-index: 2;
+  position: absolute;
+  right: 10px;
+  font-size: 30px;
+  top: 10px;
+  outline: none!important;
+  box-shadow: none!important;
+  border: none!important;
+}
 
 @media screen and (max-width: 400px){
 
@@ -173,5 +263,49 @@ body {
     top: 30px;
 
   }
+}
+
+@media screen and (max-width:669px){
+
+  .parteEsquerdaPreparar p:nth-child(2) {
+      font-size: 7vw;
+  }
+  .parteEsquerdaPreparar p:nth-child(1) {
+    font-size: 7vw;
+    margin-bottom: 30px;
+  }
+    
+  .parteEsquerdaPreparar i {
+    margin-top: 370px;
+    margin-bottom: 20px;
+    font-size: 9vw;
+  }
+
+  .parteEsquerdaPreparar p:nth-child(4) {
+    font-size: 6vw;
+  }
+  .parteDireitaPreparar {
+    margin-top: 22px;
+  }
+
+  .parteDireitaPreparar h4 {
+    font-size: 33px;
+  }
+
+  .parteDireitaPreparar p {
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .parteDireitaPreparar button {
+    padding: 5px 40px;
+    font-size: 25px;
+  }
+
+  div .btn-close {
+    font-size: 25px;
+  }
+   
  
  }

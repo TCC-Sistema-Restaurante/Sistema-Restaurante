@@ -207,7 +207,7 @@ function cadastrarUsuario($dados)
 
 function mesasPedidosPendentes(){
     include "config.php";
-    $sql = "SELECT DISTINCT id_mesa FROM pedido WHERE situacao = 'aguardando preparo'";
+    $sql = "SELECT DISTINCT id_mesa, data FROM pedido WHERE situacao = 'aguardando preparo' ORDER BY data";
     $query = $mysqli->query($sql);
     return $query;
 }
@@ -229,7 +229,7 @@ function retornarProduto($id_mesa){
 
 function retornarPedidoaCancelar($id_mesa){
     include "config.php";
-    $sql = "SELECT valor_unitario , nome_produto FROM `produto`
+    $sql = "SELECT valor_unitario , nome_produto, TIME_FORMAT(data, '%H:%i') as hora FROM `produto`
     INNER JOIN pedido on produto.id = pedido.id_produtos 
     WHERE situacao = 'aguardando preparo' AND id_mesa = $id_mesa";
     $query = $mysqli->query($sql);
