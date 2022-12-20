@@ -35,10 +35,10 @@ body {
   display: flex;
 }
 
-.inputs input[type="date"] {
+#input_date {
   width: auto;
   padding: 0 10px;
-  margin: 5px;
+  margin: 5px -4px;
   border-radius: 5px;
   border-bottom: #e92f48 solid 5px;
   -webkit-tap-highlight-color: transparent;
@@ -100,10 +100,10 @@ section {
 }
 
 .container_ {
-  width: 50%;
+  width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .box {
@@ -115,6 +115,7 @@ section {
   filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.25));
 
   display: flex;
+  flex: 1 1 400px;
   flex-direction: column;
   border-radius: 15px;
   width: 95%;

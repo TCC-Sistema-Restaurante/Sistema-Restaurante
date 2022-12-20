@@ -16,8 +16,8 @@
       Mais<span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
     <div class="dropdown-content">
-      <a href="../cadastro_mesas/index.php">Mesas</a>
-      <a href="../cadastro_produto/cadastro_produto.php">Produtos</a>
+      <a href="../mesa/index.php">Mesas</a>
+      <a href="../cardapio_gerencial/cardapio.php">Produtos</a>
       <a href="../usuarios/index.php">Usuários</a>
       <a href="../categorias/index.php">Categorias</a>
     </div>

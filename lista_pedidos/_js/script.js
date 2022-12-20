@@ -26,8 +26,8 @@
               .attr("data-display", i || null)
               .addClass(
                 "option" +
-                  (n.is(":selected") ? " selected" : "") +
-                  (n.is(":disabled") ? " disabled" : "")
+                (n.is(":selected") ? " selected" : "") +
+                (n.is(":disabled") ? " disabled" : "")
               )
               .html(n.text())
           );
@@ -37,19 +37,19 @@
       return (
         "update" == t
           ? this.each(function () {
-              var t = e(this),
-                n = e(this).next(".nice-select"),
-                i = n.hasClass("open");
-              n.length && (n.remove(), s(t), i && t.next().trigger("click"));
-            })
+            var t = e(this),
+              n = e(this).next(".nice-select"),
+              i = n.hasClass("open");
+            n.length && (n.remove(), s(t), i && t.next().trigger("click"));
+          })
           : "destroy" == t
-          ? (this.each(function () {
+            ? (this.each(function () {
               var t = e(this),
                 s = e(this).next(".nice-select");
               s.length && (s.remove(), t.css("display", ""));
             }),
-            0 == e(".nice-select").length && e(document).off(".nice_select"))
-          : console.log('Method "' + t + '" does not exist.'),
+              0 == e(".nice-select").length && e(document).off(".nice_select"))
+            : console.log('Method "' + t + '" does not exist.'),
         this
       );
     this.hide(),
@@ -121,4 +121,14 @@
 
 $(document).ready(function () {
   $(".select").niceSelect();
+});
+
+
+// INPUt DATE
+$(function () {
+  $('input[name="datefilter"]').daterangepicker({
+    opens: 'left'
+  }, function (start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
 });

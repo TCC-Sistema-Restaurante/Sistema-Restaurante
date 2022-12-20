@@ -40,11 +40,11 @@ include "../_scripts/functions.php";
     </div>
     <div class="inputs">
       <div class="containerInput">
-        <div class="mb-3">
+        <div class="mb-4">
           <span class="inlineIcon">
             <i class="bx bx-search"></i>
           </span>
-          <input type="text" class="input-text" placeholder="Pesquisar" />
+          <input type="text" class="input-text"  placeholder="Pesquisar" />
         </div>
       </div>
       <div>
@@ -55,25 +55,15 @@ include "../_scripts/functions.php";
                 <option value="Em_preparo">EM PREPARO</option>
                 <option value="Pronto">PRONTO</option>
                 <option value="Entregue">ENTREGUE</option>
-                <option val0ue="Pago">PAGO</option>
+                <option value="Pago">PAGO</option>
             </select>
             <button  class="selectButton"><span class="material-symbols-outlined">filter_alt</span></button>
-           </div>
-           <div class="input-group">   
-             <select required name="categoria" class="select wide" aria-label="">
-                <option value="Aguardando">AGUARDANDO</option>
-                <option value="Em_preparo">EM PREPARO</option>
-                <option value="Pronto">PRONTO</option>
-                <option value="Entregue">ENTREGUE</option>
-                <option val0ue="Pago"  selected >PAGO</option>
-             </select>
-             <button  class="selectButton"><span class="material-symbols-outlined">filter_alt</span></button>
-            </div>
           </div>
-          <div>
-            <input type="date" name="data-inicio" id="" />
-            <input type="date" name="data-fianal" id="" />
-          </div>
+        </div>
+        <div class="input-group">
+          <input id="input_date" type="text" name="datefilter" value="01/01/2022 - 01/01/2023" />
+          <button  class="selectButton"><span class="material-symbols-outlined">calendar_today</span></button>
+        </div>
       </div>
 
     </div>
@@ -111,26 +101,6 @@ include "../_scripts/functions.php";
               <h6>PRONTO</h6>
               <p>
                 10 itens: 1x pizza média: 1/3 marguerita, 1/3 camarão;
-                hamburguer 1/3 camarão;
-                hamburguer 1/3 camarão;
-                hamburguer 10 itens: 1x pizza média: ...
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <i class="fa-regular fa-clock"></i>
-              <p>16:42</p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <h4 class="">R$260,00</h4>
-
-              <h6>PRONTO</h6>
-              <p>
-                10 itens: 1x pizza média: 1/3 marguerita, 1/3 camarão;
                 hamburguer...
               </p>
             </div>
@@ -154,45 +124,7 @@ include "../_scripts/functions.php";
             </div>
           </div>
         </div>
-      </div>
-      <div class="container_">
-        <div class="box">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <i class="fa-regular fa-credit-card"></i>
-              <p>16:42</p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <h4 class="">R$260,00</h4>
-
-              <h6>PAGO</h6>
-              <p>
-                10 itens: 1x pizza média: 1/3 marguerita, 1/3 camarão;
-                hamburguer...
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <i class="fa-regular fa-credit-card"></i>
-              <p>16:42</p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <h4 class="">R$260,00</h4>
-
-              <h6>PAGO</h6>
-              <p>
-                10 itens: 1x pizza média: 1/3 marguerita, 1/3 camarão;
-                hamburguer...
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="box">
+         <div class="box">
           <div class="row">
             <div class="col-4 text-center parteEsquerda">
               <i class="fa-regular fa-credit-card"></i>
@@ -212,6 +144,10 @@ include "../_scripts/functions.php";
         </div>
       </div>
     </section>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -222,5 +158,9 @@ include "../_scripts/functions.php";
     <!-- Scripts -->
     <script src="_js/script.js"></script>
 
+    <!-- Data input -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   </body>
 </html>
