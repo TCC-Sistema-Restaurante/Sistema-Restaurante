@@ -2,9 +2,9 @@
 
 $(document).ready(function () {
     MostrarCategorias();
-    setInterval(function(){//Quando o documento estiver pronto, dê um setinvertal em qualquerCoisa()
+    setInterval(function () {//Quando o documento estiver pronto, dê um setinvertal em qualquerCoisa()
         MostrarCategorias();
-      }, 30000)
+    }, 30000)
 });
 
 function MostrarCategorias() {

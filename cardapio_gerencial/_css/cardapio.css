@@ -104,7 +104,6 @@ a {
   color: #e92f48;
 }
 
-
 @media screen and (max-width: 378px) {
   .topoSection .row .col {
     justify-content: center !important;
@@ -132,15 +131,29 @@ a {
   }
 }
 
-
-.cardapio > .container {
+.cardapio > .containeres > .container {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.cardapio > .container > .item {
+.cardapio > .containeres > h1 {
+  text-align: center;
+  font-weight: 600;
+  padding: 5px;
+  color: #e92f48;
+  margin-top: 50px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(217, 217, 217, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.cardapio > .containeres > .container > .item {
   flex: 1 1 205px;
   color: #fff;
   border-radius: 10px;
@@ -153,13 +166,15 @@ a {
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
 }
 
-.cardapio > .container > .item > .image {
+.cardapio > .containeres > .container > .item > .image {
   position: relative;
   height: 60%;
 }
 
-.cardapio > .container > .item > .image > .edit-delet {
+.cardapio > .containeres > .container > .item > .image > .edit-delet {
   position: absolute;
+  display: flex;
+  justify-content: space-evenly;
   background-color: #a8503179;
   top: 0;
   width: 100%;
@@ -171,43 +186,63 @@ a {
   opacity: 0%;
 }
 
-.cardapio > .container > .item > .image > .edit-delet:hover {
+.cardapio > .containeres > .container > .item > .image > .edit-delet:hover {
   opacity: 100%;
 }
 
-.cardapio > .container > .item > .image > .edit-delet > button {
+.cardapio > .containeres > .container > .item > .image > .edit-delet > button {
   background: none;
 }
 
-.cardapio > .container > .item > .image > .edit-delet > button > span {
-  padding: 5px;
+.cardapio
+  > .containeres
+  > .container
+  > .item
+  > .image
+  > .edit-delet
+  > button
+  > span {
+  font-size: 35px;
   cursor: pointer;
   color: #fff;
 }
 
-.cardapio > .container > .item > .image > img {
+.cardapio > .containeres > .container > .item > .image > img {
   border-radius: 10px 10px 0 0;
   height: 100%;
   object-fit: cover;
   transition: 0.4s;
 }
 
-.cardapio > .container > .item > .image > h3 {
+.cardapio > .containeres > .container > .item > .image > h3 {
   margin: 10px;
   font-weight: 500;
   position: relative;
   top: -45px;
 }
 
-.cardapio > .container > .item > h4 {
+.cardapio > .containeres > .container > .item > h4 {
   margin: 5px;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
 }
 
-.cardapio > .container > .item > h2 {
+.cardapio > .containeres > .container > .item > h2 {
   padding: 10px;
   text-align: right;
   font-weight: 700;
+}
+
+#produtos-inativos .item {
+  filter: saturate(45%);
+}
+
+#produtos-inativos
+  > .item
+  > .image
+  > .edit-delet
+  > button
+  > span[content="cansel"] {
+  rotate: 45deg;
 }

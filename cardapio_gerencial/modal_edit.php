@@ -5,40 +5,53 @@
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar produto</h1>
           <div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" id="edit-btn-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         </div>
         <div class="modal-body">
-          <form action="" class="form-edit">
-      
+          <form id="form-editar" action="" class="form-edit">
+          <input type="text" hidden class="form form-control" name="idEditar" id="idEditar" placeholder="Id">
           <div>
-              <input type="text" placeholder="Nome" />
-              <input type="text" placeholder="Valor" />
+              <input type="text" placeholder="Nome do produto" id="nomeEditar"/>
+              <input type="number" placeholder="Valor unitário" id="valorEditar" />
           </div>
           <div>
-              <select name="select">
-              <option value="valor1">Valor 1</option>
-              <option value="valor2">Valor 2</option>
-              <option value="valor3">Valor 3</option>
-              </select>
-              <select name="select">
-              <option value="valor1">Valor 1</option>
-              <option value="valor2">Valor 2</option>
-              <option value="valor3">Valor 3</option>
-              </select>
-          </div>
+              <?php
+              include "../_scripts/config_pdo.php";
 
-          <div>
-              <label class="picture" for="picture-input">
-              <span class="picture-image"></span>
-              </label>
-              <input type="file" name="picture-input" id="picture-input" />
-              <textarea maxlength="500" placeholder="Descrição"></textarea>
+              $statement = $pdo->prepare("SELECT categoria FROM categoria");
+              $statement->execute();
+              $result = $statement->fetchAll();
+              $rowCount = $statement->rowCount();
+              if ($rowCount > 0) {
+                  $data ='
+                  <select required name="categoria" class="select wide" aria-label="" id="categoriaEditar">
+                    <option selected disabled>Categoria</option>';
+
+                  foreach($result as $row){
+                    $data .= '<option value="'.$row["categoria"].'">'.$row["categoria"].'</option>';
+                  }
+                  $data .= '</select>';
+
+                  echo($data);
+              } else{
+                echo "";
+              }
+
+              
+              ?>
+
+              <textarea maxlength="500" placeholder="Descrição" id="descricaoEditar"></textarea>
           </div>
-          </form>
+              <label class="picture" for="picture-input-edit">
+                <span class="picture-image-edit"></span>
+            </label>
+            <input required type="file" accept="image/png,image/jpeg" name="picture-input-edit" id="picture-input-edit" />
+
         </div>
           <div class="modal-footer">
-            <button class="btn btn-success" >Salvar item</button>
+            <button type="submit" id="btn-editar" class="btn btn-success" >Salvar item</button>
+            </form>
         </div>
       </div>
     </div>
