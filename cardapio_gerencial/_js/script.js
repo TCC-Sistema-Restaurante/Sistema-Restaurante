@@ -1,9 +1,9 @@
-const inputFile = document.querySelector("#picture-input");
-const pictureImage = document.querySelector(".picture-image");
-const pictureImageTxt = "Escolha uma imagem";
-pictureImage.innerHTML = pictureImageTxt;
+var inputFileEdit = document.querySelector("#picture-input-edit");
+var pictureImageEdit = document.querySelector(".picture-image-edit");
+var pictureImageEditTxt = "Escolha uma imagem";
+pictureImageEdit.innerHTML = pictureImageEditTxt;
 
-inputFile.addEventListener("change", function (e) {
+inputFileEdit.addEventListener("change", function (e) {
   const inputTarget = e.target;
   const file = inputTarget.files[0];
 
@@ -17,41 +17,12 @@ inputFile.addEventListener("change", function (e) {
       img.src = readerTarget.result;
       img.classList.add("picture-img");
 
-      pictureImage.innerHTML = "";
-      pictureImage.appendChild(img);
+      pictureImageEdit.innerHTML = "";
+      pictureImageEdit.appendChild(img);
     });
 
     reader.readAsDataURL(file);
   } else {
-    pictureImage.innerHTML = pictureImageTxt;
+    pictureImageEdit.innerHTML = pictureImageEditTxt;
   }
-});
-
-// Modals
-
-const bg_modal = document.querySelector(".modals ");
-
-// Add
-var btn_add = document.querySelector("#btn-add");
-const modal_add = document.querySelector(".modal-add");
-
-btn_add.addEventListener("click", () => {
-  bg_modal.style.display = "flex";
-  modal_add.style.display = "flex";
-});
-
-//Delet
-var btn_delet = document.querySelector(".edit-delet>#btn-delet");
-const modal_delet = document.querySelector(".modal-delet");
-btn_delet.addEventListener("click", () => {
-  bg_modal.style.display = "flex";
-  modal_delet.style.display = "flex";
-});
-
-var btn_cancel = document.querySelector("#btn-cancel");
-
-btn_cancel.addEventListener("click", () => {
-  bg_modal.style.display = "none";
-  modal_add.style.display = "none";
-  modal_delet.style.display = "none";
 });

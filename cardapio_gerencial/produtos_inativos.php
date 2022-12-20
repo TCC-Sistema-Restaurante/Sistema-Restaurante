@@ -58,7 +58,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modal-add">
           <i class='bx bx-plus'></i>
-          Add
+          Remove
         </button>
         </div>
       </div>
