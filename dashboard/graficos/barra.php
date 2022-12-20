@@ -1,4 +1,9 @@
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <!-- Styles -->
+
 <style>
 #barra {
   
@@ -6,11 +11,6 @@
   height: 420px;
 }
 </style>
-
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
 <!-- Chart code -->
 <script>
@@ -20,186 +20,174 @@ am5.ready(function() {
 // https://www.amcharts.com/docs/v5/getting-started/#Root_element
 var root = am5.Root.new("barra");
 
-
 // Set themes
 // https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([am5themes_Animated.new(root)]);
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
 
 
 // Create chart
 // https://www.amcharts.com/docs/v5/charts/xy-chart/
-var chart = root.container.children.push(
-  am5xy.XYChart.new(root, {
-    panX: false,
-    panY: false,
-    wheelX: "none",
-    wheelY: "none"
-  })
-);
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "none",
+  wheelY: "none",
+  layout: root.verticalLayout
+}));
+
+// Data
+var data = <?php echo horariosMaisMovimentados();?>;
+
+// Populate data
+for (var i = 0; i < (data.length - 1); i++) {
+	data[i].valueNext = data[i + 1].value;
+}
 
 
 // Create axes
 // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 30 });
+var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+  categoryField: "year",
+  renderer: am5xy.AxisRendererX.new(root, {
+    cellStartLocation: 0.1,
+    cellEndLocation: 0.9,
+    minGridDistance: 30
+  }),
+  tooltip: am5.Tooltip.new(root, {})
+}));
 
-var yAxis = chart.yAxes.push(
-  am5xy.CategoryAxis.new(root, {
-    maxDeviation: 0,
-    categoryField: "country",
-    renderer: yRenderer
-  })
-);
+xAxis.data.setAll(data);
 
-var xAxis = chart.xAxes.push(
-  am5xy.ValueAxis.new(root, {
-    maxDeviation: 0,
-    min: 0,
-    renderer: am5xy.AxisRendererX.new(root, {})
-  })
-);
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  min: 0,
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
 
 
-// Create series
+// Add series
 // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-var series = chart.series.push(
-  am5xy.ColumnSeries.new(root, {
-    name: "Series 1",
-    xAxis: xAxis,
-    yAxis: yAxis,
-    valueXField: "value",
-    sequencedInterpolation: true,
-    categoryYField: "country"
-  })
-);
 
-var columnTemplate = series.columns.template;
+// Column series
+var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value",
+  categoryXField: "year"
+}));
 
-columnTemplate.setAll({
-  draggable: true,
-  cursorOverStyle: "pointer",
-  tooltipText: "drag to rearrange",
-  cornerRadiusBR: 10,
-  cornerRadiusTR: 10
-});
-columnTemplate.adapters.add("fill", (fill, target) => {
-  return chart.get("colors").getIndex(series.columns.indexOf(target));
+series.columns.template.setAll({
+  tooltipText: "{valueY}",
+  width: am5.percent(90),
+  tooltipY: 0
 });
 
-columnTemplate.adapters.add("stroke", (stroke, target) => {
-  return chart.get("colors").getIndex(series.columns.indexOf(target));
-});
-
-columnTemplate.events.on("dragstop", () => {
-  sortCategoryAxis();
-});
-
-// Get series item by category
-function getSeriesItem(category) {
-  for (var i = 0; i < series.dataItems.length; i++) {
-    var dataItem = series.dataItems[i];
-    if (dataItem.get("categoryY") == category) {
-      return dataItem;
-    }
-  }
-}
-
-
-// Axis sorting
-function sortCategoryAxis() {
-  // Sort by value
-  series.dataItems.sort(function (x, y) {
-    return y.get("graphics").y() - x.get("graphics").y();
-  });
-
-  var easing = am5.ease.out(am5.ease.cubic);
-
-  // Go through each axis item
-  am5.array.each(yAxis.dataItems, function (dataItem) {
-    // get corresponding series item
-    var seriesDataItem = getSeriesItem(dataItem.get("category"));
-
-    if (seriesDataItem) {
-      // get index of series data item
-      var index = series.dataItems.indexOf(seriesDataItem);
-
-      var column = seriesDataItem.get("graphics");
-
-      // position after sorting
-      var fy =
-        yRenderer.positionToCoordinate(yAxis.indexToPosition(index)) -
-        column.height() / 2;
-
-      // set index to be the same as series data item index
-      if (index != dataItem.get("index")) {
-        dataItem.set("index", index);
-
-        // current position
-        var x = column.x();
-        var y = column.y();
-
-        column.set("dy", -(fy - y));
-        column.set("dx", x);
-
-        column.animate({ key: "dy", to: 0, duration: 600, easing: easing });
-        column.animate({ key: "dx", to: 0, duration: 600, easing: easing });
-      } else {
-        column.animate({ key: "y", to: fy, duration: 600, easing: easing });
-        column.animate({ key: "x", to: 0, duration: 600, easing: easing });
-      }
-    }
-  });
-
-  // Sort axis items by index.
-  // This changes the order instantly, but as dx and dy is set and animated,
-  // they keep in the same places and then animate to true positions.
-  yAxis.dataItems.sort(function (x, y) {
-    return x.get("index") - y.get("index");
-  });
-}
-
-// Set data
-var data = [{
-  country: "USA",
-  value: 2025
-}, {
-  country: "China",
-  value: 1882
-}, {
-  country: "Japan",
-  value: 1809
-}, {
-  country: "Germany",
-  value: 1322
-}, {
-  country: "UK",
-  value: 1122
-}];
-
-yAxis.data.setAll(data);
 series.data.setAll(data);
 
-chart.get("colors").set("colors", [
-  am5.color("#5d121c"),
-  am5.color("#741724"),
-  am5.color("#8b1c2b"),
-  am5.color("#a32032"),
-  am5.color("#ba2539"),
-  am5.color("#d12a40"),
-  am5.color("#d12a40"),
-  am5.color("#eb435a"),
-  am5.color("#d53f53"),
-  am5.color("#da5466")
-]);
+// Variance indicator series
+var series2 = chart.series.push(am5xy.ColumnSeries.new(root, {
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "valueNext",
+  openValueYField: "value",
+  categoryXField: "year",
+  fill: am5.color(0x555555),
+  stroke: am5.color(0x555555)
+}));
 
+series2.columns.template.setAll({
+  width: 1
+});
+
+series2.data.setAll(data);
+
+series2.bullets.push(function () {
+  var label = am5.Label.new(root, {
+    text: "{valueY}",
+    fontWeight: "500",
+    fill: am5.color(0x00cc00),
+    centerY: am5.p100,
+    centerX: am5.p50,
+    populateText: true
+  });
+  
+  // Modify text of the bullet with percent
+  label.adapters.add("text", function(text, target) {
+    var percent = getVariancePercent(target.dataItem);
+    return percent ? percent + "%" : text;
+  });
+  
+  // Set dynamic color of the bullet
+  label.adapters.add("centerY", function(center, target) {
+    return getVariancePercent(target.dataItem) < 0 ? 0 : center;
+  });
+  
+  // Set dynamic color of the bullet
+  label.adapters.add("fill", function(fill, target) {
+    return getVariancePercent(target.dataItem) < 0 ? am5.color(0xcc0000) : fill;
+  });
+  
+  return am5.Bullet.new(root, {
+    locationY: 1,
+    sprite: label
+  });
+});
+
+series2.bullets.push(function() {
+  var arrow = am5.Graphics.new(root, {
+    rotation: -90,
+    centerX: am5.p50,
+    centerY: am5.p50,
+    dy: 3,
+    fill: am5.color(0x555555),
+    stroke: am5.color(0x555555),
+    draw: function (display) {
+      display.moveTo(0, -3);
+      display.lineTo(8, 0);
+      display.lineTo(0, 3);
+      display.lineTo(0, -3);
+    }
+  });
+  
+  arrow.adapters.add("rotation", function(rotation, target) {
+    return getVariancePercent(target.dataItem) < 0 ? 90 : rotation;
+  });
+  
+  arrow.adapters.add("dy", function(dy, target) {
+    return getVariancePercent(target.dataItem) < 0 ? -3 : dy;
+  });
+  
+  return am5.Bullet.new(root, {
+    locationY: 1,
+    sprite: arrow
+  })
+})
+
+var gradient = am5.LinearGradient.new(root, {
+  stops: [{
+    color: am5.color(0xFF621F)
+  }, {
+    color: am5.color(0x946B49)
+  }]
+});
 
 
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/
-series.appear(1000);
+series.appear();
 chart.appear(1000, 100);
+
+
+function getVariancePercent(dataItem) {
+	if (dataItem) {
+		var value = dataItem.get("valueY");
+		var openValue = dataItem.get("openValueY");
+		var change = value - openValue;
+		return Math.round(change / openValue * 100);
+	}
+	return 0;
+}
 
 }); // end am5.ready()
 </script>
-
-<!-- HTML -->
-<div id="chartdiv"></div>

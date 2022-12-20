@@ -24,6 +24,7 @@
 
 <?php
     include "../nav_bar/nav.php";
+    include_once('../_scripts/functions.php')
 ?>
 
   <section class="mt-5">
@@ -36,8 +37,28 @@
                 <h2>$</h2>
               </div>
               <div class="card-body">
-                <h3>12.054</h3>
-                Total de vendas
+                <h3><?php echo qtdPedidosMensal() ?></h3>
+                Pedidos (mensal)
+                            </div>
+            </div>
+
+            <div class="card">
+              <div class="sing">
+                <h2>$</h2>
+              </div>
+              <div class="card-body">
+                <h3><?php echo qtdPedidosdiario() ?></h3>
+                Pedidos (diário)        </div>
+            </div>
+
+            <div class="card">
+              <div class="sing">
+                <h2>$</h2>
+              </div>
+              <div class="card-body">
+                <h3>R$<?php echo faturamentoMensal() ?></h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Faturamento        
+                (mensal)
               </div>
             </div>
             <div class="card">
@@ -45,28 +66,12 @@
                 <h2>$</h2>
               </div>
               <div class="card-body">
-                <h3>24.000</h3>
-                Faturamento
-              </div>
+                <h3>R$<?php echo faturamentodiario() ?></h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Faturamento        
+                (diário)
+                              </div>
             </div>
-            <div class="card">
-              <div class="sing">
-                <h2>$</h2>
-              </div>
-              <div class="card-body">
-                <h3>4000</h3>
-                Despesas
-              </div>
-            </div>
-            <div class="card">
-              <div class="sing">
-                <h2>$</h2>
-              </div>
-              <div class="card-body">
-                <h3>800</h3>
-                Impostos
-              </div>
-            </div>
+            
           </div>
         </div>
 
@@ -77,7 +82,7 @@
                 <div class="carouselCard" >
 
                   <div class="card-body p-1">
-                    <h5>Pratos mais vendidos</h5>
+                    <h5>Pratos mais pedidos</h5>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -88,7 +93,7 @@
               <div class="carousel-item" data-bs-interval="100000">
                 <div class="carouselCard" >
                   <div class="card-body p-1">
-                    <h5>Pratos mais famosos</h5>
+                    <h5>Faturamento anual</h5>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -100,7 +105,7 @@
               <div class="carousel-item" data-bs-interval="100000">
                 <div class="carouselCard" >
                   <div class="card-body p-1">
-                    <h5>Pratos mais famosos</h5>
+                    <h5>Hórario mais movimentados</h5>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">

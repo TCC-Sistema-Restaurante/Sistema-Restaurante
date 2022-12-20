@@ -93,40 +93,10 @@ series.columns.template.adapters.add("stroke", function(stroke, target) {
 
 
 // Set data
-const data = [{
-  country: "USA",
-  value: 2025
-}, {
-  country: "China",
-  value: 1882
-}, {
-  country: "Japan",
-  value: 1809
-}, {
-  country: "Germany",
-  value: 1322
-}, {
-  country: "UK",
-  value: 1122
-}, {
-  country: "France",
-  value: 1114
-}, {
-  country: "India",
-  value: 984
-}, {
-  country: "Spain",
-  value: 711
-}, {
-  country: "Netherlands",
-  value: 665
-}, {
-  country: "South Korea",
-  value: 443
-}, {
-  country: "Canada",
-  value: 441
-}];
+<?php include_once "../_scripts/functions.php";?>
+
+var data = <?php echo PratosMaisPedidos();?>;
+
 
 xAxis.data.setAll(data);
 series.data.setAll(data);
@@ -135,14 +105,15 @@ series.data.setAll(data);
 chart.get("colors").set("colors", [
   am5.color("#5d121c"),
   am5.color("#741724"),
-  am5.color("#8b1c2b"),
-  am5.color("#a32032"),
-  am5.color("#ba2539"),
-  am5.color("#d12a40"),
+    am5.color("#d12a40"),
   am5.color("#d12a40"),
   am5.color("#eb435a"),
   am5.color("#d53f53"),
-  am5.color("#da5466")
+  am5.color("#da5466"),
+  am5.color("#8b1c2b"),
+  am5.color("#a32032"),
+  am5.color("#ba2539")
+
 ]);
 
 

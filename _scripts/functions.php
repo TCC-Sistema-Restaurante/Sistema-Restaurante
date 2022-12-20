@@ -219,15 +219,6 @@ function listarPedidosMesa($id_mesa){
     return $query;
 }
 
-// function retornarProduto($id_mesa){
-//     include "config.php";
-//     $sql = "SELECT nome_produto FROM `produto`
-//     INNER JOIN pedido on produto.id = pedido.id_produtos  WHERE id = '$id_mesa'";
-//     $query = $mysqli->query($sql);
-//     $dados = $query->fetch_array();
-//     return $dados['nome_produto'];
-// }
-
 function retornarPedidoaCancelar($id_mesa){
     include "config.php";
     $sql = "SELECT valor_unitario , nome_produto FROM `produto`
@@ -241,6 +232,145 @@ function retornarPedidoaCancelar($id_mesa){
 function cancelarPedido(){
 
 }
+
+// Dashboard
+function vendasDia(){
+    include '../_scripts/config.php';
+    
+    $sql= "SELECT SUM(id) FROM consulta_venda WHERE DATE(data_venda) = CURRENT_DATE()";
+    $query = $mysqli->query($sql);
+    $result= $query->fetch_array();
+    return intval($result[0]);
+
+}
+
+
+function qtdPedidosMensal(){
+    include '../_scripts/config.php';
+    $sql= "SELECT count(id) as 'soma' FROM pedido WHERE MONTH(data) =MONTH(CURRENT_DATE()) and situacao = 'pago'";
+    $query = $mysqli->query($sql);
+    $result= $query->fetch_array();
+    return intval($result[0]);
+
+}
+
+
+function faturamentoMensal(){
+    include '../_scripts/config.php';
+    $sql= "SELECT sum(valor_produto) as 'valor' FROM pedido WHERE MONTH(data) =MONTH(CURRENT_DATE()) and situacao = 'pago'";
+    $query = $mysqli->query($sql);
+    $result= $query->fetch_array();
+    $numero = intval($result[0]);
+    return number_format($numero, 2);
+
+}
+
+function qtdPedidosdiario(){
+    include '../_scripts/config.php';
+    $sql= "SELECT count(id) as 'soma' FROM pedido WHERE DAY(data) =DAY(CURRENT_DATE())  and situacao = 'pago'";
+    $query = $mysqli->query($sql);
+    $result= $query->fetch_array();
+    return intval($result[0]);
+
+}
+
+
+function faturamentodiario(){
+    include '../_scripts/config.php';
+    $sql= "SELECT sum(valor_produto) as 'valor' FROM pedido WHERE DAY(data) =DAY(CURRENT_DATE()) and situacao = 'pago'";
+    $query = $mysqli->query($sql);
+    $result= $query->fetch_array();
+    $numero = intval($result[0]);
+    return number_format($numero, 2);
+
+}
+function PratosMaisPedidos(){
+    include '../_scripts/config.php';
+    $i=0;
+    $b=array();
+    
+    $sql= "SELECT COUNT(id) as soma, (SELECT nome_produto from produto WHERE id= id_produtos) as nome FROM pedido GROUP BY id_produtos ORDER BY COUNT(id) DESC LIMIT 10";
+    $query = $mysqli->query($sql);
+    while ($result=$query->fetch_array()){
+        $b[$i]= array('country'=> $result['nome'], 'value' =>intval($result['soma']));
+    
+        $i++;
+    }
+    return json_encode($b);  
+
+}
+
+function FaturamentoAnual(){
+    include '../_scripts/config.php';
+    $i=0;
+    $b=array();
+    
+    $sql= "select case 
+	when month(data) = 1 then 'Janeiro'
+	when month(data) = 2 then 'Fevereiro'
+	when month(data) = 3 then 'Março'
+	when month(data) = 4 then 'Abril'
+	when month(data) = 5 then 'Maio'
+    when month(data) = 6 then 'Junho'
+    when month(data) = 7 then 'Julho'
+    when month(data) = 8 then 'Agosto'
+    when month(data) = 9 then 'Setembro'
+    when month(data) = 10 then 'Outubro'
+    when month(data) = 11 then 'Novembro'
+    when month(data) = 12 then 'Dezembro'
+end as 'Mês', sum(valor_produto) as 'valor' from pedido Where situacao = 'pago' GROUP BY month(data) ORDER By month(data) asc";
+    $query = $mysqli->query($sql);
+    while ($result=$query->fetch_array()){
+        $b[$i]= array('country'=> $result['Mês'], 'value' =>intval($result['valor']));
+    
+        $i++;
+    }
+    return json_encode($b);  
+
+}
+
+function horariosMaisMovimentados(){
+    include '../_scripts/config.php';
+    $i=0;
+    $b=array();
+    
+    $sql= "select case 
+	when hour(data) = 0 then '00:00'
+	when hour(data) = 1 then '01:00'
+	when hour(data) = 2 then '02:00'
+	when hour(data) = 3 then '03:00'
+	when hour(data) = 4 then '04:00'
+    when hour(data)= 5 then '05:00'
+    when hour(data) = 6 then '06:00'
+    when hour(data) = 7 then '07:00'
+    when hour(data) = 8 then '08:00'
+    when hour(data) = 9 then '09:00'
+    when hour(data) = 10 then '10:00'
+    when hour(data) = 11 then '11:00'
+    when hour(data) = 12 then '12:00'
+    when hour(data) = 13 then '13:00'
+    when hour(data) = 14 then '14:00'
+    when hour(data) = 15 then '15:00'
+    when hour(data) = 16 then '16:00'
+    when hour(data) = 17 then '17:00'
+    when hour(data) = 18 then '18:00'
+    when hour(data) = 19 then '19:00'
+    when hour(data) = 20 then '20:00'
+    when hour(data) = 21 then '21:00'
+    when hour(data) = 22 then '22:00'
+    when hour(data) = 23 then '23:00'
+end as 'Hora', COUNT(id) as 'valor' from pedido Where situacao = 'pago' GROUP BY hour(data) ORDER By COUNT(id) desc";
+    $query = $mysqli->query($sql);
+    while ($result=$query->fetch_array()){
+        $b[$i]= array('year'=> $result['Hora'], 'value' =>intval($result['valor']));
+    
+        $i++;
+    }
+    return json_encode($b);  
+
+}
+
+
 
 ?>
 

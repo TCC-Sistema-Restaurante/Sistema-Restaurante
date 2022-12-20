@@ -77,7 +77,7 @@ const series = chart.series.push(am5xy.ColumnSeries.new(root, {
   sequencedInterpolation: true,
   categoryXField: "country",
   tooltip: am5.Tooltip.new(root, {
-    labelText:"{valueY}"
+    labelText:"R${valueY}"
   })
 }));
 
@@ -93,40 +93,9 @@ series.columns.template.adapters.add("stroke", function(stroke, target) {
 
 
 // Set data
-const data = [{
-  country: "USA",
-  value: 2025
-}, {
-  country: "China",
-  value: 1882
-}, {
-  country: "Japan",
-  value: 1809
-}, {
-  country: "Germany",
-  value: 1322
-}, {
-  country: "UK",
-  value: 1122
-}, {
-  country: "France",
-  value: 1114
-}, {
-  country: "India",
-  value: 984
-}, {
-  country: "Spain",
-  value: 711
-}, {
-  country: "Netherlands",
-  value: 665
-}, {
-  country: "South Korea",
-  value: 443
-}, {
-  country: "Canada",
-  value: 441
-}];
+
+var data = <?php echo FaturamentoAnual();?>;
+
 
 xAxis.data.setAll(data);
 series.data.setAll(data);
