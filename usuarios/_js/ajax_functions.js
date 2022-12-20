@@ -88,8 +88,6 @@ modal.addEventListener("show.bs.modal", (event) => {
     input_usuario.value = dados_usuario;
     input_senha.value = dados_senha;
     input_cpf.value = dados_cpf;
-    input_funcao.value = dados_funcao;
-
 });
 
 $("#form-editar").on("submit", function (e) {
