@@ -219,14 +219,13 @@ function listarPedidosMesa($id_mesa){
     return $query;
 }
 
-// function retornarProduto($id_mesa){
-//     include "config.php";
-//     $sql = "SELECT nome_produto FROM `produto`
-//     INNER JOIN pedido on produto.id = pedido.id_produtos  WHERE id = '$id_mesa'";
-//     $query = $mysqli->query($sql);
-//     $dados = $query->fetch_array();
-//     return $dados['nome_produto'];
-// }
+function retornarProduto($id_mesa){
+    include "config.php";
+    $sql = "SELECT nome_produto FROM `produto`
+    INNER JOIN pedido on produto.id = pedido.id_produtos  WHERE id = '$id_mesa'";
+    $query = $mysqli->query($sql);
+    return $query;
+}
 
 function retornarPedidoaCancelar($id_mesa){
     include "config.php";
@@ -238,9 +237,13 @@ function retornarPedidoaCancelar($id_mesa){
     return $dados;
 }
 
-function cancelarPedido(){
-
+function mesasPedidosProntos(){
+    include "config.php";
+    $sql = "SELECT DISTINCT id_mesa FROM pedido WHERE situacao = 'pronto'";
+    $query = $mysqli->query($sql);
+    return $query;
 }
+
 
 ?>
 

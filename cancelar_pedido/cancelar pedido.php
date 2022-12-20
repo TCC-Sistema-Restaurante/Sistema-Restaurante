@@ -23,42 +23,17 @@
         <img id="topSVG" src="_img/test.svg" alt="" />
         <h1 id="topText">Cancelar pedido</h1>
     </nav>
+
+      <!-- Side bar -->
+      <?php
+    include"../menu_lateral/side_bar.php"
+    ?>
     <section>
     <div class="container_">
      
       </div>
     </section>
 
-    <!-- Menu lateral -->
-    <div class="side-bar">
-      <div class="button-menu">
-        <span class="material-symbols-outlined"> menu </span>
-      </div>
-
-      <div class="lateral-menu">
-        <div class="itens" id="mesas">
-          <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
-          <a href="../lista-mesas/mesas_garcom.php">Mesas</a>
-        </div>
-        <div class="itens" id="pedidos-pendentes">
-          <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-          <a href="../pedidos_prontos/index.html">
-            Pedidos<br />
-            prontos
-          </a>
-        </div>
-        <div class="itens">
-          <img src="../menu_lateral/_img/categorias.png" id="icon-categorias" alt="" />
-          <a href="../cardapio_garcom/cardapio.php">Categorias</a>
-        </div>
-        <div class="categorias">
-          <a href="#" id="pizzas">Pizzas</a>
-          <a href="#" id="sanduiches">Sanduiches</a>
-          <a href="#" id="sobremesas">Sobremesas</a>
-          <a href="#" id="petiscos">Petiscos</a>
-        </div>
-      </div>
-    </div>
 
        <!-- Modal deletar -->
 <div class="modal-delet">
