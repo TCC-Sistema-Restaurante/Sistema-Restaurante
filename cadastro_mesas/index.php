@@ -19,34 +19,10 @@
   <?php include "../nav_bar/nav.php";?>
   <?php include("../_scripts\config.php");?>
 
-    <?php 
-    session_start();
-    if($_SESSION['erro']== true){ ?>
-      <script>
-        Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Mesa cadastrada já existe!'
-      })
-      </script>
-<?php }
-    if($_SESSION['erro']== false){ ?>
-      <script>
-        Swal.fire({
-        icon: 'success',
-        title: 'Mesa cadastrada com sucesso!',
-        showConfirmButton: false,
-        timer: 1500
-      })
-       </script>
-<?php } ?>
-
     
-
   <section class="topoSection mb-4  ">
       <h1>Mesas</h1>
       <div class="row">
-
         <div class="col-md-10">
           <div class="containerInput mt-4">
             <div class="mb-3">
@@ -57,38 +33,7 @@
             </div>
           </div>
         </div>
-<<<<<<< Updated upstream
-        <form action="listagem-mesas.php" method="POST">
-          <input type="hidden" name="acao" value="pesquisar">
-          <div class="containerInput mt-4">
-            <div class="mb-3">
-              <span class="inlineIcon">
-                <i class='bx bx-search'></i>            
-              </span>
-              <input
-              type="number"
-              class="form-control input-text"
-              placeholder="Pesquisar Mesa"
-              name="search"
-              />
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary">Pesquisar</button>
-            </div>
-          </div>
-        </form>
-      </section>
-=======
-
-        <div class="col-md-2">
-          <div>
-            <button class="NovoBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class='bx bx-plus'></i>Add</button>
-          </div>
-        </div>
-
-      </div>
     </section>
->>>>>>> Stashed changes
 
       <!-- Modal -->
       <form action="gravar-mesa.php" method="post">
