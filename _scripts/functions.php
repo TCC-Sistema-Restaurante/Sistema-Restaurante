@@ -268,7 +268,7 @@ function qtdPedidosMensal(){
 
 function faturamentoMensal(){
     include '../_scripts/config.php';
-    $sql= "SELECT sum(valor_produto) as 'valor' FROM pedido WHERE MONTH(data) =MONTH(CURRENT_DATE()) and situacao = 'pago'";
+    $sql= "SELECT sum(valor) as 'valor' FROM pedido WHERE MONTH(data) =MONTH(CURRENT_DATE()) and situacao = 'pago'";
     $query = $mysqli->query($sql);
     $result= $query->fetch_array();
     $numero = intval($result[0]);
@@ -288,7 +288,7 @@ function qtdPedidosdiario(){
 
 function faturamentodiario(){
     include '../_scripts/config.php';
-    $sql= "SELECT sum(valor_produto) as 'valor' FROM pedido WHERE DAY(data) =DAY(CURRENT_DATE()) and situacao = 'pago'";
+    $sql= "SELECT sum(valor) as 'valor' FROM pedido WHERE DAY(data) =DAY(CURRENT_DATE()) and situacao = 'pago'";
     $query = $mysqli->query($sql);
     $result= $query->fetch_array();
     $numero = intval($result[0]);
@@ -329,7 +329,7 @@ function FaturamentoAnual(){
     when month(data) = 10 then 'Outubro'
     when month(data) = 11 then 'Novembro'
     when month(data) = 12 then 'Dezembro'
-end as 'Mês', sum(valor_produto) as 'valor' from pedido Where situacao = 'pago' GROUP BY month(data) ORDER By month(data) asc";
+end as 'Mês', sum(valor) as 'valor' from pedido Where situacao = 'pago' GROUP BY month(data) ORDER By month(data) asc";
     $query = $mysqli->query($sql);
     while ($result=$query->fetch_array()){
         $b[$i]= array('country'=> $result['Mês'], 'value' =>intval($result['valor']));
