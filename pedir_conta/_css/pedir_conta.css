@@ -109,6 +109,7 @@
   border-radius: 10px;
   text-align: center;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .pedir-conta form div label img {
@@ -132,7 +133,8 @@
   outline: none;
 }
 
-.pedir-conta form input[type="submit"] {
+.pedir-conta form button {
+  cursor: pointer;
   background-color: #e92f48;
   width: 100%;
   max-width: 900px;
@@ -143,94 +145,4 @@
   position: absolute;
   bottom: -150px;
   left: 0;
-}
-
-/* Menu lateral */
-
-.lateral-menu {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 0 10px 10px 0;
-  width: 200px;
-  padding-top: 30px;
-  height: 100vh;
-  top: 0;
-  z-index: 9;
-
-  left: -200px;
-  transition: left 0.5s ease;
-}
-
-.lateral-menu.click {
-  left: 0;
-  filter: drop-shadow(5px 5px 10px #00000050);
-}
-
-.button-menu {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  cursor: pointer;
-  transition: left 0.5s ease;
-}
-
-.button-menu.click {
-  left: 150px;
-}
-
-.button-menu span {
-  font-weight: 500;
-  font-size: 30px;
-  color: #fff;
-}
-
-.button-menu.click span {
-  color: #e92f48;
-}
-
-.lateral-menu div a {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-  color: #667c8a;
-}
-
-.lateral-menu div a:hover {
-  color: #8a6666;
-}
-
-.lateral-menu .itens {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-}
-
-.lateral-menu .itens:nth-child(3) {
-  padding-bottom: 0;
-}
-
-.lateral-menu .categorias {
-  display: flex;
-  flex-direction: column;
-}
-
-.lateral-menu .categorias a {
-  margin: 5px 10px 5px 75px;
-  font-size: 16px;
-}
-
-.lateral-menu .itens #icon-mesa {
-  width: 40px;
-  margin: 12px;
-}
-.lateral-menu .itens #icon-carrinho {
-  width: 30px;
-  margin: 15px;
-}
-.lateral-menu .itens #icon-categorias {
-  width: 25px;
-  margin: 15px;
 }
