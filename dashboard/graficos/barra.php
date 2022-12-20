@@ -164,13 +164,8 @@ series2.bullets.push(function() {
   })
 })
 
-var gradient = am5.LinearGradient.new(root, {
-  stops: [{
-    color: am5.color(0xFF621F)
-  }, {
-    color: am5.color(0x946B49)
-  }]
-});
+series.set("fill", am5.color("#8b1c2b"));
+series.set("stroke", am5.color("#8b1c2b"));
 
 
 // Make stuff animate on load

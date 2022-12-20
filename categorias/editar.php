@@ -31,6 +31,7 @@ try {
             unlink($result);
             move_uploaded_file( $_FILES['file']["tmp_name"], "$dir/" . $imgNome);
 
+            
         }else{
             echo json_encode('Falha ao salvar');
         }
