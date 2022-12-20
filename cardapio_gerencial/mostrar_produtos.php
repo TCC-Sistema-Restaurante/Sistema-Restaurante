@@ -74,15 +74,12 @@ $item .= '</div>
                 class="NovoBtn"
                 data-bs-toggle="modal"
                 data-bs-target="#modal-edit"
-                data-bs-whateverIdAtivar="' . $produto['id'] . '"
                 data-bs-whateverNomeProduto="' . $produto['nome_produto'] . '"
                 data-bs-whateverNomeCategoria="' . $produto['nome_categoria'] . '"
                 data-bs-whateverValorUnitario="' . $produto['valor_unitario'] . '"
                 data-bs-whateverDescricao="' . $produto['descricao'] . '"
                 data-bs-whateverImg="' . $produto['img'] . '"
                 data-bs-whateverStatus="' . $produto['status'] . '"
-
-
               >
                 <span class="material-symbols-outlined"> border_color </span>
               </button>
@@ -90,7 +87,7 @@ $item .= '</div>
                 class="NovoBtn"
                 data-bs-toggle="modal"
                 data-bs-target="#modal-ativar"
-                data-bs-whateverId="' . $produto['id'] . '"
+                data-bs-whateverIdAtivar="' . $produto['id'] . '"
               >
                 <span class="material-symbols-outlined"> add_circle </span>
               </button>

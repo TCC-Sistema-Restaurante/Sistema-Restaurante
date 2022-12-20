@@ -125,42 +125,70 @@ $("#btn-editar").click(function (e) {
     });
 
 });
-
-
 // INATIVAR PRODUTO
 const modal_inativar = document.getElementById("modal-inativar")
 modal_inativar.addEventListener("show.bs.modal", (event) => {
     var button = event.relatedTarget;
 
     var id = button.getAttribute("data-bs-whateverIdInativar");
-    var form_data = new FormData();
-    form_data.append("idInativar", id);
-
-    $("#inativar").click(function (e) {
-        $.ajax({
-            url: "inativar_produto.php",
-            method: "POST",
-            dataType: "json",
-            processData: false,
-            contentType: false,
-            data: form_data,
-        }).done(function (resultado) {
-            MostrarProdutos()
-            $("#inativo-btn-close").click();
-        })
-
-    });
-
+    const inputIdInativar = modal_inativar.querySelector("#IdInativo");
+    inputIdInativar.value = id;
 })
+
+$("#inativar").click(function (e) {
+
+    const IdInativar = document.getElementById("IdInativo").value;
+    
+    var form_data = new FormData();
+    form_data.append("idInativar", IdInativar);
+
+    $.ajax({
+        url: "inativar_produto.php",
+        method: "POST",
+        dataType: "json",
+        processData: false,
+        contentType: false,
+        data: form_data,
+    }).done(function (resultado) {
+        MostrarProdutos()
+        $("#inativo-btn-close").click();
+    })
+
+});
+
+
+// // INATIVAR PRODUTO
+// const modal_inativar = document.getElementById("modal-inativar")
+// modal_inativar.addEventListener("show.bs.modal", (event) => {
+//     var button = event.relatedTarget;
+
+//     var id = button.getAttribute("data-bs-whateverIdInativar");
+//     var form_data = new FormData();
+//     form_data.append("idInativar", id);
+
+//     $("#inativar").click(function (e) {
+//         $.ajax({
+//             url: "inativar_produto.php",
+//             method: "POST",
+//             dataType: "json",
+//             processData: false,
+//             contentType: false,
+//             data: form_data,
+//         }).done(function (resultado) {
+//             MostrarProdutos()
+//             $("#inativo-btn-close").click();
+//         })
+
+//     });
+
+// })
 
 // ATIVAR PRODUTO
 const modal_ativar = document.getElementById("modal-ativar")
 modal_ativar.addEventListener("show.bs.modal", (event) => {
     var button = event.relatedTarget;
-
     var id = button.getAttribute("data-bs-whateverIdAtivar");
-    const inputIdAtivar = modal.querySelector("#IdAtivo");
-
+    const inputIdAtivar = modal_ativar.querySelector("#IdAtivo");
     inputIdAtivar.value = id;
 
 })
@@ -169,7 +197,7 @@ $("#ativar").click(function (e) {
     e.preventDefault();
     var form_data = new FormData();
     const IdAtivar = document.getElementById("IdAtivo").value;
-    form_data.append("IdAtivo", id);
+    form_data.append("IdAtivo", IdAtivar);
 
     $.ajax({
         url: "ativar_produto.php",

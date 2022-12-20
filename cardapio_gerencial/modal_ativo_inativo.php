@@ -9,6 +9,7 @@
           </div>
         </div>
         <div class="modal-body">
+        <input hidden type="text" class="form form-control" name="IdInativo" id="IdInativo" placeholder="Id">
           <div class="modal-inativar">
             <span class="material-symbols-outlined"> help </span>
             <h3>Tem certeza que deseja retirar esse item do cardápio?</h3>
@@ -33,7 +34,7 @@
           </div>
         </div>
         <div class="modal-body">
-        <input type="text" class="form form-control" name="IdAtivo" id="IdAtivo" placeholder="Id">
+        <input type="text" hidden class="form form-control" name="IdAtivo" id="IdAtivo" placeholder="Id">
           <div class="modal-ativar">
             <span class="material-symbols-outlined"> help </span>
             <h3>Tem certeza que deseja adicionar esse item cardápio?</h3>

@@ -73,9 +73,9 @@
 
     <!-- Modal -->
 
-    <?php include"modal_add.php";?>
-    <?php include"modal_edit.php";?>
-    <?php include"modal_ativo_inativo.php";?>
+    <?php include "modal_add.php";?>
+    <?php include "modal_edit.php";?>
+    <?php include "modal_ativo_inativo.php";?>
   </body>
 
     <!-- JQuery -->
