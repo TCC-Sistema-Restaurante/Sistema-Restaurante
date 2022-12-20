@@ -23,6 +23,7 @@ session_start();
     
                 $res = $mysqli->query($sql);
                 if($res ==  true){
+                    
                     $_SESSION['erro'] = false;
                     header('Location:../cadastro_mesas');
                 }
