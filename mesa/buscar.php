@@ -56,6 +56,7 @@ if ($rowCount > 0) {
 
             <td >
                 <button type="button" class="tableBtn tableBtnEditar" data-bs-toggle="modal" data-bs-target="#modalEditar"
+                data-bs-whateverId="' .$row["id"]. '"
                 data-bs-whateverNumero="' .$row["numero"]. '"
                 data-bs-whateverSituacao="' .$row["situacao"]. '"
                 data-bs-whateverDisponibilidade="' .$row["disponibilidade"]. '"
