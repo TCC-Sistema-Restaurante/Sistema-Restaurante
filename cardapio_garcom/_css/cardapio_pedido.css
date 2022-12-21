@@ -80,20 +80,19 @@
   outline: none;
 }
 
-.flavor > .item {
-  background: #dfdfdf;
-  margin: 5px 0;
-  border-radius: 5px;
-  padding: 10px;
+.flavor > div {
+  display: flex;
 }
 
-.flavor > .item {
+.flavor > div > .item {
+  width: 95%;
   background-color: #dfdfdf;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 15px;
   display: block;
   position: relative;
   margin-bottom: 12px;
+  margin-right: 5px;
   cursor: pointer;
   font-size: 15px;
   -webkit-user-select: none;
@@ -102,27 +101,39 @@
   user-select: none;
 }
 
-.flavor > .item > div div {
+input[type="number"] {
+  padding: 10px;
+  width: 5%;
+  min-width: 45px;
+  max-height: 80px;
+  font-size: 15px;
+  border-radius: 10px;
+  border-bottom: #e92f48 solid 3px;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+.flavor > div > .item > div div {
   width: 100%;
   padding: 5px;
   display: flex;
   justify-content: space-between;
 }
 
-.flavor > .item > div {
+.flavor > div > .item > div {
   display: flex;
   align-items: center;
   padding-bottom: 5px;
 }
 
-.flavor > .item > div > .checkmark {
+.flavor > div > .item > div > .checkmark {
   height: 25px;
   width: 25px;
   border-radius: 5px;
   background-color: #eee;
 }
 
-.flavor > .item input {
+.flavor > div > .item input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -130,24 +141,24 @@
   width: 0;
 }
 
-.flavor > .item:hover input ~ .checkmark {
+.flavor > div > .item:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-.flavor > .item input:checked ~ .checkmark {
+.flavor > div > .item input:checked ~ .checkmark {
   background-color: #e92f48;
 }
 
-.flavor > .item > div > .checkmark:after {
+.flavor > div > .item > div > .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.flavor > .item input:checked ~ .checkmark:after {
+.flavor > div > .item input:checked ~ .checkmark:after {
   display: block;
 }
 
-.flavor > .item .checkmark:after {
+.flavor > div > .item .checkmark:after {
   left: 23px;
   top: 20px;
   width: 5px;
@@ -159,7 +170,7 @@
   transform: rotate(45deg);
 }
 
-.flavor > .item > div > h4 {
+.flavor > div > .item > div > h4 {
   margin-left: 10px;
 }
 
