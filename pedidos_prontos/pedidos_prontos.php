@@ -33,27 +33,6 @@
     
     <section>
       <div class="container">
-       
-        <div class="box">
-          <div class="row">
-            <div class="col-4 text-center parteEsquerda">
-              <i class="fa-regular fa-clock"></i>
-              <p>16:42</p>
-            </div>
-
-            <div class="col-8 parteDireita">
-              <div>
-                <h2 class="">Mesa 03</h2>
-                <button>X</button>
-              </div>
-              <p>Bife acebolado</p>
-              <p>Hamburguer</p>
-              <p>Pizza média:</p>
-              <p>1/2 marguerita</p>
-              <p>1/2 bolonhesa</p>
-            </div>
-          </div>
-        </div>
 
       </div>
     
@@ -86,19 +65,9 @@
   }
 
 
-  // const modal_delet = document.getElementById("modalDeletar");
 
-  // modal_delet.addEventListener("show.bs.modal", (event) => {
-  //     const button = event.relatedTarget;
-  //     const id_mesa = button.getAttribute("data-bs-whateverIdmesa");
-  //     const inputId = $("#inputIdEdit");
-
-  //     inputId.val(id_mesa);
-  // });
-
-  $("#deletar-item").click(function (e) {
-      var id_cancelar = $("#inputIdEdit").val();
-
+  $("#entregarBtn").click(function (e) {
+     id = 
       $.ajax({
           type: "POST",
           url: "entregar.php",

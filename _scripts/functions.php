@@ -244,6 +244,16 @@ function mesasPedidosProntos(){
     return $query;
 }
 
+function retornarPedidoaEntregar($id_mesa){
+    include "config.php";
+    $sql = "SELECT nome_produto, TIME_FORMAT(data, '%H:%i') as hora FROM `produto`
+    INNER JOIN pedido on produto.id = pedido.id_produtos 
+    WHERE situacao = 'pronto' AND id_mesa = $id_mesa";
+    $query = $mysqli->query($sql);
+    $dados = mysqli_fetch_all($query);
+    return $dados;
+}
+
 // Dashboard
 function vendasDia(){
     include '../_scripts/config.php';

@@ -10,30 +10,30 @@ if (isset($_POST['mostrar'])) {
 
     $mostrar = '';
     $produtos = '';
-    $valor_total = 0;
-
+    $hora ='';
     $lista_mesas = mesasPedidosProntos();
     while ($ids_mesa = $lista_mesas->fetch_array()) {
-      $produtos = retornarProduto($ids_mesa['id_mesa']);
-      echo $produtos;
+      $dados = retornarPedidoaEntregar($ids_mesa['id_mesa']);
+      $produtos = '';
 
-      // foreach ($dados as $i) {
-      // $produtos .= $i[1];
-      // $produtos .= '; ';
-      // };
+      foreach ($dados as $i) {
+      $produtos .= $i[0];
+      $produtos .= '; ';
+      $hora = $i[1];
+      };
 
 
         $mostrar .=  '<div class="box">
           <div class="row">
             <div class="col-4 text-center parteEsquerda">
               <i class="fa-regular fa-clock"></i>
-              <p>16:42</p>
+              <p>'.$hora.'</p>
             </div>
 
             <div class="col-8 parteDireita">
               <div>
                 <h2 class="">Mesa ' . $ids_mesa["id_mesa"] .' </h2>
-                <button>X</button>
+                <button id="entregarBtn" class="'. $ids_mesa["id_mesa"].'">X</button>
               </div>';
 
             $mostrar .= '
