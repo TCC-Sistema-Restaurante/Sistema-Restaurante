@@ -5,13 +5,14 @@ include "../_scripts/config_pdo.php";
 
 $query = 
 "SELECT a.numero, CASE 
-	WHEN sum(b.valor) is NULL THEN '0,00'
-	ELSE sum(b.valor) 
+    WHEN b.situacao != 'pago' THEN sum(b.valor)
+    WHEN sum(b.valor) is NULL THEN '0,00'
+    WHEN b.situacao = 'pago' THEN '0,00'
     END as soma, a.situacao
 FROM mesa as a
 LEFT JOIN pedido as b
 on a.numero = b.id_mesa
-WHERE a.disponibilidade='ativa' and b.situacao != 'pago'
+WHERE a.disponibilidade='ativa'
 GROUP by a.numero";
 
 

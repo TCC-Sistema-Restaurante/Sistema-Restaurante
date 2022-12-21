@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +16,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <title>Pedido Pizza</title>
+    <title>Cardápio pedido</title>
   </head>
   <body>
     <nav class="mb-1">
@@ -32,7 +35,7 @@
           <!-- ITEM -->
           
           <?php
-          include "../_scripts/config_pdo.php";
+            include "../_scripts/config_pdo.php";
 
             $url = $_SERVER["REQUEST_URI"];
             
@@ -56,6 +59,7 @@
 
                 foreach($result as $row) {
                     echo'
+                    <div>
                         <label for="flavor'.$row["id"].'" class="item">
                             <div>
                             <input type="checkbox" name="check-flavor[]" value="'.$row["id"].'" id="flavor'.$row["id"].'" />
@@ -68,7 +72,10 @@
                             <p>
                             '.$row["descricao"].'
                             </p>
+                            
                         </label>
+                        <input type="number" name="quantidade[]" min="0" value="0">
+                    </div>
                         ';
                 }
                 
@@ -80,26 +87,41 @@
         </div>
         <input type="submit" value="Avançar" />
         
+        
       </form>
     </section>
 
     <?php
-// Verifica se usuário escolheu algum número
-if(isset($_POST["check-flavor"])){
+
+if(isset($_POST["check-flavor"]) && isset($_POST["quantidade"])){
     
-$_SESSION["mesa-$id_mesa"] = array();
-$categoria.'_'.$id_categoria = array();
-    // Faz loop pelo array dos numeros
+    $ids_produtos = [];
+    $quantidade_produtos = [];
+    
     foreach($_POST["check-flavor"] as $numero)
     {
-        array_push($categoria_id_categoria, $numero);
+        array_push($ids_produtos, $numero);
+    }foreach($_POST["quantidade"] as $quantidade){
+        if($quantidade > 0){
+            array_push($quantidade_produtos, $quantidade);
+        }
     }
-    array_push($_SESSION["mesa-$id_mesa"],$categoria_id_categoria);
-    print_r($_SESSION);
+
+    if(isset($_SESSION["Pedidos"])){
+        array_push($_SESSION["Pedidos"] , array("Mesa" => $id_mesa,
+        "Produtos" => $ids_produtos, "Quantidade" => $quantidade_produtos));
+        
+        print_r($_SESSION);
+    }else{
+        $_SESSION["Pedidos"] = array("Mesa" => $id_mesa,
+        "Produtos" => $ids_produtos, "Quantidade" => $quantidade_produtos);
+        
+        print_r($_SESSION);
+    }  
 }
 else
 {
-    echo "Você não escolheu número preferido!<br>";
+
 }
 
 ?>
