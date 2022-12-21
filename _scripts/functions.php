@@ -204,7 +204,7 @@ function cadastrarUsuario($dados)
 
 function mesasPedidosPendentes(){
     include "config.php";
-    $sql = "SELECT DISTINCT id_mesa, data FROM pedido WHERE situacao = 'aguardando preparo' ORDER BY data";
+    $sql = "SELECT  DISTINCT id_mesa, data FROM pedido WHERE situacao = 'aguardando preparo' ORDER BY data";
     $query = $mysqli->query($sql);
     return $query;
 }

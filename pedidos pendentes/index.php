@@ -86,11 +86,6 @@ include "../_scripts/functions.php"
         </div>
         </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
 
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
@@ -134,116 +129,55 @@ include "../_scripts/functions.php"
     document.getElementById("prod").innerText = prod
   });
 
-  // document.querySelectorAll(".btnEntregar").forEach(function(button) {
-  //   button.addEventListener("click", function(event) {
-  //   const el = event.target || event.srcElement;
-  //   const id_mesa = el.id;
-  //   $.ajax({
-  //         type: "POST",
-  //         url: "entregar.php",
-  //         data: { id_mesa: id_mesa },
-  //         dataType: "json",
-  //     }).done(function (resultado) {
-  //       if (resultado == "Entregue") {
-  //           swal
-  //               .fire({
-  //                   icon: "success",
-  //                   text: "Entregue com sucesso!",
-  //                   type: "success",
-  //               })
-  //               .then((okay) => {
-  //                   MostrarPedidos();
-  //               });
-  //       } else {
-  //           swal
-  //               .fire({
-  //                   icon: "error",
-  //                   text: "Ops! Houve um erro.",
-  //                   type: "success",
-  //               })
-  //               .then((okay) => {
-  //                 MostrarPedidos();
-  //               });
-  //         }
-  //     })
-  //   });
-  // })
+  $("#btnEntregar").click(function (e) {
 
-$(document).ready(function() {
-    $("#btnPreparar").click(function (e) {
-    var idEditar = $("#inputIdEdit").val();
-      alert(idEditar)
-      console(idEditar)
+      console.log("entrou")
 
-    function entregar(id){
-      console.log(id)
-    }
+      const id_mesa = document.getElementById("mesaid").innerText;
 
-});
-})
+      $.ajax({
+            type: "POST",
+            url: "entregar.php",
+            data: { id_mesa: id_mesa },
+            dataType: "json",
+        }).done(function (resultado) {
+          if (resultado == "Entregue") {
+              swal
+                  .fire({
+                      icon: "success",
+                      text: "Entregue com sucesso!",
+                      type: "success",
+                  })
+                  .then((okay) => {
+                      MostrarPedidos();
+                      $(".btn-close").click();
+                  });
+          } else {
+              swal
+                  .fire({
+                      icon: "error",
+                      text: "Ops! Houve um erro.",
+                      type: "success",
+                  })
+                  .then((okay) => {
+                    MostrarPedidos();
+                    $(".btn-close").click();
+                  });
+            }
+        })
+    });
 
-    // var form_data = new FormData();
-    // form_data.append("file", imagem);
-    // form_data.append("nomeEditar", nomeEditar);
-    // form_data.append("idEditar", idEditar);
-    // form_data.append("imgSrc", imgSrc);
+    </script>
+        <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-    // $.ajax({
-    //     url: "editar.php",
-    //     method: "POST",
-    //     dataType: "json",
-    //     processData: false,
-    //     contentType: false,
-    //     data: form_data,
-    // }).done(function (resultado) {
-    //     if (resultado == "salvo!") {
-    //         swal
-    //             .fire({
-    //                 icon: "success",
-    //                 text: "Editado com sucesso!",
-    //                 type: "success",
-    //             })
-    //             .then((okay) => {
-    //                 if (okay) {
-    //                     MostrarCategorias();
-    //                     $("#edit-btn-close").click();
-
-    //                 }
-    //             });
-    //     } else {
-    //         swal
-    //             .fire({
-    //                 icon: "error",
-    //                 text: "Ops! Houve um erro.",
-    //                 type: "success",
-    //             })
-    //             .then((okay) => {
-    //                 if (okay) {
-    //                     $("#edit-btn-close").click();
-    //                     setTimeout(() => {
-    //                         MostrarCategorias();
-    //                     }, 200);
-    //                 }
-    //             });
-    //     }
-    // });
+    <!-- Scripts -->
 
 
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-  // document.querySelectorAll(".btnPreparar").forEach(function(button) {
-  //     button.addEventListener("click", function(event) {
-  //     const el = event.target || event.srcElement;
-  //     const id_mesa = el.id;
-  //     $.ajax({
-  //           type: "POST",
-  //           url: "preparar.php",
-  //           data: { id_mesa: id_mesa },
-  //           dataType: "json",
-  //       })
-  //   });
-    
-  // })
-      </script>
+    <!-- SweetAlert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
