@@ -76,10 +76,10 @@ function login($dados){
 
 // Cadastro de Produto
 
-function produtoExiste($nome){
+function produtoExiste($nome, $categoria){
     
     include "config.php";
-    $sql = "SELECT nome_produto FROM produto WHERE nome_produto='$nome'";
+    $sql = "SELECT nome_produto FROM produto WHERE nome_produto='$nome' and nome_categoria='$categoria'";
     $query = $mysqli->query($sql);
     $total = mysqli_num_rows($query);
 
@@ -118,7 +118,7 @@ function cadastrarProduto($dados, $upload){
         $img["name"] = tratar_arquivo_upload(utf8_decode($img['name']), utf8_decode($nome));
         $imgNome = $img["name"];
 
-        if (produtoExiste($nome) == 0 && move_uploaded_file($img["tmp_name"], "$dir/" . $imgNome)) {
+        if (produtoExiste($nome, $categoria) == 0 && move_uploaded_file($img["tmp_name"], "$dir/" . $imgNome)) {
 
             $sql = "INSERT INTO `produto` (`id`, `nome_produto`, `nome_categoria`, `categoria_id`, `valor_unitario`, `descricao`, `img`, `status`) VALUES (NULL, '$nome', '$nome_categoria', '$id_categoria', '$valor', '$descricao', '$dir/$imgNome', '$status')";
 

@@ -21,6 +21,7 @@ if (isset($_POST['mostrar'])) {
         <div class="item">
           <div class="image">
             <img src="' . $dados["img"] . '" alt="foto-item" width="100%" />
+            <div class="filtro-img"></div>
             <div class="edit-delet">
               <button
                 class="NovoBtn"
@@ -33,8 +34,6 @@ if (isset($_POST['mostrar'])) {
                 data-bs-whateverDescricao="' . $dados['descricao'] . '"
                 data-bs-whateverImg="' . $dados['img'] . '"
                 data-bs-whateverStatus="' . $dados['status'] . '"
-
-
               >
                 <span class="material-symbols-outlined"> border_color </span>
               </button>
@@ -69,6 +68,7 @@ $item .= '</div>
         <div class="item">
           <div class="image">
             <img src="' . $produto["img"] . '" alt="foto-item" width="100%" />
+            <div class="filtro-img"></div>
             <div class="edit-delet">
               <button
                 class="NovoBtn"

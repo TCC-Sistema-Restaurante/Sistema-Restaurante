@@ -8,7 +8,6 @@
   font-family: "Inter", sans-serif;
 }
 
-
 #topSVG {
   width: 100%;
   max-height: 130px;
@@ -21,15 +20,14 @@
   left: 50%;
   transform: translate(-50%);
   color: #e92f48;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 37px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 
 .containerInput {
   width: 100%;
@@ -101,7 +99,7 @@
   transform: scale(1.01);
 }
 
-.cardapio > .container > .item > div {
+.cardapio > .container > .item > a > div {
   background-color: #e92f48;
   height: auto;
   width: 100%;
@@ -110,27 +108,25 @@
   border-radius: 0 0 10px 10px;
 }
 
-.cardapio > .container > .item > img {
+.cardapio > .container > .item > a > img {
   border-radius: 10px 10px 0 0;
   width: 100%;
-  height: 85%;
+  height: 82%;
 }
 
-a{
+a {
   text-decoration: none;
+  text-align: center;
   color: white;
 }
 
-a:hover{
+a:hover {
   color: white;
 }
 
-
-@media screen and (max-width: 295px){
-
- .container{
-  margin-top: 0;
-  transform: scale(.9);
- }
-
+@media screen and (max-width: 295px) {
+  .container {
+    margin-top: 0;
+    transform: scale(0.9);
+  }
 }

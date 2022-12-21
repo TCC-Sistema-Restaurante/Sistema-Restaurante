@@ -38,7 +38,7 @@ include "../_scripts/functions.php";
            
             <div class="col-md-6 mb-3">
                 <div class="form-floating">
-                    <input  required type="number" min="0" name="valor"  class="form form-control" id="valor" placeholder="Valor">
+                    <input  required type="number" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" name="valor"  class="form form-control" id="valor" placeholder="Valor">
                     <label class="formLabel" for="valor">Valor</label>
                 </div>
             </div>
@@ -71,7 +71,7 @@ include "../_scripts/functions.php";
                 
 
                 <div class="form-floating mb-3">
-                    <textarea required name="descricao" style="height: 150px; resize: none;" class="form form-control" id="descricao"  placeholder="Descrição"></textarea>
+                    <textarea name="descricao" style="height: 150px; resize: none;" class="form form-control" id="descricao"  placeholder="Descrição"></textarea>
                     <label class="formLabel" for="descricao">Descrição</label>
                 </div>
                 <label for="select">Status:</label>

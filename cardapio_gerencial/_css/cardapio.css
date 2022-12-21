@@ -97,7 +97,7 @@ a {
 }
 
 .cardapio > h1 {
-  margin: 20px 0;
+  margin-top: 20px;
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -142,7 +142,7 @@ a {
   font-weight: 600;
   padding: 5px;
   color: #e92f48;
-  margin-top: 50px;
+  margin-top: 20px;
   background: rgb(255, 255, 255);
 }
 
@@ -173,8 +173,8 @@ a {
   width: 100%;
   height: 100%;
   padding: 10px;
+  padding-bottom: 40px;
   border-radius: 10px 10px 0 0;
-  text-align: right;
   transition: 0.4s;
   opacity: 0%;
 }
@@ -205,13 +205,28 @@ a {
   height: 100%;
   object-fit: cover;
   transition: 0.4s;
+  position: relative;
+}
+
+.cardapio > .containeres > .container > .item > .image > .filtro-img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 27, 27, 0.6) 0%,
+    rgba(39, 39, 39, 0.2) 45%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .cardapio > .containeres > .container > .item > .image > h3 {
   margin: 10px;
   font-weight: 500;
-  position: relative;
-  top: -45px;
+  position: absolute;
+  bottom: 0;
 }
 
 .cardapio > .containeres > .container > .item > h4 {
@@ -222,7 +237,11 @@ a {
 }
 
 .cardapio > .containeres > .container > .item > h2 {
-  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  margin: 0;
   text-align: right;
   font-weight: 700;
 }
