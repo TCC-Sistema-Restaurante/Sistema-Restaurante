@@ -40,7 +40,7 @@ include "../_scripts/functions.php";
     </div>
     <div class="inputs">
       <div class="containerInput">
-        <div class="mb-4">
+        <div class="mb-2">
           <span class="inlineIcon">
             <i class="bx bx-search"></i>
           </span>
