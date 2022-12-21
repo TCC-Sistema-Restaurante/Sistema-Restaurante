@@ -42,7 +42,7 @@ if (isset($_POST['mostrar'])) {
 
 
     $mostrar .=
-      '<button class="mt-1 btnPreparar" id="btnPreparar" onclick="entregar('. $ids_mesa["id_mesa"] .')" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatevermesaID="' . $ids_mesa["id_mesa"]  .'" data-bs-whateverHora="'. $hora .'" data-bs-whateverProdutos="'. $produtos .'" >Preparar</button>
+      '<button class="mt-1 btnPreparar" id="btnPreparar" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatevermesaID="' . $ids_mesa["id_mesa"]  .'" data-bs-whateverHora="'. $hora .'" data-bs-whateverProdutos="'. $produtos .'" >Preparar</button>
 
 
             </div>

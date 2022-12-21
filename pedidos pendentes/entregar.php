@@ -5,7 +5,7 @@
 
        
     $id_mesa = $_POST['id_mesa'];
-    $sql = "UPDATE pedido SET situacao = 'entregue' WHERE situacao= 'em preparo' and id_mesa= '$id_mesa'";
+    $sql = "UPDATE pedido SET situacao = 'entregue' WHERE id_mesa= '$id_mesa'";
     $query = $mysqli->query($sql);
 
     if($query){
