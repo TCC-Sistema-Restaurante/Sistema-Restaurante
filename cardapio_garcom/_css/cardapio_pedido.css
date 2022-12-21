@@ -8,8 +8,6 @@
   font-family: "Inter", sans-serif;
 }
 
-body {
-}
 
 
 #topSVG {
@@ -158,17 +156,17 @@ body {
   background: none;
   border-bottom: #636363 solid 2px;
   width: 90%;
-  outline: none;
+  outline: none; 
 }
 
-.flavor > .item {
+.flavor > #container > .item {
   background: #dfdfdf;
   margin: 5px 0;
   border-radius: 5px;
   padding: 10px;
 }
 
-.flavor > .item {
+.flavor > #container > .item {
   background-color: #dfdfdf;
   border-radius: 15px;
   padding: 15px;
@@ -183,20 +181,20 @@ body {
   user-select: none;
 }
 
-.flavor > .item > div {
+.flavor > #container > .item > div {
   display: flex;
   align-items: center;
   padding-bottom: 5px;
 }
 
-.flavor > .item > div > .checkmark {
+.flavor > #container > .item > div > .checkmark {
   height: 25px;
   width: 25px;
   border-radius: 5px;
   background-color: #eee;
 }
 
-.flavor > .item input {
+.flavor > #container > .item input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -204,24 +202,24 @@ body {
   width: 0;
 }
 
-.flavor > .item:hover input ~ .checkmark {
+.flavor > #container > .item:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-.flavor > .item input:checked ~ .checkmark {
+.flavor > #container > .item input:checked ~ .checkmark {
   background-color: #e92f48;
 }
 
-.flavor > .item > div > .checkmark:after {
+.flavor > #container > .item > div > .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.flavor > .item input:checked ~ .checkmark:after {
+.flavor > #container > .item input:checked ~ .checkmark:after {
   display: block;
 }
 
-.flavor > .item .checkmark:after {
+.flavor > #container > .item .checkmark:after {
   left: 23px;
   top: 20px;
   width: 5px;
@@ -233,7 +231,7 @@ body {
   transform: rotate(45deg);
 }
 
-.flavor > .item > div > h4 {
+.flavor > #container > .item > div > h4 {
   margin-left: 10px;
 }
 
