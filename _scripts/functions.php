@@ -24,11 +24,11 @@ function login($dados){
             header("Location: ../menu/menu.html");
         }
         else if($user['cargo'] == "Cozinheiro"){
-            header("Location: ../pedidos pendentes/index.html");
+            header("Location: ../pedidos pendentes/index.php");
 
         }
         else if($user['cargo'] == "Garçom"){
-            header("Location: ../cardapio_garcom/cardapio.html");
+            header("Location: ../lista-mesas/mesas_garcom.php");
 
         }
         else{
