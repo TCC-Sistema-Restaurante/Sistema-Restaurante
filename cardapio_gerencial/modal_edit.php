@@ -13,7 +13,7 @@
           <input type="text" hidden class="form form-control" name="idEditar" id="idEditar" placeholder="Id">
           <div>
               <input type="text" placeholder="Nome do produto" id="nomeEditar"/>
-              <input type="number" placeholder="Valor unitário" id="valorEditar" />
+              <input type="number" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" placeholder="Valor unitário" id="valorEditar" />
           </div>
           <div>
               <?php
