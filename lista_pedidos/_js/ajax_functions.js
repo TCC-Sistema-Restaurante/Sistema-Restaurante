@@ -56,9 +56,9 @@ $(document).ready(function () {
             }
         })
     })
-    $('#datefilter').on('keyup', function(){
-        var value = $(this).val();
-        alert(value);
+    $('#btndatefilter').on('click', function(){
+        var value = $('#input_date').val();
+        // alert(value);
         $.ajax({
             url:"pedidos.php",
             type:"post",
