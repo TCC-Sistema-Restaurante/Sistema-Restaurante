@@ -133,7 +133,7 @@
   outline: none;
 }
 
-.pedir-conta form button {
+.pedir-conta button {
   cursor: pointer;
   background-color: #e92f48;
   width: 100%;

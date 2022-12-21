@@ -11,7 +11,7 @@ $query =
 FROM mesa as a
 LEFT JOIN pedido as b
 on a.numero = b.id_mesa
-WHERE a.disponibilidade='ativa'
+WHERE a.disponibilidade='ativa' and b.situacao != 'pago'
 GROUP by a.numero";
 
 
