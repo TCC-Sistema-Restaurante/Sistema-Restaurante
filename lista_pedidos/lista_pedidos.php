@@ -145,8 +145,8 @@ include "../_scripts/functions.php";
       </div>
     </section> -->
 
-    <section class="sec3 ">
-      <div class="container" id="container">
+    <section>
+      <div class="container_" id="container">
         
       </div>
     </section>

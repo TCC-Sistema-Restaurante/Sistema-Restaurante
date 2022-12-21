@@ -27,24 +27,36 @@ $(document).ready(function () {
             buscar();
         }
     });
+    // $('#filtro').keyup(function(){
+    //     var request = $(this).val();
+    //     //alert(request);
+    //     if (request != '') {
+    //         buscar(request);
+    //     }
+    //     else {
+    //         buscar();
+    //     }
+        
+    // })
+
     $('#filtro').on('change', function(){
         var value = $(this).val();
-        // alert(value);
+        //alert(value);
         $.ajax({
             url:"pedidos.php",
             type:"post",
             data:'request=' + value,
             beforeSend:function(){
-                $(".container").html("<span>Carregando...</span>");
+                $("#container").html("<span>Carregando...</span>");
 
             },
             success: function(data){
-                $(".container").html(data);
+                $("#container").html(data);
 
             }
         })
     })
-    $('#datefilter').on('change', function(){
+    $('#datefilter').on('keyup', function(){
         var value = $(this).val();
         alert(value);
         $.ajax({
@@ -52,11 +64,11 @@ $(document).ready(function () {
             type:"post",
             data:'request_date=' + value,
             beforeSend:function(){
-                $(".container").html("<span>Carregando...</span>");
+                $("#container").html("<span>Carregando...</span>");
 
             },
             success: function(data){
-                $(".container").html(data);
+                $("#container").html(data);
 
             }
         })
