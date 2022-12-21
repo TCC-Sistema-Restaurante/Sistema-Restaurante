@@ -1,9 +1,5 @@
-<?php
-if (isset($_SESSION['qtd'])) {
-} else {
-    $_SESSION['qtd'] = array();
-}
-?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -43,38 +39,24 @@ if (isset($_SESSION['qtd'])) {
         <input type="submit" value="FINALIZAR" />
     </form>
     
-    <div class="side-bar">
-        <div class="button-menu">
-          <span class="material-symbols-outlined"> menu </span>
-        </div>
-  
-        <div class="lateral-menu">
-          <div class="itens" id="mesas">
-            <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
-            <a href="#">Mesas</a>
-          </div>
-          <div class="itens" id="pedidos-pendentes">
-            <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-            <a href="#">
-              Pedidos<br />
-              prontos
-            </a>
-          </div>
-          <div class="itens">
-            <img src="../menu_lateral/_img/categorias.png" id="icon-categorias" alt="" />
-            <a href="#">Categorias</a>
-          </div>
-          <div class="categorias">
-            <a href="#" id="pizzas">Pizzas</a>
-            <a href="#" id="sanduiches">Sanduiches</a>
-            <a href="#" id="sobremesas">Sobremesas</a>
-            <a href="#" id="petiscos">Petiscos</a>
-          </div>
-        </div>
-      </div>
-  
+    
+
+    <?php
+      include"../menu_lateral/side_bar.php"
+    ?>
+    <?php
+
+    if(!isset($_SESSION)){
+        session_start();
+        print_r($_SESSION);
+
+        print_r($_SESSION["Pedidos"]);
+
+      }
+
+    ?>
+
       <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-      <script src="../menu_lateral/_js/Script.js"></script>
     <script>
 
         function menos(elemento){
@@ -187,7 +169,10 @@ if (isset($_SESSION['qtd'])) {
 //         }
 //     });
 // });
+
+
 </script>
+
 </body>
 
 </html>

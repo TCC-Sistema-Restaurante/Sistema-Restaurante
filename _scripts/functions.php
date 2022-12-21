@@ -19,22 +19,15 @@ function login($dados){
 
 
     if ($qtd == 1) {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
 
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['nome'] = $user['nome'];
-        $_SESSION['cargo'] = $user['cargo'];
-
-        if($_SESSION['cargo'] == "Gerente"){
+        if($user['cargo'] == "Gerente"){
             header("Location: ../menu/menu.html");
         }
-        else if($_SESSION['cargo'] == "Cozinheiro"){
+        else if($user['cargo'] == "Cozinheiro"){
             header("Location: ../pedidos pendentes/index.html");
 
         }
-        else if($_SESSION['cargo'] == "Garçom"){
+        else if($user['cargo'] == "Garçom"){
             header("Location: ../cardapio_garcom/cardapio.html");
 
         }

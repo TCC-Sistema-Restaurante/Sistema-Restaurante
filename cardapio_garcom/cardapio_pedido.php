@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +23,7 @@ session_start();
     </nav>
     <!-- Side bar -->
     <?php
-    include"../menu_lateral/side_bar.php"
+      include"../menu_lateral/side_bar.php"
     ?>
     <section class="pedido">
       <a href="#">voltar para categorias</a>
@@ -90,8 +88,20 @@ session_start();
         
       </form>
     </section>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+    <script src="_js/ajax_functions.js"></script>
+    <script src="_js/script.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+  </body>
+</html>
 
     <?php
+  header("Location: ../menu/");
 
 if(isset($_POST["check-flavor"]) && isset($_POST["quantidade"])){
     
@@ -117,22 +127,7 @@ if(isset($_POST["check-flavor"]) && isset($_POST["quantidade"])){
         "Produtos" => $ids_produtos, "Quantidade" => $quantidade_produtos);
         
         print_r($_SESSION);
-    }  
-}
-else
-{
-
-}
+    } 
+  }
 
 ?>
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-
-    <!-- Scripts -->
-    <script src="_js/ajax_functions.js"></script>
-    <script src="_js/script.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-  </body>
-</html>

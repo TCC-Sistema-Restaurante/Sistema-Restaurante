@@ -3,12 +3,11 @@
 include "../_scripts/functions.php";
 include "../_scripts/config.php";
 
-
 extract($_POST);
 
 if (isset($_POST['mostrar'])) {
     $teste = array();
-    $teste =   array(23 => Array ( 11, 13), qtd => );
+    $teste =   array(23 => Array ( 11, 13));
     $teste = $teste[23];
     $total = 0;
     $carrinho = '<div class="table-responsive-md">
@@ -35,7 +34,7 @@ if (isset($_POST['mostrar'])) {
             <div class="wrapper">
                 <span onclick="menos(this)" class="menos">-</span>
                 <span class="num">01</span>
-                <span onclick="mais(this, '.$dados['id'].')" class="mais">+</span>
+                <span onclick="mais(this)" class="mais">+</span>
                 <input type="hidden" name="" value="1">
             </div>
         </td>
