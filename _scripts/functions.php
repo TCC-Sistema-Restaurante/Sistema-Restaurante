@@ -104,25 +104,29 @@ function tratar_arquivo_upload($string, $nomeProduto){
 
 function cadastrarProduto($dados, $upload){
     include "config.php";
+    if (isset($dados['nome'])) {
+        $nome = $dados['nome'];
+        $categoria = $dados['categoria'];
+        $partes = explode("/", $categoria);
+        $nome_categoria = $partes[0];
+        $id_categoria = $partes[1];
+        $valor = $dados['valor'];
+        $descricao = $dados['descricao'];
+        $status = $dados['status'];
+        $dir = "../_imgBanco";
+        $img = $_FILES["picture-input"];
+        $img["name"] = tratar_arquivo_upload(utf8_decode($img['name']), utf8_decode($nome));
+        $imgNome = $img["name"];
 
-    $nome = $dados['nome'];
-    $categoria_id = $dados['categoria'];
-    $valor = $dados['valor'];
-    $descricao = $dados['descricao'];
-    $status = $dados['status'];
-    $dir = "../_imgBanco";
-    $img = $_FILES["picture-input"];
-    $img["name"] = tratar_arquivo_upload(utf8_decode($img['name']), utf8_decode($nome));
-    $imgNome = $img["name"];
+        if (produtoExiste($nome) == 0 && move_uploaded_file($img["tmp_name"], "$dir/" . $imgNome)) {
 
-    if (produtoExiste($nome) == 0 && move_uploaded_file($img["tmp_name"], "$dir/".$imgNome)) {
+            $sql = "INSERT INTO `produto` (`id`, `nome_produto`, `nome_categoria`, `categoria_id`, `valor_unitario`, `descricao`, `img`, `status`) VALUES (NULL, '$nome', '$nome_categoria', '$id_categoria', '$valor', '$descricao', '$dir/$imgNome', '$status')";
 
-        $sql = "INSERT INTO `produto` (`id`, `nome_produto`, `categoria_id`, `valor_unitario`, `descricao`, `img`, `status`) VALUES (NULL, '$nome', '$categoria_id', '$valor', '$descricao', '$dir/$imgNome', '$status')";
-
-        $query = $mysqli->query($sql) or die("ERRO: " . $mysqli->error);
-        return $query;
-    } else {
-        return False;
+            $query = $mysqli->query($sql) or die("ERRO: " . $mysqli->error);
+            return $query;
+        } else {
+            return False;
+        }
     }
 }
 
@@ -310,7 +314,7 @@ function PratosMaisPedidos(){
     $i=0;
     $b=array();
     
-    $sql= "SELECT COUNT(id) as soma, (SELECT nome_produto from produto WHERE id= id_produtos) as nome FROM pedido GROUP BY id_produtos ORDER BY COUNT(id) DESC LIMIT 10";
+    $sql= "SELECT Sum(quantidade) as soma, (SELECT nome_produto from produto WHERE id= id_produtos) as nome FROM pedido WHERE situacao = 'pago'  GROUP BY id_produtos ORDER BY sum(quantidade) DESC LIMIT 10";
     $query = $mysqli->query($sql);
     while ($result=$query->fetch_array()){
         $b[$i]= array('country'=> $result['nome'], 'value' =>intval($result['soma']));

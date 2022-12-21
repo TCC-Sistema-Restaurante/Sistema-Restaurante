@@ -7,9 +7,8 @@ include "../_scripts/config_pdo.php";
 
 
 try {
-       
-    $id_cancelar = $_POST['id_cancelar'];
-    $query = $pdo->prepare("UPDATE pedido SET situacao = 'entregue' WHERE situacao= 'pronto' and id_mesa= '$id_cancelar';");
+    $id_entregar = $_POST['id_entregar'];
+    $query = $pdo->prepare("UPDATE pedido SET situacao = 'entregue' WHERE situacao= 'pronto' and id_mesa= '$id_entregar';");
 
     $query->execute();
 

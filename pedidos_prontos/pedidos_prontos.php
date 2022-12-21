@@ -37,15 +37,46 @@
       </div>
     
     </section>
+    <div class="modal-delet">
+      <div class="modal t-modal fade" id="modalDeletar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <button type="button" class="btn-close" id="delet-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="modal-delet">
+                <span class="material-symbols-outlined"> question_mark </span>
+                <h3>Entregar pedido?</h3>
+                <input type="text" hidden class="form form-control" name="idEditar" id="inputIdEdit" placeholder="Id">
+              </div>
+            </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button id="deletar-item" class="btn btn-success">Entregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+     <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
     <script>
     $(document).ready(function () {
         MostrarPedidos();
+
+      setInterval(function () {
+        MostrarPedidos();
+      }, 40000)
     });
 
     function MostrarPedidos() {
@@ -64,16 +95,25 @@
     });
   }
 
+const modal_delet = document.getElementById("modalDeletar");
 
+modal_delet.addEventListener("show.bs.modal", (event) => {
+    const button = event.relatedTarget;
+    const id_item = button.getAttribute("data-bs-whateverIdDelet");
+    const inputId = $("#inputIdEdit");
 
-  $("#entregarBtn").click(function (e) {
-     id = 
-      $.ajax({
-          type: "POST",
-          url: "entregar.php",
-          data: { id_cancelar: id_cancelar },
-          dataType: "json",
-      }).done(function (resultado) {
+    inputId.val(id_item);
+});
+
+$("#deletar-item").click(function (e) {
+    var id_entregar = $("#inputIdEdit").val();
+
+    $.ajax({
+        type: "POST",
+        url: "entregar.php",
+        data: { id_entregar: id_entregar },
+        dataType: "json",
+    }).done(function (resultado) {
         if (resultado == "salvo!") {
             swal
                 .fire({
@@ -83,7 +123,9 @@
                 })
                 .then((okay) => {
                     if (okay) {
-                      MostrarPedidos();
+                        MostrarPedidos();
+                        $("#delet-btn-close").click();
+
                     }
                 });
         } else {
@@ -95,18 +137,15 @@
                 })
                 .then((okay) => {
                     if (okay) {
-                        MostrarPedidos();
+                        $("#delet-btn-close").click();
+                        setTimeout(() => {
+                          MostrarPedidos();
+                        }, 200);
                     }
                 });
-          }
-      })
-
-      setTimeout(() => {
-          MostrarPedidos();
-      }, 200);
-
-      $("#delet-btn-close").click();
-  });
+        }
+    });
+});
 
     </script>
 

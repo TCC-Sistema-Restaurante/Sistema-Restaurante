@@ -123,7 +123,7 @@ h1 {
 
 .picture {
   width: 100%;
-  height: 250px;
+  height: 321.98px;
   aspect-ratio: 16/9;
   display: flex;
   align-items: center;
@@ -244,7 +244,7 @@ h1 {
 }
 
 .nice-select.wide {
-  width: 84%;
+  width: 100%;
 }
 
 .nice-select.wide .list {
