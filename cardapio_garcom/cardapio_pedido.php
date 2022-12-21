@@ -26,7 +26,7 @@
     ?>
     <section class="pedido">
       <a href="#">voltar para categorias</a>
-      <form action="">
+      <form action="" method="POST">
         <div class="flavor">
           <h3>Escolha os produtos:</h3>
           <!-- ITEM -->
@@ -37,6 +37,9 @@
             $url = $_SERVER["REQUEST_URI"];
             
             $id_categoria = explode('?', $url)[1];
+            $id_mesa = explode('?', $url)[2];
+
+            
             
             $query = ("SELECT b.id ,b.nome_produto,b.valor_unitario,b.descricao
                 FROM categoria as a
@@ -55,7 +58,7 @@
                     echo'
                         <label for="flavor'.$row["id"].'" class="item">
                             <div>
-                            <input type="checkbox" name="check-flavor" id="flavor'.$row["id"].'" />
+                            <input type="checkbox" name="check-flavor[]" value="'.$row["id"].'" id="flavor'.$row["id"].'" />
                             <span class="checkmark"></span>
                             <div>
                                 <h4>'.$row["nome_produto"].'</h4>
@@ -68,7 +71,6 @@
                         </label>
                         ';
                 }
-
                 
         }
 
@@ -77,9 +79,30 @@
           
         </div>
         <input type="submit" value="Avançar" />
+        
       </form>
     </section>
 
+    <?php
+// Verifica se usuário escolheu algum número
+if(isset($_POST["check-flavor"])){
+    
+$_SESSION["mesa-$id_mesa"] = array();
+$categoria.'_'.$id_categoria = array();
+    // Faz loop pelo array dos numeros
+    foreach($_POST["check-flavor"] as $numero)
+    {
+        array_push($categoria_id_categoria, $numero);
+    }
+    array_push($_SESSION["mesa-$id_mesa"],$categoria_id_categoria);
+    print_r($_SESSION);
+}
+else
+{
+    echo "Você não escolheu número preferido!<br>";
+}
+
+?>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 

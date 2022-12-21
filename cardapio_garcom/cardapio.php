@@ -61,14 +61,17 @@
       <div class="container">
 
           <?php 
+            $url = $_SERVER["REQUEST_URI"];
+            $id_categoria = explode('?', $url)[1];
+
               $categorias = categorias();
               while ($cardapioGarcom = $categorias ->fetch_array()) {
           ?>
 
-        
+     
 
           <div class="item">
-            <a href="cardapio_pedido.php?id=<?= $cardapioGarcom["id"]?>"> 
+            <a href="cardapio_pedido.php?<?= $cardapioGarcom["id"].'?'.$id_categoria?>"> 
             <img src= "<?= $cardapioGarcom['imagem']?>" alt="" />
             <div class="link">
                
