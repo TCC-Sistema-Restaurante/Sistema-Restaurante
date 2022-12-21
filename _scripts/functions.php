@@ -382,6 +382,15 @@ end as 'Hora', COUNT(id) as 'valor' from pedido Where situacao = 'pago' GROUP BY
 }
 
 
+function categorias(){
+    include "config.php";
+    $sql = "SELECT * FROM categoria";
+    $query = $mysqli->query($sql);
+    return $query;
+}
+
+
+
 
 ?>
 

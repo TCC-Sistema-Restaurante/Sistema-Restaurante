@@ -1,3 +1,9 @@
+
+<?php
+  include "../_scripts/functions.php"
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -30,11 +36,6 @@
       <h1 id="topText">Cardápio</h1>
     </nav>
 
-      <!-- Side bar -->
-      <?php
-    include"../menu_lateral/side_bar.php"
-    ?>
-
 
     <section class="cardapio">
       <div class="d-flex justify-content-center">
@@ -53,26 +54,32 @@
           </div>
         </div>
       </div>
+
       <div class="container">
-        <div class="item">
-          <img src="https://receitinhas.com.br/wp-content/uploads/2016/12/hamburguer-1200x800.jpg" alt="" />
-          <div>
-            <h3>Hambúrguer</h3>
+
+          <?php 
+              $categorias = categorias();
+              while ($cardapioGarcom = $categorias ->fetch_array()) {
+          ?>
+
+        
+
+          <div class="item">
+            <img src= "<?= $cardapioGarcom['imagem']?>" alt="" />
+            <div class="link">
+              <a href="cardapio_pedido.php?id=<?= $cardapioGarcom["id"]?>">  
+              
+                <h3><?= $cardapioGarcom['categoria']?></h3>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <img src="https://img.itdg.com.br/tdg/images/blog/uploads/2022/07/5-itens-necessarios-para-se-tornar-um-pizzaiolo-neste-Dia-da-Pizza.jpg?mode=crop&width={:width=%3E150,%20:height=%3E130}" alt="" />
-          <div>
-            <h3>Pizza</h3>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://foodbase.com.br/storage/app/media/receitas/2021/01/sorvete-de-flocos-co.jpg" alt="" />
-          <div>
-            <h3>Sorvete</h3>
-          </div>
-        </div>
+
+        
+          <?php } ?>
+        
       </div>
+
+
     </section>
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
