@@ -58,7 +58,7 @@ $(document).ready(function () {
     })
     $('#btndatefilter').on('click', function(){
         var value = $('#input_date').val();
-        alert(value);
+        // alert(value);
         $.ajax({
             url:"pedidos.php",
             type:"post",
