@@ -33,26 +33,17 @@
             
         </div>
 
-        
+        <a href="../lista-mesas/mesas_garcom.php">FINALIZAR</a>
     </section>
-    <form action="">
-        <input type="submit" value="FINALIZAR" />
-    </form>
+
     
     
 
     <?php
       include"../menu_lateral/side_bar.php"
     ?>
+
     <?php
-
-    if(!isset($_SESSION)){
-        session_start();
-        print_r($_SESSION);
-
-        print_r($_SESSION["Pedidos"]);
-
-      }
 
     ?>
 
@@ -96,83 +87,64 @@
     ></script>
      <!-- SweetAlert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+    if (isset($_GET['id_mesa'])) {
+    $id_produto = $_GET["produtos"];
+    $quantidade = $_GET["quantidade"];
+    $carrinho = '<div class="table-responsive-md">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th class="d-flex justify-content-center" >Quantidade</th>
+                <th>Valor unitário</th>
+                <th ></th>
+            </tr>
+        </thead>
+        <tbody>';
+
+        
+          include "../_scripts/config.php";
+          $sql = "SELECT * FROM produto where id = '$id_produto'";
+          $query = $mysqli->query($sql);
+          $dados = $query->fetch_assoc();
+
+        $carrinho .=  '<tr>
+        <td>'.$dados['nome_produto'].'</td>
+        <td class="d-flex justify-content-center">
+           
+                <h5>'.$quantidade.'</h5>
     
-    <script>
-    $(document).ready(function () {
-        MostrarCarrinho();
-    });
+        </td>
+        <td>'.$dados['valor_unitario'].'</td>
+        <td>
+            <button type="button" class="tableBtn tableBtnEditar">
+            <input type="hidden" name="apagar" value="'.$dados['id'].'">
+              <i class="bx bx-trash"></i>                  
+            </button>
+        </td>
+    </tr>';
 
-    function MostrarCarrinho() {
-    var displayData = "true";
-    $.ajax({
-        url: "MostrarCarrinho.php",
-        type: "post",
-        data: {
-            mostrar: displayData,
-        },
-
-        success: function (data, status) {
-            // console.log(status)
-            $(".container-fluid").html(data);
-        },
-    });
-  }
-
-// const modal_delet = document.getElementById("modalDeletar");
-
-// modal_delet.addEventListener("show.bs.modal", (event) => {
-//     const button = event.relatedTarget;
-//     const id_item = button.getAttribute("data-bs-whateverIdDelet");
-//     const inputId = $("#inputIdEdit");
-
-//     inputId.val(id_item);
-// });
-
-// $("#deletar-item").click(function (e) {
-//     var id_entregar = $("#inputIdEdit").val();
-
-//     $.ajax({
-//         type: "POST",
-//         url: "entregar.php",
-//         data: { id_entregar: id_entregar },
-//         dataType: "json",
-//     }).done(function (resultado) {
-//         if (resultado == "salvo!") {
-//             swal
-//                 .fire({
-//                     icon: "success",
-//                     text: "Entregue com sucesso!",
-//                     type: "success",
-//                 })
-//                 .then((okay) => {
-//                     if (okay) {
-//                         MostrarPedidos();
-//                         $("#delet-btn-close").click();
-
-//                     }
-//                 });
-//         } else {
-//             swal
-//                 .fire({
-//                     icon: "error",
-//                     text: "Ops! Houve um erro.",
-//                     type: "success",
-//                 })
-//                 .then((okay) => {
-//                     if (okay) {
-//                         $("#delet-btn-close").click();
-//                         setTimeout(() => {
-//                           MostrarPedidos();
-//                         }, 200);
-//                     }
-//                 });
-//         }
-//     });
-// });
+    
 
 
-</script>
+     
 
+
+          $carrinho .= '</tbody>
+          </table>
+      </div>
+
+      <div class="row mt-2" style="margin-bottom: 70px;">
+          <div class="col-6" >
+              <span style="color: #3A3A3A; font-size: 2em; margin-left: 20px;">Total</span>
+          </div>
+          <div class="col-6 text-end">
+              <span style="color: #3A3A3A; font-size: 2em; margin-right: 20px;">R$'.number_format($dados['valor_unitario']*$quantidade, 2).'</span>
+          </div>
+      </div>';
+    } echo $carrinho;
+?>
 </body>
 
 </html>

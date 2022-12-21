@@ -101,33 +101,13 @@
 </html>
 
     <?php
-  header("Location: ../menu/");
+
 
 if(isset($_POST["check-flavor"]) && isset($_POST["quantidade"])){
     
-    $ids_produtos = [];
-    $quantidade_produtos = [];
-    
-    foreach($_POST["check-flavor"] as $numero)
-    {
-        array_push($ids_produtos, $numero);
-    }foreach($_POST["quantidade"] as $quantidade){
-        if($quantidade > 0){
-            array_push($quantidade_produtos, $quantidade);
-        }
-    }
+    echo ' <script>
+    window.location.assign("../carrinho/carrinho.php?id_mesa='.$id_mesa.'&produtos='.$_POST["check-flavor"][0].'&quantidade='.$_POST["quantidade"][0].'")
+    </script>';    
 
-    if(isset($_SESSION["Pedidos"])){
-        array_push($_SESSION["Pedidos"] , array("Mesa" => $id_mesa,
-        "Produtos" => $ids_produtos, "Quantidade" => $quantidade_produtos));
-        
-        print_r($_SESSION);
-    }else{
-        $_SESSION["Pedidos"] = array("Mesa" => $id_mesa,
-        "Produtos" => $ids_produtos, "Quantidade" => $quantidade_produtos);
-        
-        print_r($_SESSION);
-    } 
   }
-
 ?>

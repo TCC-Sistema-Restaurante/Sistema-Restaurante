@@ -7,8 +7,7 @@ extract($_POST);
 
 if (isset($_POST['mostrar'])) {
     $teste = array();
-    $teste =   array(23 => Array ( 11, 13));
-    $teste = $teste[23];
+    $produtos =   array(23 => Array ( 11, 13));
     $total = 0;
     $carrinho = '<div class="table-responsive-md">
     <table class="table">
