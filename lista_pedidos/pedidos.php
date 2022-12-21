@@ -39,17 +39,17 @@ if ($rowCount > 0) {
     <div class="box">
           <div class="row">
               <div class="col-4 text-center parteEsquerda">
-                <i class="fa-regular fa-clock"></i>
-                <p>'.date_format(date_create($row["data"]),"d/m/Y H:i:s").'</p>
+                <i class="fa-regular fa-clock mb-2"></i>
+                <p>'.date_format(date_create($row["data"]),"d/m").'</p>
                 
               </div>
 
               <div class="col-8 parteDireita">
-                <h4 class="">'.$row["valor"].'</h4>
+                <h4 class="">R$'.number_format($row["valor"], 2).'</h4>
 
                 <h6>'.$row["situacao"].'</h6>
                 <p>
-                '.$row["descricao"].'
+                '.$row["nome_produto"].'
                 </p>
               </div>
           </div>
