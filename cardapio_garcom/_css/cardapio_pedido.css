@@ -8,36 +8,32 @@
   font-family: "Inter", sans-serif;
 }
 
-
-
 #topSVG {
   position: fixed;
-  top: 0; 
-  z-index: 5; 
+  top: 0;
+  z-index: 5;
   width: 100%;
   max-height: 130px;
   min-height: 120px;
-
 }
 
 #topText {
   white-space: nowrap;
   text-align: center;
   position: fixed;
-  z-index: 5; 
+  z-index: 5;
   top: 35px;
   left: 50%;
   transform: translate(-50%);
   color: #e92f48;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 37px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 7px 7px 15px rgba(0, 0, 0, 0.473);
 }
-
 
 .pedido {
   margin-top: 120px !important ;
@@ -53,81 +49,6 @@
 
 .pedido > a {
   color: #e92f48;
-}
-
-.pedido > form > .sizes {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pedido > form > .sizes > h3 {
-  color: #636363;
-}
-
-.sizes > .item {
-  background-color: #dfdfdf;
-  border-radius: 15px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.sizes > .item > h6 {
-  margin-left: 5px;
-}
-
-.sizes > .item input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.sizes > .item > .checkmark {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  height: 20px;
-  width: 20px;
-  background-color: #ffffff;
-  border-radius: 50%;
-}
-
-.sizes > .item:hover input[type="radio"] ~ .checkmark {
-  background-color: #ccc;
-}
-
-.sizes > .item input[type="radio"]:checked ~ .checkmark {
-  background-color: #e92f48;
-}
-
-.sizes > .item > .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.sizes > .item > input[type="radio"]:checked ~ .checkmark:after {
-  display: block;
-}
-
-.sizes > .item > .checkmark:after {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: white;
 }
 
 .flavor {
@@ -156,17 +77,17 @@
   background: none;
   border-bottom: #636363 solid 2px;
   width: 90%;
-  outline: none; 
+  outline: none;
 }
 
-.flavor > #container > .item {
+.flavor > .item {
   background: #dfdfdf;
   margin: 5px 0;
   border-radius: 5px;
   padding: 10px;
 }
 
-.flavor > #container > .item {
+.flavor > .item {
   background-color: #dfdfdf;
   border-radius: 15px;
   padding: 15px;
@@ -181,20 +102,27 @@
   user-select: none;
 }
 
-.flavor > #container > .item > div {
+.flavor > .item > div div {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flavor > .item > div {
   display: flex;
   align-items: center;
   padding-bottom: 5px;
 }
 
-.flavor > #container > .item > div > .checkmark {
+.flavor > .item > div > .checkmark {
   height: 25px;
   width: 25px;
   border-radius: 5px;
   background-color: #eee;
 }
 
-.flavor > #container > .item input {
+.flavor > .item input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -202,24 +130,24 @@
   width: 0;
 }
 
-.flavor > #container > .item:hover input ~ .checkmark {
+.flavor > .item:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-.flavor > #container > .item input:checked ~ .checkmark {
+.flavor > .item input:checked ~ .checkmark {
   background-color: #e92f48;
 }
 
-.flavor > #container > .item > div > .checkmark:after {
+.flavor > .item > div > .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.flavor > #container > .item input:checked ~ .checkmark:after {
+.flavor > .item input:checked ~ .checkmark:after {
   display: block;
 }
 
-.flavor > #container > .item .checkmark:after {
+.flavor > .item .checkmark:after {
   left: 23px;
   top: 20px;
   width: 5px;
@@ -231,132 +159,17 @@
   transform: rotate(45deg);
 }
 
-.flavor > #container > .item > div > h4 {
+.flavor > .item > div > h4 {
   margin-left: 10px;
 }
 
-
-
 form > input[type="submit"] {
-  z-index: 5; 
-  position: fixed;
-  bottom: 0px;
   background-color: #e92f48;
   padding: 15px;
   font-size: 20px;
   font-weight: 700;
   color: #fff;
   width: 100%;
+  margin-top: 30px;
   cursor: pointer;
-
 }
-
-
-form > input[type="submit"]:hover {
-  transition: 0.25s;
-  transform: scale(1.01);
-  background-color: #dd1933;
-
-}
-
-
-@media screen and (max-width: 280px){
-
-  #topText{
-   font-size: 12vw;
-  }
- 
- }
-
-
- /* Menu lateral */
-
- .lateral-menu {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 0 10px 10px 0;
-  width: 200px;
-  padding-top: 30px;
-  height: 100vh;
-  top: 0;
-  z-index: 9;
-
-  left: -200px;
-  transition: left 0.5s ease;
-}
-
-.lateral-menu.click {
-  left: 0;
-  filter: drop-shadow(5px 5px 10px #00000050);
-}
-
-.button-menu {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  cursor: pointer;
-  transition: left 0.5s ease;
-}
-
-.button-menu.click {
-  left: 150px;
-}
-
-.button-menu span {
-  font-weight: 500;
-  font-size: 30px;
-  color: #fff;
-}
-
-.button-menu.click span {
-  color: #e92f48;
-}
-
-.lateral-menu div a {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-  color: #667c8a;
-}
-
-.lateral-menu div a:hover {
-  color: #8a6666;
-}
-
-.lateral-menu .itens {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-}
-
-.lateral-menu .itens:nth-child(3) {
-  padding-bottom: 0;
-}
-
-.lateral-menu .categorias {
-  display: flex;
-  flex-direction: column;
-}
-
-.lateral-menu .categorias a {
-  margin: 5px 10px 5px 75px;
-  font-size: 16px;
-}
-
-.lateral-menu .itens #icon-mesa {
-  width: 40px;
-  margin: 12px;
-}
-.lateral-menu .itens #icon-carrinho {
-  width: 30px;
-  margin: 15px;
-}
-.lateral-menu .itens #icon-categorias {
-  width: 25px;
-  margin: 15px;
-}
-
- 

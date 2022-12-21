@@ -35,7 +35,10 @@
       <img id="topSVG" src="_img/test.svg" alt="" />
       <h1 id="topText">Cardápio</h1>
     </nav>
-
+    <!-- Side bar -->
+    <?php
+    include"../menu_lateral/side_bar.php"
+    ?>
 
     <section class="cardapio">
       <div class="d-flex justify-content-center">
@@ -65,9 +68,10 @@
         
 
           <div class="item">
+            <a href="cardapio_pedido.php?id=<?= $cardapioGarcom["id"]?>"> 
             <img src= "<?= $cardapioGarcom['imagem']?>" alt="" />
             <div class="link">
-              <a href="cardapio_pedido.php?id=<?= $cardapioGarcom["id"]?>">  
+               
               
                 <h3><?= $cardapioGarcom['categoria']?></h3>
               </a>

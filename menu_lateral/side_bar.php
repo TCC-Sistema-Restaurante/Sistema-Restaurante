@@ -16,7 +16,7 @@
     </div>
     <div class="itens" id="pedidos-pendentes">
       <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-      <a href="../pedidos_prontos/index.php">
+      <a href="../pedidos_prontos/pedidos_prontos.php">
         Pedidos<br />
         prontos
       </a>

@@ -11,7 +11,7 @@ $query =
 FROM mesa as a
 LEFT JOIN pedido as b
 on a.numero = b.id_mesa
-WHERE a.disponibilidade='ativa' and a.situacao != 'pago'
+WHERE a.disponibilidade='ativa'
 GROUP by a.numero";
 
 
@@ -53,7 +53,7 @@ if ($rowCount > 0) {
                     <a onClick="" href="../pedir_conta/pedir_conta.php?'.$row["numero"].'?'.$row["soma"].'" class="pedir-conta">
                         Pedir conta
                       </a>
-                      <a href="../cardapio_garcom/cardapio.html" class="iniciar-pedido" id="'.$row["numero"].'">
+                      <a href="../cardapio_garcom/cardapio.php" class="iniciar-pedido" id="'.$row["numero"].'">
                         Novo pedido
                       </a>
                     </div>

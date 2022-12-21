@@ -34,47 +34,6 @@ if ($rowCount > 0) {
     }
     $data .= '
     <form action="#">
-        <h3>Forma de pagamento:</h3>
-        <div>
-          <input
-            type="radio"
-            name="payment"
-            id="cash"
-            class="input-hidden"
-            required
-          />
-          <label for="cash">
-            <img src="_img/cash.png" />
-            <h4>Dinheiro</h4>
-          </label>
-
-          <input
-            type="radio"
-            name="payment"
-            id="credt_card"
-            class="input-hidden"
-            required
-          />
-          <label for="credt_card">
-            <img src="_img/credt_card.png" />
-            <h4>Cartão</h4>
-          </label>
-
-          <input
-            type="radio"
-            name="payment"
-            id="pix"
-            class="input-hidden"
-            required
-          />
-          <label for="pix">
-            <img src="_img/pix.png"/>
-            <h4>PIX</h4>
-          </label>
-        </div>
-        <h3>Valor recebido:</h3>
-        <input type="number" name="" id="" required />
-
         <input type="text" hidden value="'.$IDs.'" id="idsPedidos" placeholder="Id">
         <button type="submit" id="btn-pagar-conta" class="btn btn-success" >ENVIAR</button>
       </form>';

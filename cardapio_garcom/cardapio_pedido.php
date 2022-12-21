@@ -1,10 +1,3 @@
-
-<?php
-  include "../_scripts/functions.php"
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,93 +5,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="_css/cardapio_pedido.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <title>Pedido Pizza</title>
   </head>
   <body>
-
     <nav class="mb-1">
       <img id="topSVG" src="_img/test.svg" alt="" />
-      <h1 id="topText"> 
-        
-      <?php
-            include "../_scripts/config.php";
-            $idCategoria = $_GET['id'];  
-            if(!isset($_SESSION)){
-              session_start();
-            }
-
-            $_SESSION['id_categoria'] = $idCategoria;
-
-            $sql = "SELECT categoria FROM categoria WHERE id = '$idCategoria' "; 
-            $query = $mysqli->query($sql);
-            $dados = $query->fetch_array();
-            echo ucwords( $dados['categoria'] ); 
-      ?>
-      
-      </h1>
+      <h1 id="topText">Pedido</h1>
     </nav>
-    
+    <!-- Side bar -->
+    <?php
+    include"../menu_lateral/side_bar.php"
+    ?>
     <section class="pedido">
-      <a href="cardapio.php">voltar para categorias</a>
+      <a href="#">voltar para categorias</a>
       <form action="">
-
         <div class="flavor">
-          <h3>Escolha os sabores:</h3>
-          <div class="search-bar">
-            <input type="text" id="txt-search" placeholder="Buscar..." />
-            <span class="material-symbols-outlined"> search </span>
-          </div>
+          <h3>Escolha os produtos:</h3>
+          <!-- ITEM -->
+          
+          <?php
+          include "../_scripts/config_pdo.php";
 
-            <div id="container">
-              
-            </div>
+            $url = $_SERVER["REQUEST_URI"];
             
+            $id_categoria = explode('?', $url)[1];
+            
+            $query = ("SELECT b.id ,b.nome_produto,b.valor_unitario,b.descricao
+                FROM categoria as a
+                RIGHT JOIN produto as b
+                on a.id = b.categoria_id
+                WHERE b.status = 'ativo' and a.id = $id_categoria");
+
+            $statement = $pdo->prepare($query);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            $rowCount = $statement->rowCount();
+
+            if ($rowCount > 0) {
+
+                foreach($result as $row) {
+                    echo'
+                        <label for="flavor'.$row["id"].'" class="item">
+                            <div>
+                            <input type="checkbox" name="check-flavor" id="flavor'.$row["id"].'" />
+                            <span class="checkmark"></span>
+                            <div>
+                                <h4>'.$row["nome_produto"].'</h4>
+                                <h5>R$'.$row["valor_unitario"].',00</h5>
+                            </div>
+                            </div>
+                            <p>
+                            '.$row["descricao"].'
+                            </p>
+                        </label>
+                        ';
+                }
+
+                
+        }
+
+          ?>
+          <!-- ITEM -->
           
         </div>
-        
-
-
+        <input type="submit" value="Avançar" />
       </form>
     </section>
 
-    <form  action="">
-      <input type="submit" value="Avançar" />
-    </form>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-    <div class="side-bar">
-      <div class="button-menu">
-        <span class="material-symbols-outlined"> menu </span>
-      </div>
-
-      <div class="lateral-menu">
-        <div class="itens" id="mesas">
-          <img src="../menu_lateral/_img/mesas.png" id="icon-mesa" alt="" />
-          <a href="#">Mesas</a>
-        </div>
-        <div class="itens" id="pedidos-pendentes">
-          <img src="../menu_lateral/_img/carrinho.png" id="icon-carrinho" alt="" />
-          <a href="#">
-            Pedidos<br />
-            prontos
-          </a>
-        </div>
-        <div class="itens">
-          <img src="../menu_lateral/_img/categorias.png" id="icon-categorias" alt="" />
-          <a href="cardapio.php">Categorias</a>
-        </div>
-        <div class="categorias">
-          <a href="#" id="pizzas">Pizzas</a>
-          <a href="#" id="sanduiches">Sanduiches</a>
-          <a href="#" id="sobremesas">Sobremesas</a>
-          <a href="#" id="petiscos">Petiscos</a>
-        </div>
-      </div>
-    </div> 
-
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <script src="../menu_lateral/_js/Script.js"></script>
+    <!-- Scripts -->
     <script src="_js/ajax_functions.js"></script>
+    <script src="_js/script.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
   </body>
 </html>
