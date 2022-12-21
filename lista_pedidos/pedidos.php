@@ -15,10 +15,13 @@ elseif (isset($_POST['request'])) {
     ON pedido.id_produtos = produto.id where pedido.situacao = '$request'";
 } 
 elseif(isset($_POST['request_date'])) {
-
   $request = $_POST['request_date'];
-  $query = "select * from pedido LEFT JOIN produto
-  ON pedido.id_produtos = produto.id where data = '$request'";
+  $datas = explode(" ", $request);
+  $inicial = date_format(date_create($datas[0]),"Y-m-d");
+  $final = date_format(date_create($datas[2]),"Y-m-d");
+  
+  $query = "SELECT * FROM pedido LEFT JOIN produto
+  ON pedido.id_produtos = produto.id WHERE CAST(DATA AS DATE) between '$inicial' AND '$final'";
 }else {
   $query = "select * from pedido LEFT JOIN produto
   ON pedido.id_produtos = produto.id";

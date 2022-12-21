@@ -61,8 +61,8 @@ include "../_scripts/functions.php";
           </div>
         </div>
         <div class="input-group">
-          <input id="input_date" type="tex" name="datefilter" id="datefilter" value="01/01/2022 - 01/01/2023" />
-          <button id="btndatefilter"  class="selectButton"><span class="material-symbols-outlined">calendar_today</span></button>
+          <input id="input_date" type="text" name="datefilter" value="" />
+          <button id="btndatefilter"   class="selectButton"><span class="material-symbols-outlined">calendar_today</span></button>
         </div>
       </div>
 
