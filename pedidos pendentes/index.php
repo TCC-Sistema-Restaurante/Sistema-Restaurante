@@ -1,6 +1,6 @@
 <?php
-  include "../_scripts/functions.php"
-?>
+include "../_scripts/functions.php"
+  ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,6 +58,34 @@
       </div>
     </section>
    
+    <div class="modal t-modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content PrepararModal">
+              <div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="boxPreparar">
+              <div class="row">
+                <div class="col-4 text-center parteEsquerdaPreparar">
+                  <p>MESA</p>
+                  <p id="mesaid"></p>
+                  
+                  <i class="fa-regular fa-clock"></i>
+                  <p id="hora"></p>
+                </div>
+
+              <div class="col-8 parteDireitaPreparar">
+                <h4 class="">Detalhes do Pedido</h4>
+                <p id="prod"></p>
+                
+                <input type="text" hidden class="form form-control" name="idEditar" id="inputIdEdit" placeholder="Id">
+                <button id="btnEntregar" class="mt-1 btnEntregarPreparar">Entregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
@@ -90,54 +118,131 @@
     </script>
 
 <script>
-  document.querySelectorAll(".btnEntregar").forEach(function(button) {
-    button.addEventListener("click", function(event) {
-    const el = event.target || event.srcElement;
-    const id_mesa = el.id;
-    $.ajax({
-          type: "POST",
-          url: "entregar.php",
-          data: { id_mesa: id_mesa },
-          dataType: "json",
-      }).done(function (resultado) {
-        if (resultado == "Entregue") {
-            swal
-                .fire({
-                    icon: "success",
-                    text: "Entregue com sucesso!",
-                    type: "success",
-                })
-                .then((okay) => {
-                    MostrarPedidos();
-                });
-        } else {
-            swal
-                .fire({
-                    icon: "error",
-                    text: "Ops! Houve um erro.",
-                    type: "success",
-                })
-                .then((okay) => {
-                  MostrarPedidos();
-                });
-          }
-      })
-    });
-  })
 
-  document.querySelectorAll(".btnPreparar").forEach(function(button) {
-      button.addEventListener("click", function(event) {
-      const el = event.target || event.srcElement;
-      const id_mesa = el.id;
-      $.ajax({
-            type: "POST",
-            url: "preparar.php",
-            data: { id_mesa: id_mesa },
-            dataType: "json",
-        })
-    });
+
+  const modal = document.getElementById("modal");
+
+  modal.addEventListener("show.bs.modal", (event) => {
+    const button = event.relatedTarget;
+    const hora = button.getAttribute("data-bs-whateverHora");
+    const id = button.getAttribute("data-bs-whatevermesaID");
+    const prod = button.getAttribute("data-bs-whateverProdutos");
+
+    document.getElementById("inputIdEdit").value = id
+    document.getElementById("mesaid").innerText = id
+    document.getElementById("hora").innerText = hora
+    document.getElementById("prod").innerText = prod
+  });
+
+  // document.querySelectorAll(".btnEntregar").forEach(function(button) {
+  //   button.addEventListener("click", function(event) {
+  //   const el = event.target || event.srcElement;
+  //   const id_mesa = el.id;
+  //   $.ajax({
+  //         type: "POST",
+  //         url: "entregar.php",
+  //         data: { id_mesa: id_mesa },
+  //         dataType: "json",
+  //     }).done(function (resultado) {
+  //       if (resultado == "Entregue") {
+  //           swal
+  //               .fire({
+  //                   icon: "success",
+  //                   text: "Entregue com sucesso!",
+  //                   type: "success",
+  //               })
+  //               .then((okay) => {
+  //                   MostrarPedidos();
+  //               });
+  //       } else {
+  //           swal
+  //               .fire({
+  //                   icon: "error",
+  //                   text: "Ops! Houve um erro.",
+  //                   type: "success",
+  //               })
+  //               .then((okay) => {
+  //                 MostrarPedidos();
+  //               });
+  //         }
+  //     })
+  //   });
+  // })
+
+$(document).ready(function() {
+    $("#btnPreparar").click(function (e) {
+    var idEditar = $("#inputIdEdit").val();
+      alert(idEditar)
+      console(idEditar)
+
+    function entregar(id){
+      console.log(id)
+    }
+
+});
+})
+
+    // var form_data = new FormData();
+    // form_data.append("file", imagem);
+    // form_data.append("nomeEditar", nomeEditar);
+    // form_data.append("idEditar", idEditar);
+    // form_data.append("imgSrc", imgSrc);
+
+    // $.ajax({
+    //     url: "editar.php",
+    //     method: "POST",
+    //     dataType: "json",
+    //     processData: false,
+    //     contentType: false,
+    //     data: form_data,
+    // }).done(function (resultado) {
+    //     if (resultado == "salvo!") {
+    //         swal
+    //             .fire({
+    //                 icon: "success",
+    //                 text: "Editado com sucesso!",
+    //                 type: "success",
+    //             })
+    //             .then((okay) => {
+    //                 if (okay) {
+    //                     MostrarCategorias();
+    //                     $("#edit-btn-close").click();
+
+    //                 }
+    //             });
+    //     } else {
+    //         swal
+    //             .fire({
+    //                 icon: "error",
+    //                 text: "Ops! Houve um erro.",
+    //                 type: "success",
+    //             })
+    //             .then((okay) => {
+    //                 if (okay) {
+    //                     $("#edit-btn-close").click();
+    //                     setTimeout(() => {
+    //                         MostrarCategorias();
+    //                     }, 200);
+    //                 }
+    //             });
+    //     }
+    // });
+
+
+
+  // document.querySelectorAll(".btnPreparar").forEach(function(button) {
+  //     button.addEventListener("click", function(event) {
+  //     const el = event.target || event.srcElement;
+  //     const id_mesa = el.id;
+  //     $.ajax({
+  //           type: "POST",
+  //           url: "preparar.php",
+  //           data: { id_mesa: id_mesa },
+  //           dataType: "json",
+  //       })
+  //   });
     
-  })
+  // })
       </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
