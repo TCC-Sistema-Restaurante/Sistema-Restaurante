@@ -44,31 +44,31 @@ include "../_scripts/functions.php";
           <span class="inlineIcon">
             <i class="bx bx-search"></i>
           </span>
-          <input type="text" class="input-text"  placeholder="Pesquisar" />
+          <input type="text" id="buscar"  class="input-text"  placeholder="Pesquisar" />
         </div>
       </div>
       <div>
         <div>
           <div class="input-group">   
-            <select required name="categoria" class="select wide" aria-label="">
-                <option value="Aguardando">AGUARDANDO</option>
-                <option value="Em_preparo">EM PREPARO</option>
-                <option value="Pronto">PRONTO</option>
-                <option value="Entregue">ENTREGUE</option>
-                <option value="Pago">PAGO</option>
+            <select required name="filtro" id="filtro" class="select wide" aria-label="">
+                <option value="aguardando preparo">AGUARDANDO</option>
+                <option value="em preparo">EM PREPARO</option>
+                <option value="pronto">PRONTO</option>
+                <option value="entregue">ENTREGUE</option>
+                <option value="pago">PAGO</option>
             </select>
             <button  class="selectButton"><span class="material-symbols-outlined">filter_alt</span></button>
           </div>
         </div>
         <div class="input-group">
-          <input id="input_date" type="text" name="datefilter" value="01/01/2022 - 01/01/2023" />
-          <button  class="selectButton"><span class="material-symbols-outlined">calendar_today</span></button>
+          <input id="input_date" type="tex" name="datefilter" id="datefilter" value="01/01/2022 - 01/01/2023" />
+          <button id="btndatefilter"  class="selectButton"><span class="material-symbols-outlined">calendar_today</span></button>
         </div>
       </div>
 
     </div>
     <hr />
-    <section>
+    <!-- <section>
       <div class="container_">
         <div class="box">
           <div class="row">
@@ -143,7 +143,17 @@ include "../_scripts/functions.php";
           </div>
         </div>
       </div>
+    </section> -->
+
+    <section class="sec3 ">
+      <div class="container" id="container">
+        
+      </div>
     </section>
+
+    <!-- Scripts -->
+    <script src="_js/ajax_functions.js"></script>
+
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
