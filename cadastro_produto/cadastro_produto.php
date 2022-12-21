@@ -43,31 +43,7 @@ include "../_scripts/functions.php";
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="mb-3 col-md-6">
-                <div class="input-group">
-                    <select required name="tamanho" class="select wide" >
-                        <option selected disabled>Tamanho</option>
-                        <option value="Pequeno">Pequeno</option>
-                        <option value="Médio">Médio</option>
-                        <option value="Grande">Grande</option>
-                    </select>
-                    <button  class="selectButton"><i class='bx bx-edit' id="editarIcon"></i></button>
-                </div>
-            </div>
-
-            <div class="mb-3 col-md-6">
-                <div class="input-group">   
-                    <select required name="categoria" class="select wide" aria-label="">
-                        <option selected disabled>Categoria</option>
-                        <option value="Sanduíches">Sanduíches</option>
-                        <option value="Pizzas">Pizzas</option>
-                        <option value="Sobremesas">Sobremesas</option>
-                        <option val0ue="Bebidas">Bebidas</option>
-                    </select>
-                    <button  class="selectButton"><i class='bx bx-edit'></i></button>
-                  </div>
-            </div>
+            
 
         </div>
         <div class="row">
@@ -79,12 +55,27 @@ include "../_scripts/functions.php";
             </div>
        
             <div class="col-md-6 mb-3">
+                <select required name="categoria" class="select wide mb-3" aria-label="">
+                    <option selected disabled>Categoria</option>
+                        <?php 
+                            include "../_scripts/config.php";
+                            $sql = "SELECT id,categoria FROM categoria;";
+                            $query = $mysqli->query($sql);
+                            while($dados= $query->fetch_array()) { 
+                                ?>
+                            <option value="<?php echo $dados['categoria'];
+                            echo "/";
+                            echo $dados['id']; ?>"><?php echo $dados['categoria']; ?></option>
+                        <?php } ?>
+                    </select>         
+                
+
                 <div class="form-floating mb-3">
                     <textarea required name="descricao" style="height: 150px; resize: none;" class="form form-control" id="descricao"  placeholder="Descrição"></textarea>
                     <label class="formLabel" for="descricao">Descrição</label>
                 </div>
                 <label for="select">Status:</label>
-                <select name="status" class="select" required>
+                <select name="status" class="select wide" required>
                     <option value="Ativo" selected>Ativo</option>
                     <option value="Desativado">Desativado</option>
                 </select>
@@ -111,7 +102,6 @@ include "../_scripts/functions.php";
 
 <?php
 if (isset($_POST['nome'])) {
-
     if (cadastrarProduto($_POST, $_FILES)) { ?>
 
         <script language='javascript'>
