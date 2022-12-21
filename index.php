@@ -1,5 +1,5 @@
 <?php
-include "../_scripts/functions.php";
+include "_scripts/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +13,8 @@ include "../_scripts/functions.php";
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <!--styles -->
-    <link rel="stylesheet" href="_css/login.css" type="text/css">
-    <link rel="icon" href="_img/Logo_Gusteau_Branca.png">
+    <link rel="stylesheet" href="login/_css/login.css" type="text/css">
+    <link rel="icon" href="login/_img/Logo_Gusteau_Branca.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
@@ -25,7 +25,7 @@ include "../_scripts/functions.php";
             <div class="card">
                 <div class="card-body">
                     <div class="logo d-flex justify-content-center">
-                        <img src="_img/Logo_Gusteau.png" alt="logo">
+                        <img src="login/_img/Logo_Gusteau.png" alt="logo">
                     </div>
                     <div class="text-center my-4">
                         <p class="text-muted opacity-50">Faça login no Gusteau para continuar</p>
@@ -65,7 +65,7 @@ include "../_scripts/functions.php";
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Scripts -->
-    <script src="../_js/functions.js"></script>
+    <script src="_js/functions.js"></script>
 
 </body>
 </html>
