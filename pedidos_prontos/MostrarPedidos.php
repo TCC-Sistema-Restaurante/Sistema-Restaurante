@@ -33,19 +33,18 @@ if (isset($_POST['mostrar'])) {
             <div class="col-8 parteDireita">
               <div>
                 <h2 class="">Mesa ' . $ids_mesa["id_mesa"] .' </h2>
-                <button id="entregarBtn" class="'. $ids_mesa["id_mesa"].'">X</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modalDeletar"  data-bs-whateverIdDelet="' . $ids_mesa["id_mesa"]  .'" ">X</button>
               </div>';
 
             $mostrar .= '
-            <p>' . $produtos. '</p>';
+            <p>' . $produtos. '</p>
+            </div>
+        </div>
+      </div>';
         
 
-        // $mostrar .= '
-        //     <button class="mt-3" data-bs-toggle="modal" data-bs-whateverIdmesa="' . $ids_mesa['id_mesa'] . '" data-bs-target="#modalDeletar">Cancelar</button>
-                      
-          '</div>
-        </div>
-      </div>';}
+     
+          ;}
     } echo $mostrar;
     
     ?>
